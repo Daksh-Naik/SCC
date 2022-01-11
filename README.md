@@ -1,2 +1,2 @@
 # SCC
-Slogan for Slogan Coding Competition, Jan 2021 - State level (currently under development)
+Slogan for Slogan Coding Competition, Jan 2022 - State level (currently under development)
