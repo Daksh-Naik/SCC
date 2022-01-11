@@ -6,13 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="base.css">
-    
     <style>@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');</style>
 
+        <link rel="icon" href="iconprof.jpeg">
+        <link rel="stylesheet" href="base.css">
+
+        <meta name="description" content="HTML & CSS Slogan for Slogan Coding Competition, Jan 2022." />
+        <meta name="author" content="Daksh Naik" />
+        <meta name="page-topic" content="HTML & CSS Slogan for Voter Awareness : Slogan Coding Competition" />
+        <meta name="topic" content="HTML & CSS Slogan : Slogan Coding Competition" />
+
+        <meta property="og:title" content="HTML & CSS Slogan for Slogan Coding Competition, Jan 2022."/>
+        <meta property="og:description" content="HTML & CSS Slogan for Voter Awareness : Slogan Coding Competition, Jan 2022. Participant & Made by : Daksh | Hosted by : Github-Pages."/>
+        <meta property="og:url" content="https://daksh-naik.github.io/SCC/"/>
+        <meta property="og:type" content="Slogan for Coding Competition" />
+        <meta property="og:locale" content="en_IN" />
+        <meta property="og:image" content="icon.jpeg"/> 
+        <meta property="og:image:width" content="600"/>
+        <meta property="og:image:height" content="350"/>
+        
+        <meta name="description" content="HTML & CSS Slogan for Slogan Coding Competition, Jan 2022. Participant & Designed by : Daksh N">
+
     <style type="text/css">
-        .sloganArea { height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center; }
-        .slogan { height: 90vh; width: 80vw; padding: 1vh 2vh 1vh 2vh; display: flex; justify-content: center; flex-direction: column; align-items: flex-start; }
+        .sloganArea { height: 100vh; width: 100vw; display: flex; justify-content: space-evenly; align-items: center; }
+        .slogan { text-shadow: 1px 1px 15px var(--servBColor); height: 90vh; padding: 1vh 2vh 1vh 2vh; display: flex; justify-content: center; flex-direction: column; align-items: flex-start; }
         .slogan h1 { font-size: calc(2vw * 3); font-weight: 900; }
         .slogan .vote::after { content: ' vote,'; position: relative; left: -50%; opacity: 0; transition: 0.3s cubic-bezier(0.75, 0.59, 0.21, 1.07); }
         .slogan .vote.view::after { left: 0%; opacity: 1; }
@@ -22,10 +39,61 @@
         .slogan .decision.view::after { top: 0%; opacity: 1; }
         .slogan .sentence { opacity: 0; font-size: 1.2vw; }
         .slogan .sentence.view { opacity: 1; }
-        .slogan .sentence::after { content: " who's going to decide the better tomorrow. Your decision matters the most."; 
+        .slogan .sentence::after { content: " who's going to decide the better tomorrow. Your decision matters."; 
                         position: relative; top: -50%; opacity: 0; transition-delay: 1s; transition: 1s; }
         .slogan .sentence.view::after { top: 0%; opacity: 1; }
 
+        .sloganCanvas { height: 80vh; width: 30vw; z-index: 5; top: 0%; overflow: hidden; }
+
+        .handArea { position: relative; display: flex; justify-content: space-evenly; align-items: center; opacity: 0; left: 0%; top: -120%; transition: 0.7s cubic-bezier(0, 0, 0.2, 1); }
+        .hand { padding: 2vh 1vw; position: relative; display: flex; justify-content: center; align-items: center; flex-direction: column; height: 90vh;}
+        .fist { position: relative; height: 12vh; width: 9vw; background-color: var(--peachSkin); border-radius: 25% 40% 20% 0%;
+            transform: rotate(9deg); z-index: 10; box-shadow: inset -20px 20px 20px rgba(0, 0, 0, 0.129);; } 
+        .lowerfist { position: relative; height: 9vh; width: 9vw; top: -2%; left: -5%; border-radius: 0% 0% 100% 100%;
+            background: linear-gradient(to bottom, var(--peachSkin) 20%, rgba(255, 218, 185, 0.000) 90%);
+            box-shadow: inset -20px -5px 20px rgb(0 0 0 / 5%); }
+        .thumb { position: relative; height: 10vh; width: 2.5vw; background-color: var(--peachSkin); left: -45%; top: -22%;
+            transform: rotate(45deg); border-radius: 0% 0% 0% 40%; }
+        .index { position: relative; height: 15vh; width: 2vw; background-color: var(--peachSkin); left: -30%; top: -52%;
+            border-radius: 25% 25% 0% 0%; box-shadow: inset 0px 5px 4px 0px rgba(0, 0, 0, 0.308); }
+        .index .nail { position: relative; background-color: rgb(255, 175, 202); height: 2vh; width: 1vw;
+            border-radius: 25% 25% 1% 1%; top: 6px; left: 5px; }
+        .index .nail .mark { position: relative; background-color: rgba(0, 0, 0, 0.7); height: 3vh; width: 0.2vw;
+            left: 5px; top: 3px; }
+        .handArea.active { opacity: 1; top: 20%; }
+
+        .votebox { padding: 2vh 1vw; display: flex; justify-content: center; align-items: center; flex-direction: column;
+            height: 90vh; position: relative; opacity: 0; top: -120%; z-index: 20; left: -100%; transition: 0.8s cubic-bezier(0, 0, 0.2, 1); }
+        .votebox .box { position: relative; width: 10vw; height: 25vh; background-color: var(--servTColor); 
+            border-top: 1px solid var(--servBColor); z-index: 20; }
+        .votebox .box .h5 { padding: 1vh 1vw; color: var(--servBColor); display: flex; justify-content: center;
+            align-items: center; height: 25vh; }
+        .votebox .box .h5 p { font-size: 1vw; background-color: var(--servBColor); color: var(--servTColor);
+            padding: 3vh 1vw; border-radius: 50% 50%; }
+        .votebox .card { position: relative; border: 1px solid var(--servTColor); height: 4vh; width: 2vw; z-index: 19;
+            top: -33%; background-color: var(--servBTColor); transform: rotate(45deg); color: var(--servTColor); display: flex;
+            justify-content: center; align-items: center; }
+        .votebox .card ion-icon { font-size: 2vh; transform: rotate(270deg); }
+        .votebox.active { opacity: 1; left: 0%; }
+        .votebox .box.vbbiege { background-color: rgb(240,195,145); } .votebox .box.vbbrown { background-color: rgb(114, 73, 53); }
+        .votebox .box.vbpale { background-color: rgb(242,232,215); } .votebox .box.vbslade { background-color: rgb(141, 94, 47); }
+        .votebox .box.vbwalnut { background-color: rgb(234, 191, 124); }
+
+        .chaps { position: relative; padding: 2vh 1vw; display: flex; justify-content: center; align-items: center; 
+            height: 80vh; z-index: 25; transition: 0.8s cubic-bezier(0, 0, 0.2, 1); top: -230%; left: 100%; opacity: 0; }
+        .chaps::after { content: 'Liberty to vote.'; color: var(--servTColor); position: absolute; bottom: 30%; }
+        .chaps .peeps { position: relative; height: 20vh; width: 6vw; border-top: 1px solid var(--servTColor);
+            border-left: 1px solid var(--servTColor); border-right: 1px solid var(--servTColor); border-radius: 40%/45% 45% 0% 0% }
+        .chaps .peeps:nth-child(even) { width: 9vw; height: 25vh; }
+        .chaps .peeps .head { position: relative; height: 3vw; width: 3vw; border-radius: 100% 100%; background-color: var(--servBColor);
+            top: -30%; left: 20%; border: 1px solid var(--servTColor); }
+        .chaps .peeps ion-icon { position: relative; left: 35%; top: -80%; color: limegreen; }
+        .chaps.active { left: 0%; opacity: 1; }
+
+        .slider { position: fixed; width: 20vw; bottom: 10%; left: 70%;  display: flex; justify-content: space-evenly; align-items: center; z-index: 40; }
+        .slider h2 { opacity: 0.4; cursor: pointer; } .slider h2 span { opacity: 0; position: absolute; top: -5vh; left: 8vw; font-size: 2vh; }
+        .slider h2:hover { opacity: 1; } .slider h2:hover span { opacity: 1; }
+        
         .slogan.tccyan { color: rgb(150, 255, 255); } .slogan.tcsalm { color: rgb(255, 180, 160); }
         .slogan.tcgreen { color: rgb(90, 255, 90); } .slogan.tcslate { color: rgb(120, 135, 150); }
         .slogan.tcyell { color: rgb(255, 255, 100); } .slogan.tcindigo { color: rgb(38, 67, 72); }
@@ -35,11 +103,20 @@
         .slogan.tcblossom { color: rgb(252, 201, 185); } .slogan.tceucal { color: rgb(38, 194, 129); }
         .slogan.tcsaffron { color: rgb(244, 208, 63); }
 
-        .slogan.bclemay { background-color: rgb(153, 254, 255); } .slogan.bcpurple { background-color: rgb(144, 127, 164); }
-        .slogan.bcpeach { background-color: rgb(255, 196, 225); } .slogan.bcgourd { background-color: rgb(214, 255, 132); }
-        .slogan.bcpale { background-color: rgb(252, 255, 166); } .slogan.bcultramarine { background-color: rgb(20, 30, 97); }
-        .slogan.bcviolet { background-color: rgb(97, 0, 148); } .slogan.bchotpink { background-color: rgb(218, 0, 55); }
-        .slogan.bcemerald { background-color: rgb(52, 103, 81); } .slogan.bcgold { background-color: rgb(216, 146, 22); }
+        .sloganArea.bclemay { background-color: rgb(153, 254, 255); } .sloganArea.bcpurple { background-color: rgb(144, 127, 164); }
+        .sloganArea.bcpeach { background-color: rgb(255, 196, 225); } .sloganArea.bcgourd { background-color: rgb(214, 255, 132); }
+        .sloganArea.bcpale { background-color: rgb(252, 255, 166); } .sloganArea.bcultramarine { background-color: rgb(20, 30, 97); }
+        .sloganArea.bcviolet { background-color: rgb(97, 0, 148); } .sloganArea.bchotpink { background-color: rgb(218, 0, 55); }
+        .sloganArea.bcemerald { background-color: rgb(52, 103, 81); } .sloganArea.bcgold { background-color: rgb(216, 146, 22); }
+
+        .peeps.coblack { border-top: 1px solid black; border-left: 1px solid black; border-right: 1px solid black; }
+        .peeps .head.coblack { border: 1px solid black; }
+        .peeps.cowhite { border-top: 1px solid rgb(255, 255, 255); border-left: 1px solid rgb(255, 255, 255); border-right: 1px solid rgb(255, 255, 255); }
+        .peeps .head.cowhite { border: 1px solid white; }
+        .peeps.coblue { border-top: 1px solid blue; border-left: 1px solid blue; border-right: 1px solid blue; }
+        .peeps .head.coblue { border: 1px solid blue; }
+        .peeps.coyellow { border-top: 1px solid yellow; border-left: 1px solid yellow; border-right: 1px solid yellow; }
+        .peeps .head.coyellow { border: 1px solid yellow; }
 
         .profile { position: fixed; top: 20%; left: 2%; z-index: 90; cursor: pointer; transition: 0.8s cubic-bezier(0.445, 0.92, 0.55, 0.95); }
         .profile span { opacity: 0; position: relative; top: -6vh; left: -3.5vw; width: auto; } .profile:hover span { opacity: 1; } 
@@ -55,22 +132,22 @@
         .expander { position: fixed; top: 110%; left: 90%; z-index: 15; cursor: pointer; }
         .expander span { opacity: 0; position: fixed; top: 87vh; left: 85vw; width: max-content; font-size: 1.5vh; } 
         .expander:hover span { opacity: 1; }
-        .contractor { position: fixed; top: 100%; left: 95%; z-index: 15; cursor: pointer; opacity: 0.1; }
+        .contractor { position: fixed; top: 100%; left: 90%; z-index: 15; cursor: pointer; opacity: 0.1; }
         .contractor span { opacity: 0; position: fixed; top: 87vh; left: 85vw; width: max-content; font-size: 1.5vh; } 
         .contractor:hover span { opacity: 1; } .contractor:hover { opacity: 1; }
 
-        .arrow { position: fixed; top: 120%; left: 50%; transform: translate(-50%, -50%); transition: 0.8s; z-index: 50; }
+        .arrow { position: fixed; top: 120%; left: 50%; transform: translate(-50%, -50%); transition: 0.8s; z-index: 91; }
         .arrow ion-icon { cursor: pointer; opacity: 0.6; } .arrow:hover ion-icon { opacity: 1; } .spanArr::before { content: 'Open '; }
         .arrow span { opacity: 0; position: fixed; width: max-content; top: -5vh; left: -2vw; } .arrow:hover span { opacity: 1; }
         .arrow.spawn { top: 90%; } .arrow.active { top: 10%; } .arrow.active span { top: 5vh; } 
         .arrow.active ion-icon { transform: rotate(180deg); } .spanArr.active::before { content: 'Close '; }
         .arrow.hide { top: 120%; }
 
-        .menu { position: fixed; top: 100%; left: 0; width: 100vw; height: 100vh; background-color: var(--servBTColor); z-index: 45;
+        .menu { position: fixed; top: 100%; left: 0; width: 100vw; height: 100vh; background-color: var(--servBTColor); z-index: 90;
             display: flex; justify-content: center; align-items: center; flex-direction: column; }
         .menu.active { top: 0%; } .menu.active .content { opacity: 1; transition-delay: 0.7s; }
         .menu .content { display: flex; justify-content: space-evenly; align-items: flex-start; overflow-y: auto; flex-direction: column;  
-            width: 90vw; margin-top: 15vh; opacity: 0; }
+            width: 90vw; padding-top: 15vh; opacity: 0; }
         .menu .content .setting { padding: 5vh 5vw; display: flex; justify-content: space-around; align-items: center; width: 80vw;}
         .menu .content .setting h3 { opacity: 0.7; cursor: pointer; } .menu .content .setting h3:hover { opacity: 1; }
         .menu .content .setting h4 { width: 5vw; height: 5vh; margin: 0vh 2vw; cursor: pointer; border: 1px solid white; }
@@ -82,7 +159,7 @@
         .settingsalr { position: fixed; top: -20%; left: 50%; transform: translate(-50%, -50%); background-color: var(--servBTColor);
             color: var(--servTColor); padding: 1vh 1vw; opacity: 0; top: 20%; }
 
-        .settings { position: fixed; top: 20%; left: 150%; transform: translate(-50%, -50%); z-index: 40; transition: 0.7s; }
+        .settings { position: fixed; top: 20%; left: 150%; transform: translate(-50%, -50%); z-index: 51; transition: 0.7s; }
         .settings ion-icon { cursor: pointer; opacity: 0.6; font-size: 6vh; } .settings ion-icon:hover { opacity: 1; }
         .settings span { opacity: 0; position: fixed; width: max-content; top: -5vh; left: -10vw; }
         .settings span::before { content: 'Open '; } .settings:hover span { opacity: 1; } .settings.active span::before { content: 'Close '; }
@@ -90,15 +167,41 @@
         .settings.hide { left: 150%; }
 
         .sidesett { position: fixed; top: 0%; left: 120vw; width: 40vw; height: 100vh; background-color: var(--servBTColor); 
-            color: var(--servTColor); z-index: 20; display: flex; justify-content: center; align-items: flex-start; flex-direction: column;
-            transition: 0.7s; padding: 5vh 1vw; overflow-y:auto; }
+            color: var(--servTColor); z-index: 50; display: flex; justify-content: center; align-items: flex-start; flex-direction: column;
+            transition: 0.7s; padding: 10vh 1vw; }
         ::-webkit-scrollbar { width: 2px; } ::-webkit-scrollbar-track {  background: var(--servBColor); } ::-webkit-scrollbar-thumb { background: yellow; }
         .sidesett i { padding-left: 2vw; }
-        .sidesett .settcontent { padding: 5vh 2vw 1vh 2vw; display: grid; grid-template-columns: auto auto auto auto auto; }
-        .sidesett .settcontent .textcolor { width: 4vw; height: 5vh; border: 1px solid white; cursor: pointer; margin: 0.5vh 1vw; }
-        .sidesett .settcontent .textcolor span { opacity: 0; position: relative; font-size: 0; top: -5vh; transition: 0.3s; }
+        .sidesett .settcontent { padding: 1vh 2vw 5vh 2vw; display: grid; grid-template-columns: auto auto auto auto auto; }
+        .sidesett .settcontent .textcolor { width: 4vw; height: 5vh; border: 1px solid var(--servTColor); cursor: pointer; margin: 0.5vh 1vw; 
+            filter: grayscale(1); transition-delay: 1s; }
+        .sidesett .settcontent .textcolor span { opacity: 0; position: relative; font-size: 0; top: 5vh; transition: 0.3s; }
         .sidesett .settcontent .textcolor:hover span { opacity: 1; font-size: initial; }
-        .sidesett.active { left: 60vw; }
+        .sidesett.active { left: 60vw; } .sidesett.active .settcontent .textcolor { filter: grayscale(0); }
+
+        .tricolor { position: fixed; z-index: -1; top: 0%; left: 0; width: 100vw; height: 100vh; overflow: hidden; opacity: 0.05; }
+        .tricolor .orange { position: relative; background: rgb(255, 153, 51); height: 33.3vh; width: 200vw; transform: rotate(345deg); top: -25%; left: -10%; }
+        .tricolor .white { position: relative; background: rgb(255, 255, 255); height: 33.3vh; width: 200vw; transform: rotate(345deg); top: -25%; left: -10%; }
+        .tricolor .green { position: relative; background: rgb(19, 136, 8); height: 33.3vh; width: 200vw; transform: rotate(345deg); top: -25%; left: -10%; overflow: hidden; }
+        .tricolor .white .circle { height: 33.3vh; width: 33.3vh; border-radius: 100% 100%; border: 5px solid #000080; position: relative; top: 50%; left: 30%; transform: translate(-50%, -50%); }
+        .tricolor .white .circle .spoke { position: absolute; background: #000080; height: 32vh; width: 2px; overflow: hidden; left: 50%; }
+        .tricolor .white .circle .spoke:nth-child(1) { transform: rotate(0deg); } .tricolor .white .circle .spoke:nth-child(2) { transform: rotate(15deg); } 
+        .tricolor .white .circle .spoke:nth-child(3) { transform: rotate(30deg); } .tricolor .white .circle .spoke:nth-child(4) { transform: rotate(45deg); } 
+        .tricolor .white .circle .spoke:nth-child(5) { transform: rotate(60deg); } .tricolor .white .circle .spoke:nth-child(6) { transform: rotate(75deg); } 
+        .tricolor .white .circle .spoke:nth-child(7) { transform: rotate(90deg); } .tricolor .white .circle .spoke:nth-child(8) { transform: rotate(105deg); } 
+        .tricolor .white .circle .spoke:nth-child(9) { transform: rotate(120deg); } .tricolor .white .circle .spoke:nth-child(10) { transform: rotate(135deg); } 
+        .tricolor .white .circle .spoke:nth-child(11) { transform: rotate(150deg); } .tricolor .white .circle .spoke:nth-child(12) { transform: rotate(165deg); } 
+        .tricolor .white .circle .spoke:nth-child(13) { transform: rotate(180deg); } .tricolor .white .circle .spoke:nth-child(14) { transform: rotate(195deg); } 
+        .tricolor .white .circle .spoke:nth-child(15) { transform: rotate(210deg); } .tricolor .white .circle .spoke:nth-child(16) { transform: rotate(225deg); } 
+        .tricolor .white .circle .spoke:nth-child(17) { transform: rotate(240deg); } .tricolor .white .circle .spoke:nth-child(18) { transform: rotate(255deg); } 
+        .tricolor .white .circle .spoke:nth-child(19) { transform: rotate(270deg); } .tricolor .white .circle .spoke:nth-child(20) { transform: rotate(285deg); } 
+        .tricolor .white .circle .spoke:nth-child(21) { transform: rotate(300deg); } .tricolor .white .circle .spoke:nth-child(23) { transform: rotate(315deg); }
+        .tricolor .white .circle .spoke:nth-child(24) { transform: rotate(330deg); } .tricolor .white .circle .spoke:nth-child(25) { transform: rotate(345deg); } 
+        .tricolor .white .circle .spoke:nth-child(26) { transform: rotate(360deg); }
+        .opasliderCL { -webkit-appearance: none; appearance: none; margin: 2vh 0vw; opacity: 0.7; background: var(--servTColor); height: 2px;
+            outline: none; -webkit-transition: 0.7s; transition: 0.7s; }
+        .opasliderCL:hover { opacity: 1; }
+        .opasliderCL::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 3px; height: 3vh; 
+            background: var(--servAColor); cursor: pointer; }
 
         .compalr { display:none; position: fixed; top: 15%; left: 50%; color: var(--servTColor); transform: translate(-50%, -50%); }
         .acknalr { padding: 1vh 1vw; position: fixed; top: 80%; left: 50%; color: var(--servTColor); transform: translate(-50%, -50%); 
@@ -106,18 +209,63 @@
         .warning { opacity: 0.8; position: fixed; top: 75%; left: 50%; transform: translate(-50%, -50%); font-size: 2vh; }
         .warning ion-icon { font-size: 2vh; }
 
+        .rotatepls { z-index: 200; position: fixed; top: 0; left: 0; display: none; justify-content: space-evenly; align-items: center;
+            flex-direction: column; padding: 2vh 2vw; font-size: 6vw; background-color: var(--servBColor); height: 100vh; width: 100vw; }
+
         @media only screen and (max-width:1000px) { .spanArr { display: none; } .settings span { display: none; } 
             .expander span { display: none; } .contractor span { display: none; } .menu .content { padding-top: 20vh; } 
             .sidesett { padding-top: 15vh; } .textcolor span { display: none; } .compalr { display: block; } .profile span { display: none; } }
+        @media only screen and (max-width:950px) { .sloganArea .hand .index .mark { left: -2px; } }
+        @media only screen and (min-height:600px) { .sloganArea .hand .thumb { transform: rotate(30deg); left: -40%; } }
+        @media only screen and (min-height:750) { .sloganArea .hand .thumb { transform: rotate(20deg); left: -10%; } }
         @media only screen and (max-width:520px) { .sidesett .settcontent .textcolor { width: 7vw; } .sidesett { width: 70vw; } 
             .sidesett.active { left: 30vw; } .settings.active { left: 30%; top: 10%; } .profile.active { top: 10%; left: 50%; } }
         @media only screen and (max-width:400px) { .sidesett .settcontent .textcolor { width: 9vw; } }
-
+        @media screen and (orientation:portrait) and (max-width:600px) { .rotatepls { display: flex; } }
+        @media only screen and (max-height:560px) { .menu .content { padding-top: 25vh; } }
+        @media only screen and (max-height:500px) { .menu .content { padding-top: 50vh; } }
+        @media screen and (orientation:landscape) { #maincontent > div:nth-child(1) > h2 { padding-top: 20vh; } .index .nail .mark { left: 2px; } }
+        
     </style>
 
     <title>Slogan : Project Page</title>
 </head>
 <body>
+
+    <div class="tricolor" id="tricolorID">
+        <div class="orange"></div>
+        <div class="white">
+            <div class="circle">
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+                <div class="spoke"></div>
+            </div>
+        </div>
+        <div class="green"></div>
+    </div>
 
     <div class="headlog active" id="headloga">
         <h2><span class="s">S</span><span class="c1">C</span><span class="c2">C</span></h2>
@@ -128,15 +276,14 @@
         <p>Loading...</p>
     </div>
 
+    <div class="rotatepls">
+        <h1>Please, enter Landscape Orientation to render the Slogan.</h1>
+        <p>This is mandatory, to ensure that the Slogan renders accurately.</p>
+    </div>
+
     <div class="compalr" id="compAlert">
         <h4><ion-icon name="alert-circle-outline"></ion-icon> Slogan is best viewed on Laptops / Desktops.</h4>
     </div>
-
-    <div class="acknalr" id="acknowAlert">
-        <h4><ion-icon name="color-palette-outline"></ion-icon> You can fiddle with Slogan Colors in Settings.</h4>
-    </div>
-
-    <div class="warning"><p><ion-icon name="alert-circle-outline"></ion-icon> Currently under Development.</p></div>
 
     <div class="profile" id="profileICON"><ion-icon name="person-sharp"></ion-icon><span> Info</span></div>
 
@@ -151,7 +298,7 @@
             <div class="deta">
                 <h3>Environment</h3>
                 <p>The Web. Handmade with pure HTML, CSS and ECMA Script 6</p>
-                <p>No copy. From scratch.</p>
+                <p>No copy. No images. Made from scratch.</p>
             </div>
             <div class="deta">
                 <h3>Slogan</h3>
@@ -161,18 +308,75 @@
                 <h3>Timeline</h3>
                 <p>Development Initiated : 08 January, 2021</p>
                 <p>Refining : 09 January</p>
-                <p>Date of completion : 14 January</p>
+                <p>Date of completion : 11 January</p>
+            </div>
+            <div class="deta">
+                <p><ion-icon name="alert-circle-outline"></ion-icon> Sufficient care is undertaken to make the slogan look flawless. 
+                    The slogan may look different on various devices. Medium sized Laptops or Desktops render the slogan accurately.
+                    The slogan (hand, vote-box and fictional candidates) is purely made from CSS and is NOT an image. So it's evident for the
+                    fact that the slogan will have different sizes across all devices. Hence, trial-and-error method is often used to render 
+                    the slogan precisely. <br><br>
+                    There was a way of rendering the slogan by image / SVG obviously, but in order to make it a fair-play and to get some
+                    creativity points, simple CSS is preferred for the same.</p>
+                <br>
+                <p>
+                    <ion-icon name="alert-circle-outline"></ion-icon> Website / Webpage is hosted by Github. I have nothing to do with the
+                    web server. All I have taken care of is the Front End and UX. Decision, planning, UX / UI, artwork has been done by me.
+                </p>
+                <br><br><br>
+                <p>Thanks for viewing!</p>
+                <p>Regards, <br> Daksh</p>
             </div>
         </div>
     </div>
 
     <div class="sloganArea">
-        <div class="slogan">
+        <div class="slogan" id="sloganID">
             <h1 class="vote">It's your</h1>
             <h1 class="choice">It's your</h1>
             <h1 class="decision">It's your</h1>
             <h3 class="sentence">It's you, </h3>
         </div>
+        <div class="sloganCanvas">
+            <div class="handArea">
+                <div class="hand">
+                    <div class="fist"></div>
+                    <div class="lowerfist"></div>
+                    <div class="thumb"></div>
+                    <div class="index">
+                        <div class="nail">
+                            <div class="mark"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="votebox active">
+                <div class="box">
+                    <h5 class="h5"><p>VOTE</p></h5>
+                </div>
+                <div class="card">
+                    <ion-icon name="checkbox-outline"></ion-icon>
+                </div>
+            </div>
+            <div class="chaps">
+                <div class="peeps" id="peepsID">
+                    <div class="head"></div>
+                </div>
+                <div class="peeps" id="peepsID">
+                    <div class="head" style="height: 4vw; width: 4vw; left: 25%;"></div>
+                    <ion-icon name="checkmark-outline"></ion-icon>
+                </div>
+                <div class="peeps" id="peepsID">
+                    <div class="head"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slider" id="sliderID">
+        <h2 id="slhand">__ <span>Hand</span></h2>
+        <h2 id="slvotebox">__ <span>Votebox</span></h2>
+        <h2 id="slcandidate">__ <span>Candidate</span></h2>
     </div>
 
     <div class="expander" id="expanderID">
@@ -198,63 +402,117 @@
     </div>
 
     <div class="sidesett" id="sidesetting">
-        <h1>Text Color</h1>
-        <i>Pastel</i>
-        <div class="settcontent">
-            <h4 id="tccyan" class="textcolor" style="background-color: rgb(150, 255, 255);"><span>Cyan</span></h4>
-            <h4 id="tcslate" class="textcolor" style="background-color: rgb(120, 135, 150);"><span>Slate</span></h4>
-            <h4 id="tcsalm" class="textcolor" style="background-color: rgb(255, 180, 160);"><span>Salmon</span></h4>
-            <h4 id="tcgreen" class="textcolor" style="background-color: rgb(90, 255, 90);"><span>Green</span></h4>
-            <h4 id="tcyell" class="textcolor" style="background-color: rgb(255, 255, 100);"><span>Yellow</span></h4>
-        </div>
-        <i>Matte Dark</i>
-        <div class="settcontent">
-            <h4 class="textcolor" id="tcindigo" style="background-color: rgb(38, 67, 72);"><span>Indigo</span></h4>
-            <h4 class="textcolor" id="tcstudio" style="background-color: rgb(142, 68, 173);"><span>Studio</span></h4>
-            <h4 class="textcolor" id="tccrimson" style="background-color: rgb(246, 36, 89);"><span>Crimson</span></h4>
-            <h4 class="textcolor" id="tcpatina" style="background-color: rgb(0, 100, 66);"><span>Patina</span></h4>
-            <h4 class="textcolor" id="tcgamboge" style="background-color: rgb(255, 182, 30);"><span>Gamboge</span></h4>
-        </div>
-        <i>Vibrance</i>
-        <div class="settcontent">
-            <h4 class="textcolor" id="tcdodger" style="background-color: rgb(25, 181, 254);"><span>Dodger</span></h4>
-            <h4 class="textcolor" id="tcwisteria" style="background-color: rgb(190, 144, 212);"><span>Wisteria</span></h4>
-            <h4 class="textcolor" id="tcblossom" style="background-color: rgb(252, 201, 185);"><span>Blossom</span></h4>
-            <h4 class="textcolor" id="tceucal" style="background-color: rgb(38, 194, 129);"><span>Eucal</span></h4>
-            <h4 class="textcolor" id="tcsaffron" style="background-color: rgb(244, 208, 63);"><span>Saffron</span></h4>
-        </div>
-        <br>
-        <h1>Background Color</h1>
-        <i>Pastel</i>
-        <div class="settcontent">
-            <h4 class="textcolor" id="bclemay" style="background-color: rgb(153, 254, 255);"><span>Lemay</span></h4>
-            <h4 class="textcolor" id="bcpurple" style="background-color: rgb(144, 127, 164);"><span>Purple</span></h4>
-            <h4 class="textcolor" id="bcpeach" style="background-color: rgb(255, 196, 225);"><span>Peach</span></h4>
-            <h4 class="textcolor" id="bcgourd" style="background-color: rgb(214, 255, 132);"><span>Gourd</span></h4>
-            <h4 class="textcolor" id="bcpale" style="background-color: rgb(252, 255, 166);"><span>Pale</span></h4>
-        </div>
-        <i>Dark</i>
-        <div class="settcontent">
-            <h4 class="textcolor" id="bcultramarine" style="background-color: rgb(20, 30, 97);"><span>Ultramarine</span></h4>
-            <h4 class="textcolor" id="bcviolet" style="background-color: rgb(97, 0, 148);"><span>Violet</span></h4>
-            <h4 class="textcolor" id="bchotpink" style="background-color: rgb(218, 0, 55);"><span>Hotpink</span></h4>
-            <h4 class="textcolor" id="bcemerald" style="background-color: rgb(52, 103, 81);"><span>Emerald</span></h4>
-            <h4 class="textcolor" id="bcgold" style="background-color: rgb(216, 146, 22);"><span>Gold</span></h4>
+        <div style="overflow-y: auto; padding-top: 10vh;">
+            <h1>Background Flag Opacity</h1>
+            <div class="settcontent" style="align-items: center;">
+                <input type="range" id="opacityRange" min="0" max="100" value="90" class="opasliderCL">
+            </div>
+            <h1>Text Shadow</h1>
+            <div class="settcontent">
+                <h4 class="textcolor" id="tshwhite" style="background: white;"><span>White</span></h4>
+                <h4 class="textcolor" id="tshblack" style="background: black;"><span>Black</span></h4>
+                <h4 class="textcolor" id="tshcrimson" style="background: crimson;"><span>Crimson</span></h4>
+                <h4 class="textcolor" id="tshyellow" style="background: yellow;"><span>Yellow</span></h4>
+                <h4 class="textcolor" id="tshblue" style="background: blue;"><span>Blue</span></h4>
+            </div>
+            <br>
+            <p>Double Click / Tap to reset defaults.</p>
+            <h1>Text Color</h1>
+            <i>Pastel</i>
+            <div class="settcontent">
+                <h4 id="tccyan" class="textcolor" style="background-color: rgb(150, 255, 255);"><span>Cyan</span></h4>
+                <h4 id="tcslate" class="textcolor" style="background-color: rgb(120, 135, 150);"><span>Slate</span></h4>
+                <h4 id="tcsalm" class="textcolor" style="background-color: rgb(255, 180, 160);"><span>Salmon</span></h4>
+                <h4 id="tcgreen" class="textcolor" style="background-color: rgb(90, 255, 90);"><span>Green</span></h4>
+                <h4 id="tcyell" class="textcolor" style="background-color: rgb(255, 255, 100);"><span>Yellow</span></h4>
+            </div>
+            <i>Matte Dark</i>
+            <div class="settcontent">
+                <h4 class="textcolor" id="tcindigo" style="background-color: rgb(38, 67, 72);"><span>Indigo</span></h4>
+                <h4 class="textcolor" id="tcstudio" style="background-color: rgb(142, 68, 173);"><span>Studio</span></h4>
+                <h4 class="textcolor" id="tccrimson" style="background-color: rgb(246, 36, 89);"><span>Crimson</span></h4>
+                <h4 class="textcolor" id="tcpatina" style="background-color: rgb(0, 100, 66);"><span>Patina</span></h4>
+                <h4 class="textcolor" id="tcgamboge" style="background-color: rgb(255, 182, 30);"><span>Gamboge</span></h4>
+            </div>
+            <i>Vibrance</i>
+            <div class="settcontent">
+                <h4 class="textcolor" id="tcdodger" style="background-color: rgb(25, 181, 254);"><span>Dodger</span></h4>
+                <h4 class="textcolor" id="tcwisteria" style="background-color: rgb(190, 144, 212);"><span>Wisteria</span></h4>
+                <h4 class="textcolor" id="tcblossom" style="background-color: rgb(252, 201, 185);"><span>Blossom</span></h4>
+                <h4 class="textcolor" id="tceucal" style="background-color: rgb(38, 194, 129);"><span>Eucal</span></h4>
+                <h4 class="textcolor" id="tcsaffron" style="background-color: rgb(244, 208, 63);"><span>Saffron</span></h4>
+            </div>
+            <br>
+            <h1>Background Color</h1>
+            <i>Pastel</i>
+            <div class="settcontent">
+                <h4 class="textcolor" id="bclemay" style="background-color: rgb(153, 254, 255);"><span>Lemay</span></h4>
+                <h4 class="textcolor" id="bcpurple" style="background-color: rgb(144, 127, 164);"><span>Purple</span></h4>
+                <h4 class="textcolor" id="bcpeach" style="background-color: rgb(255, 196, 225);"><span>Peach</span></h4>
+                <h4 class="textcolor" id="bcgourd" style="background-color: rgb(214, 255, 132);"><span>Gourd</span></h4>
+                <h4 class="textcolor" id="bcpale" style="background-color: rgb(252, 255, 166);"><span>Pale</span></h4>
+            </div>
+            <i>Dark</i>
+            <div class="settcontent">
+                <h4 class="textcolor" id="bcultramarine" style="background-color: rgb(20, 30, 97);"><span>Ultramarine</span></h4>
+                <h4 class="textcolor" id="bcviolet" style="background-color: rgb(97, 0, 148);"><span>Violet</span></h4>
+                <h4 class="textcolor" id="bchotpink" style="background-color: rgb(218, 0, 55);"><span>Hotpink</span></h4>
+                <h4 class="textcolor" id="bcemerald" style="background-color: rgb(52, 103, 81);"><span>Emerald</span></h4>
+                <h4 class="textcolor" id="bcgold" style="background-color: rgb(216, 146, 22);"><span>Gold</span></h4>
+            </div>
+
+            <p><ion-icon name="alert-circle-outline"></ion-icon> Sufficient care is undertaken to make the slogan look flawless. 
+                The slogan may look different on various devices. Medium sized Laptops or Desktops render the slogan accurately.</p>
+            <br><br><br>
+            <h1>Hand</h1>
+            <i>Skin tone</i>
+            <i style="font-size: smaller;">No intentions of racial discrimination.</i>
+            <div class="settcontent" id="settHand">
+                <h4 class="textcolor" id="stbrown" style="background-color:rgb(141,85,36)"></h4>
+                <h4 class="textcolor" id="stmedbrown" style="background-color: rgb(198,134,66);"></h4>
+                <h4 class="textcolor" id="stlightbrown" style="background-color: rgb(224,172,105);"></h4>
+                <h4 class="textcolor" id="stbeige" style="background-color: rgb(241,194,125);"></h4>
+                <h4 class="textcolor" id="stpale" style="background-color: rgb(255,219,172);"></h4>
+            </div>
+            <br><br>
+            <h1>Votebox</h1>
+            <i>Wood Color</i>
+            <div class="settcontent" id="settVotebox">
+                <h4 class="textcolor" id="vbbiege" style="background-color: rgb(240,195,145);"><span>Biege</span></h4>
+                <h4 class="textcolor" id="vbpale" style="background-color: rgb(242,232,215);"><span>Pale</span></h4>
+                <h4 class="textcolor" id="vbbrown" style="background-color: rgb(114, 73, 53);"><span>Brown</span></h4>
+                <h4 class="textcolor" id="vbslade" style="background-color: rgb(141, 94, 47);"><span>Slade</span></h4>
+                <h4 class="textcolor" id="vbwalnut" style="background-color: rgb(234, 191, 124);"><span>Walnut</span></h4>
+            </div>
+            <h1>Candidates</h1>
+            <i>Outline</i>
+            <div class="settcontent" id="settCandidates">
+                <h4 class="textcolor" id="coblack" style="background-color: black;"><span>Black</span></h4>
+                <h4 class="textcolor" id="cowhite" style="background-color: white;"><span>White</span></h4>
+                <h4 class="textcolor" id="coblue" style="background-color: blue;"><span>Blue</span></h4>
+                <h4 class="textcolor" id="coyellow" style="background-color: yellow;"><span>Yellow</span></h4>
+            </div>
         </div>
     </div>
 
     <div class="menu" id="mainmenu">
         <div class="content" id="maincontent">
-            <div>
-                <h2>Slogan Settings<i style="font-size: 1.5vh; font-weight: 100;">This will take you to Slogan Settings</i></h2>
+            <div style="padding-top: 10vh;">
+                <h2>About</h2>
+                <p style="padding-right: 2vw;"> On this website, the viewer has the ability to change Visual Properties of the slogan. From changing Sprite (element)
+                    to changing Foreground Colors, this slogan is specifically made to enable the viewer to have full control over it.
+                    Viewer can take a Screenshot by Expanding elements in order to focus on the Slogan. As said, the viewer can
+                    even modify it. Go to Slogan Settings to change Visual Properties.</p>
+                    <br>
+                <p>Also, NO Images are used. Everything here is done by pure HTML, CSS and ES6 (JS). No Images, nor any SVG is used (except
+                    Sprites / Icons).</p>
             </div>
             <div id="menucha">
                 <div class="setting">
-                        <h3>Change Text Color</h3>
-                        <h3>Change Back Color</h3>
+                        <h3>Go to Slogan Settings</h3>
                 </div>
             </div>
-            <h2>Background Colours</h2>
+            <h2>Primary Background Color</h2>
             <div class="setting">
                 <h4 style="background-color: rgb(0, 0, 0);" id="Vantablack"><span>Vantablack</span></h4>
                 <h4 style="background-color: rgb(80, 10, 0);" id="Maroon"><span>Maroon</span></h4>
@@ -274,10 +532,349 @@
                 <p>HTML5, CSS3, ES6</p>
             </div>
             <div class="credits">
-                <h5>HANDMADE BY DAKSH N</h5>
+                <h5>HANDMADE BY DAKSH N | HOSTED BY GITHUB</h5>
             </div>
         </div>
     </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        var sloganIDSEL = document.getElementById("sloganID");
+
+        var tshwhiteSel = document.getElementById("tshwhite");
+        var tshblackSel = document.getElementById("tshblack");
+        var tshcrimsonSel = document.getElementById("tshcrimson");
+        var tshyellowSel = document.getElementById("tshyellow");
+        var tshblueSel = document.getElementById("tshblue");
+
+        tshwhiteSel.onclick = () => {
+            sloganIDSEL.style.textShadow = "1px 1px 15px white";
+        }
+
+        tshblackSel.onclick = () => {
+            sloganIDSEL.style.textShadow = "1px 1px 15px black";
+        }
+
+        tshcrimsonSel.onclick = () => {
+            sloganIDSEL.style.textShadow = "1px 1px 15px crimson";
+        }
+
+        tshyellowSel.onclick = () => {
+            sloganIDSEL.style.textShadow = "1px 1px 15px yellow";
+        }
+
+        tshblueSel.onclick = () => {
+            sloganIDSEL.style.textShadow = "1px 1px 15px blue";
+        }
+
+    </script>
+
+    <script>
+        var opaRangeSel = document.getElementById("opacityRange");
+        var tricolorSel = document.getElementById("tricolorID");
+
+        opaRangeSel.addEventListener("change", function() {
+            tricolorSel.style.opacity = (this.max - this.value) / this.max;
+        })
+    </script>
+
+    <script>
+        var peepsSel = document.querySelectorAll(".peeps");
+        var headSel = document.querySelectorAll(".head");
+
+        var ocblack = document.getElementById("coblack");
+        var ocwhite = document.getElementById("cowhite");
+        var ocblue = document.getElementById("coblue");
+        var ocyellow = document.getElementById("coyellow");
+
+        var settalrSel = document.getElementById("settalr");
+
+        ocblack.onclick = () => {
+            for (var i = 0; i < peepsSel.length; i++) {
+                peepsSel[i].classList.add('coblack');
+                peepsSel[i].classList.remove('cowhite');
+                peepsSel[i].classList.remove('coyellow');
+                peepsSel[i].classList.remove('coblue');
+            }
+            for (var i = 0; i < headSel.length; i++) {
+                headSel[i].classList.add('coblack');
+                headSel[i].classList.remove('cowhite');
+                headSel[i].classList.remove('coyellow');
+                headSel[i].classList.remove('coblue');
+            }
+            settalrSel.style.opacity = "1";
+            settalrSel.style.top = "20%";
+            setTimeout(function() {
+                settalrSel.style.opacity = "0";
+                settalrSel.style.top = "-20%";
+            }, 1000);
+        }
+
+        ocwhite.onclick = () => {
+            for (var i = 0; i < peepsSel.length; i++) {
+                peepsSel[i].classList.remove('coblack');
+                peepsSel[i].classList.add('cowhite');
+                peepsSel[i].classList.remove('coblue');
+                peepsSel[i].classList.remove('coyellow');
+            }
+            for (var i = 0; i < headSel.length; i++) {
+                headSel[i].classList.remove('coblack');
+                headSel[i].classList.add('cowhite');
+                headSel[i].classList.remove('coyellow');
+                headSel[i].classList.remove('coblue');
+            }
+            settalrSel.style.opacity = "1";
+            settalrSel.style.top = "20%";
+            setTimeout(function() {
+                settalrSel.style.opacity = "0";
+                settalrSel.style.top = "-20%";
+            }, 1000);
+        }
+
+        ocblue.onclick = () => {
+            for (var i = 0; i < peepsSel.length; i++) {
+                peepsSel[i].classList.remove('coblack');
+                peepsSel[i].classList.remove('cowhite');
+                peepsSel[i].classList.add('coblue');
+                peepsSel[i].classList.remove('coyellow');
+            }
+            for (var i = 0; i < headSel.length; i++) {
+                headSel[i].classList.remove('coblack');
+                headSel[i].classList.remove('cowhite');
+                headSel[i].classList.remove('coyellow');
+                headSel[i].classList.add('coblue');
+            }
+            settalrSel.style.opacity = "1";
+            settalrSel.style.top = "20%";
+            setTimeout(function() {
+                settalrSel.style.opacity = "0";
+                settalrSel.style.top = "-20%";
+            }, 1000);
+        }
+
+        ocyellow.onclick = () => {
+            for (var i = 0; i < peepsSel.length; i++) {
+                peepsSel[i].classList.remove('coblack');
+                peepsSel[i].classList.remove('cowhite');
+                peepsSel[i].classList.remove('coblue');
+                peepsSel[i].classList.add('coyellow');
+            }
+            for (var i = 0; i < headSel.length; i++) {
+                headSel[i].classList.remove('coblack');
+                headSel[i].classList.remove('cowhite');
+                headSel[i].classList.add('coyellow');
+                headSel[i].classList.remove('coblue');
+            }
+            settalrSel.style.opacity = "1";
+            settalrSel.style.top = "20%";
+            setTimeout(function() {
+                settalrSel.style.opacity = "0";
+                settalrSel.style.top = "-20%";
+            }, 1000);
+        }
+    
+    </script>
+
+    <script>
+        var settHandSel = document.getElementById("settHand");
+        var settVotebox = document.getElementById("settVotebox");
+        var settCandidates = document.getElementById("settCandidates");
+
+        var sdhandBSel = document.querySelector('.handArea');
+        var sdvoteboxBSel = document.querySelector('.votebox');
+        var sdcandidateBSel = document.querySelector('.chaps');
+
+        settHandSel.onclick = () => {
+            sdhandBSel.classList.add('active');
+            sdvoteboxBSel.classList.remove('active');
+            sdcandidateBSel.classList.remove('active');
+        }
+
+        settVotebox.onclick = () => {
+            sdhandBSel.classList.remove('active');
+            sdvoteboxBSel.classList.add('active');
+            sdcandidateBSel.classList.remove('active');
+        }
+
+        settCandidates.onclick = () => {
+            sdhandBSel.classList.remove('active');
+            sdvoteboxBSel.classList.remove('active');
+            sdcandidateBSel.classList.add('active');
+        }
+    </script>
+
+    <script>
+        var slhandSel = document.getElementById("slhand");
+        var slvoteboxSel = document.getElementById("slvotebox");
+        var slcandidateSel = document.getElementById("slcandidate");
+
+        var sdhandBSel = document.querySelector('.handArea');
+        var sdvoteboxBSel = document.querySelector('.votebox');
+        var sdcandidateBSel = document.querySelector('.chaps');
+
+        slhandSel.onclick = () => {
+            sdhandBSel.classList.add('active');
+            sdvoteboxBSel.classList.remove('active');
+            sdcandidateBSel.classList.remove('active');
+        }
+
+        slvoteboxSel.onclick = () => {
+            sdhandBSel.classList.remove('active');
+            sdvoteboxBSel.classList.add('active');
+            sdcandidateBSel.classList.remove('active');
+        }
+
+        slcandidateSel.onclick = () => {
+            sdhandBSel.classList.remove('active');
+            sdvoteboxBSel.classList.remove('active');
+            sdcandidateBSel.classList.add('active');
+        }
+    </script>
+
+    <script>
+        var vbbiegeSel = document.getElementById("vbbiege");
+        var vbbrownSel = document.getElementById("vbbrown");
+        var vbpaleSel = document.getElementById("vbpale");
+        var vbsladeSel = document.getElementById("vbslade");
+        var vbwalnutSel = document.getElementById("vbwalnut");
+
+        var settalrSel = document.getElementById("settalr");
+        var voteboxSel = document.querySelector('.box');
+
+        vbbiegeSel.onclick = () => {
+            voteboxSel.classList.toggle('vbbiege');
+            voteboxSel.classList.remove('vbbrown');
+            voteboxSel.classList.remove('vbpale');
+            voteboxSel.classList.remove('vbslade');
+            voteboxSel.classList.remove('vbwalnut');
+            settalrSel.style.opacity = "1";
+            settalrSel.style.top = "20%";
+            setTimeout(function() {
+                settalrSel.style.opacity = "0";
+                settalrSel.style.top = "-20%";
+            }, 1000);
+        }
+
+        vbbrownSel.onclick = () => {
+            voteboxSel.classList.remove('vbbiege');
+            voteboxSel.classList.toggle('vbbrown');
+            voteboxSel.classList.remove('vbpale');
+            voteboxSel.classList.remove('vbslade');
+            voteboxSel.classList.remove('vbwalnut');
+            settalrSel.style.opacity = "1";
+            settalrSel.style.top = "20%";
+            setTimeout(function() {
+                settalrSel.style.opacity = "0";
+                settalrSel.style.top = "-20%";
+            }, 1000);
+        }
+
+        vbpaleSel.onclick = () => {
+            voteboxSel.classList.remove('vbbiege');
+            voteboxSel.classList.remove('vbbrown');
+            voteboxSel.classList.toggle('vbpale');
+            voteboxSel.classList.remove('vbslade');
+            voteboxSel.classList.remove('vbwalnut');
+            settalrSel.style.opacity = "1";
+            settalrSel.style.top = "20%";
+            setTimeout(function() {
+                settalrSel.style.opacity = "0";
+                settalrSel.style.top = "-20%";
+            }, 1000);
+        }
+
+        vbsladeSel.onclick = () => {
+            voteboxSel.classList.remove('vbbiege');
+            voteboxSel.classList.remove('vbbrown');
+            voteboxSel.classList.remove('vbpale');
+            voteboxSel.classList.toggle('vbslade');
+            voteboxSel.classList.remove('vbwalnut');
+            settalrSel.style.opacity = "1";
+            settalrSel.style.top = "20%";
+            setTimeout(function() {
+                settalrSel.style.opacity = "0";
+                settalrSel.style.top = "-20%";
+            }, 1000);
+        }
+
+        vbwalnutSel.onclick = () => {
+            voteboxSel.classList.remove('vbbiege');
+            voteboxSel.classList.remove('vbbrown');
+            voteboxSel.classList.remove('vbpale');
+            voteboxSel.classList.remove('vbslade');
+            voteboxSel.classList.toggle('vbwalnut');
+            settalrSel.style.opacity = "1";
+            settalrSel.style.top = "20%";
+            setTimeout(function() {
+                settalrSel.style.opacity = "0";
+                settalrSel.style.top = "-20%";
+            }, 1000);
+        }
+
+    </script>
+
+    <script>
+        var stbrownSel = document.getElementById("stbrown");
+        var stmedbrownSel = document.getElementById("stmedbrown");
+        var stlightbrownSel = document.getElementById("stlightbrown");
+        var stbeigeSel = document.getElementById("stbeige");
+        var stpaleSel = document.getElementById("stpale");
+
+        var settalrSel = document.getElementById("settalr");
+        var rootSel = document.querySelector(':root');
+
+        stbrownSel.onclick = () => {
+            rootSel.style.setProperty('--peachSkin', 'rgb(141,85,36)');
+            settalrSel.style.opacity = "1";
+            settalrSel.style.top = "20%";
+            setTimeout(function() {
+                settalrSel.style.opacity = "0";
+                settalrSel.style.top = "-20%";
+            }, 2200);
+        }
+
+        stmedbrownSel.onclick = () => {
+            rootSel.style.setProperty('--peachSkin', 'rgb(198,134,66)');
+            settalrSel.style.opacity = "1";
+            settalrSel.style.top = "20%";
+            setTimeout(function() {
+                settalrSel.style.opacity = "0";
+                settalrSel.style.top = "-20%";
+            }, 2200);
+        }
+
+        stlightbrownSel.onclick = () => {
+            rootSel.style.setProperty('--peachSkin', 'rgb(224,172,105)');
+            settalrSel.style.opacity = "1";
+            settalrSel.style.top = "20%";
+            setTimeout(function() {
+                settalrSel.style.opacity = "0";
+                settalrSel.style.top = "-20%";
+            }, 2200);
+        }
+
+        stbeigeSel.onclick = () => {
+            rootSel.style.setProperty('--peachSkin', 'rgb(241,194,125)');
+            settalrSel.style.opacity = "1";
+            settalrSel.style.top = "20%";
+            setTimeout(function() {
+                settalrSel.style.opacity = "0";
+                settalrSel.style.top = "-20%";
+            }, 2200);
+        }
+
+        stpaleSel.onclick = () => {
+            rootSel.style.setProperty('--peachSkin', 'rgb(255,219,172)');
+            settalrSel.style.opacity = "1";
+            settalrSel.style.top = "20%";
+            setTimeout(function() {
+                settalrSel.style.opacity = "0";
+                settalrSel.style.top = "-20%";
+            }, 2200);
+        }
+    </script>
 
     <script>
         var profileSel = document.querySelector('.profile');
@@ -593,136 +1190,136 @@
         var BCemeraldsel = document.getElementById("bcemerald");
         var BCgoldsel = document.getElementById("bcgold");
 
-        var sloganSel = document.querySelector('.slogan');
+        var sloganSelB = document.querySelector('.sloganArea');
 
         BClemaysel.onclick = () => {
-            sloganSel.classList.toggle('bclemay');
-            sloganSel.classList.remove('bcpurple');
-            sloganSel.classList.remove('bcpeach');
-            sloganSel.classList.remove('bcgourd');
-            sloganSel.classList.remove('bcpale');
-            sloganSel.classList.remove('bcultramarine');
-            sloganSel.classList.remove('bcviolet');
-            sloganSel.classList.remove('bchotpink');
-            sloganSel.classList.remove('bcemerald');
-            sloganSel.classList.remove('bcgold');
+            sloganSelB.classList.toggle('bclemay');
+            sloganSelB.classList.remove('bcpurple');
+            sloganSelB.classList.remove('bcpeach');
+            sloganSelB.classList.remove('bcgourd');
+            sloganSelB.classList.remove('bcpale');
+            sloganSelB.classList.remove('bcultramarine');
+            sloganSelB.classList.remove('bcviolet');
+            sloganSelB.classList.remove('bchotpink');
+            sloganSelB.classList.remove('bcemerald');
+            sloganSelB.classList.remove('bcgold');
         }
 
         BCpurplesel.onclick = () => {
-            sloganSel.classList.remove('bclemay');
-            sloganSel.classList.toggle('bcpurple');
-            sloganSel.classList.remove('bcpeach');
-            sloganSel.classList.remove('bcgourd');
-            sloganSel.classList.remove('bcpale');
-            sloganSel.classList.remove('bcultramarine');
-            sloganSel.classList.remove('bcviolet');
-            sloganSel.classList.remove('bchotpink');
-            sloganSel.classList.remove('bcemerald');
-            sloganSel.classList.remove('bcgold');
+            sloganSelB.classList.remove('bclemay');
+            sloganSelB.classList.toggle('bcpurple');
+            sloganSelB.classList.remove('bcpeach');
+            sloganSelB.classList.remove('bcgourd');
+            sloganSelB.classList.remove('bcpale');
+            sloganSelB.classList.remove('bcultramarine');
+            sloganSelB.classList.remove('bcviolet');
+            sloganSelB.classList.remove('bchotpink');
+            sloganSelB.classList.remove('bcemerald');
+            sloganSelB.classList.remove('bcgold');
         }
 
         BCpeachsel.onclick = () => {
-            sloganSel.classList.remove('bclemay');
-            sloganSel.classList.remove('bcpurple');
-            sloganSel.classList.toggle('bcpeach');
-            sloganSel.classList.remove('bcgourd');
-            sloganSel.classList.remove('bcpale');
-            sloganSel.classList.remove('bcultramarine');
-            sloganSel.classList.remove('bcviolet');
-            sloganSel.classList.remove('bchotpink');
-            sloganSel.classList.remove('bcemerald');
-            sloganSel.classList.remove('bcgold');
+            sloganSelB.classList.remove('bclemay');
+            sloganSelB.classList.remove('bcpurple');
+            sloganSelB.classList.toggle('bcpeach');
+            sloganSelB.classList.remove('bcgourd');
+            sloganSelB.classList.remove('bcpale');
+            sloganSelB.classList.remove('bcultramarine');
+            sloganSelB.classList.remove('bcviolet');
+            sloganSelB.classList.remove('bchotpink');
+            sloganSelB.classList.remove('bcemerald');
+            sloganSelB.classList.remove('bcgold');
         }
 
         BCgourdsel.onclick = () => {
-            sloganSel.classList.remove('bclemay');
-            sloganSel.classList.remove('bcpurple');
-            sloganSel.classList.remove('bcpeach');
-            sloganSel.classList.toggle('bcgourd');
-            sloganSel.classList.remove('bcpale');
-            sloganSel.classList.remove('bcultramarine');
-            sloganSel.classList.remove('bcviolet');
-            sloganSel.classList.remove('bchotpink');
-            sloganSel.classList.remove('bcemerald');
-            sloganSel.classList.remove('bcgold');
+            sloganSelB.classList.remove('bclemay');
+            sloganSelB.classList.remove('bcpurple');
+            sloganSelB.classList.remove('bcpeach');
+            sloganSelB.classList.toggle('bcgourd');
+            sloganSelB.classList.remove('bcpale');
+            sloganSelB.classList.remove('bcultramarine');
+            sloganSelB.classList.remove('bcviolet');
+            sloganSelB.classList.remove('bchotpink');
+            sloganSelB.classList.remove('bcemerald');
+            sloganSelB.classList.remove('bcgold');
         }
 
         BCpalesel.onclick = () => {
-            sloganSel.classList.remove('bclemay');
-            sloganSel.classList.remove('bcpurple');
-            sloganSel.classList.remove('bcpeach');
-            sloganSel.classList.remove('bcgourd');
-            sloganSel.classList.toggle('bcpale');
-            sloganSel.classList.remove('bcultramarine');
-            sloganSel.classList.remove('bcviolet');
-            sloganSel.classList.remove('bchotpink');
-            sloganSel.classList.remove('bcemerald');
-            sloganSel.classList.remove('bcgold');
+            sloganSelB.classList.remove('bclemay');
+            sloganSelB.classList.remove('bcpurple');
+            sloganSelB.classList.remove('bcpeach');
+            sloganSelB.classList.remove('bcgourd');
+            sloganSelB.classList.toggle('bcpale');
+            sloganSelB.classList.remove('bcultramarine');
+            sloganSelB.classList.remove('bcviolet');
+            sloganSelB.classList.remove('bchotpink');
+            sloganSelB.classList.remove('bcemerald');
+            sloganSelB.classList.remove('bcgold');
         }
 
         BCultramarinesel.onclick = () => {
-            sloganSel.classList.remove('bclemay');
-            sloganSel.classList.remove('bcpurple');
-            sloganSel.classList.remove('bcpeach');
-            sloganSel.classList.remove('bcgourd');
-            sloganSel.classList.remove('bcpale');
-            sloganSel.classList.toggle('bcultramarine');
-            sloganSel.classList.remove('bcviolet');
-            sloganSel.classList.remove('bchotpink');
-            sloganSel.classList.remove('bcemerald');
-            sloganSel.classList.remove('bcgold');
+            sloganSelB.classList.remove('bclemay');
+            sloganSelB.classList.remove('bcpurple');
+            sloganSelB.classList.remove('bcpeach');
+            sloganSelB.classList.remove('bcgourd');
+            sloganSelB.classList.remove('bcpale');
+            sloganSelB.classList.toggle('bcultramarine');
+            sloganSelB.classList.remove('bcviolet');
+            sloganSelB.classList.remove('bchotpink');
+            sloganSelB.classList.remove('bcemerald');
+            sloganSelB.classList.remove('bcgold');
         }
 
         BCvioletsel.onclick = () => {
-            sloganSel.classList.remove('bclemay');
-            sloganSel.classList.remove('bcpurple');
-            sloganSel.classList.remove('bcpeach');
-            sloganSel.classList.remove('bcgourd');
-            sloganSel.classList.remove('bcpale');
-            sloganSel.classList.remove('bcultramarine');
-            sloganSel.classList.toggle('bcviolet');
-            sloganSel.classList.remove('bchotpink');
-            sloganSel.classList.remove('bcemerald');
-            sloganSel.classList.remove('bcgold');
+            sloganSelB.classList.remove('bclemay');
+            sloganSelB.classList.remove('bcpurple');
+            sloganSelB.classList.remove('bcpeach');
+            sloganSelB.classList.remove('bcgourd');
+            sloganSelB.classList.remove('bcpale');
+            sloganSelB.classList.remove('bcultramarine');
+            sloganSelB.classList.toggle('bcviolet');
+            sloganSelB.classList.remove('bchotpink');
+            sloganSelB.classList.remove('bcemerald');
+            sloganSelB.classList.remove('bcgold');
         }
 
         BChotpinksel.onclick = () => {
-            sloganSel.classList.remove('bclemay');
-            sloganSel.classList.remove('bcpurple');
-            sloganSel.classList.remove('bcpeach');
-            sloganSel.classList.remove('bcgourd');
-            sloganSel.classList.remove('bcpale');
-            sloganSel.classList.remove('bcultramarine');
-            sloganSel.classList.remove('bcviolet');
-            sloganSel.classList.toggle('bchotpink');
-            sloganSel.classList.remove('bcemerald');
-            sloganSel.classList.remove('bcgold');
+            sloganSelB.classList.remove('bclemay');
+            sloganSelB.classList.remove('bcpurple');
+            sloganSelB.classList.remove('bcpeach');
+            sloganSelB.classList.remove('bcgourd');
+            sloganSelB.classList.remove('bcpale');
+            sloganSelB.classList.remove('bcultramarine');
+            sloganSelB.classList.remove('bcviolet');
+            sloganSelB.classList.toggle('bchotpink');
+            sloganSelB.classList.remove('bcemerald');
+            sloganSelB.classList.remove('bcgold');
         }
 
         BCemeraldsel.onclick = () => {
-            sloganSel.classList.remove('bclemay');
-            sloganSel.classList.remove('bcpurple');
-            sloganSel.classList.remove('bcpeach');
-            sloganSel.classList.remove('bcgourd');
-            sloganSel.classList.remove('bcpale');
-            sloganSel.classList.remove('bcultramarine');
-            sloganSel.classList.remove('bcviolet');
-            sloganSel.classList.remove('bchotpink');
-            sloganSel.classList.toggle('bcemerald');
-            sloganSel.classList.remove('bcgold');
+            sloganSelB.classList.remove('bclemay');
+            sloganSelB.classList.remove('bcpurple');
+            sloganSelB.classList.remove('bcpeach');
+            sloganSelB.classList.remove('bcgourd');
+            sloganSelB.classList.remove('bcpale');
+            sloganSelB.classList.remove('bcultramarine');
+            sloganSelB.classList.remove('bcviolet');
+            sloganSelB.classList.remove('bchotpink');
+            sloganSelB.classList.toggle('bcemerald');
+            sloganSelB.classList.remove('bcgold');
         }
 
         BCgoldsel.onclick = () => {
-            sloganSel.classList.remove('bclemay');
-            sloganSel.classList.remove('bcpurple');
-            sloganSel.classList.remove('bcpeach');
-            sloganSel.classList.remove('bcgourd');
-            sloganSel.classList.remove('bcpale');
-            sloganSel.classList.remove('bcultramarine');
-            sloganSel.classList.remove('bcviolet');
-            sloganSel.classList.remove('bchotpink');
-            sloganSel.classList.remove('bcemerald');
-            sloganSel.classList.toggle('bcgold');
+            sloganSelB.classList.remove('bclemay');
+            sloganSelB.classList.remove('bcpurple');
+            sloganSelB.classList.remove('bcpeach');
+            sloganSelB.classList.remove('bcgourd');
+            sloganSelB.classList.remove('bcpale');
+            sloganSelB.classList.remove('bcultramarine');
+            sloganSelB.classList.remove('bcviolet');
+            sloganSelB.classList.remove('bchotpink');
+            sloganSelB.classList.remove('bcemerald');
+            sloganSelB.classList.toggle('bcgold');
         }
     </script>
 
@@ -753,11 +1350,13 @@
         var arrowSel = document.querySelector('.arrow');
         var headerlogSel = document.querySelector('.headlog');
         var profileSel = document.querySelector('.profile');
+        var sliderSel = document.getElementById("sliderID");
 
         expanderSel.onclick = () => {
             expanderSel.style.opacity = "0";
             expanderSel.style.top = "100%";
             contractorSel.style.top = "90%";
+            sliderSel.style.bottom = "-50%";
             settingSel.classList.toggle('hide');
             arrowSel.classList.toggle('hide');
             headlogSel.classList.toggle('hide');
@@ -768,6 +1367,7 @@
             contractorSel.style.top = "100%";
             expanderSel.style.opacity = "1";
             expanderSel.style.top = "90%";
+            sliderSel.style.bottom = "10%";
             settingSel.classList.toggle('hide');
             arrowSel.classList.toggle('hide');
             headlogSel.classList.toggle('hide');
@@ -803,7 +1403,6 @@
             setTimeout(function() {
                 document.getElementById("expanderID").style.top = "90%";
                 document.getElementById("compAlert").style.top = "-15%";
-                document.getElementById("acknowAlert").style.top = "150%";
             }, 4500)
         }
     </script>
@@ -905,9 +1504,6 @@
         }
 
     </script>
-
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
 </html>
