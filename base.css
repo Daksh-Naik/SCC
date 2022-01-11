@@ -6,8 +6,10 @@
     --scale : 1.5;
     --peachSkin : rgb(141,85,36);
 }
-@media (prefers-color-scheme: light) { :root { --servBColor : rgb(230, 230, 230); --servTColor : rgb(40, 40, 40); --servAColor : rgb(139, 91, 0); --servBTColor : rgba(250, 250, 250, 0.92); }  }
-@media (prefers-color-scheme: dark) { :root { --servBColor : rgb(20, 20, 20); --servTColor : rgb(230, 230, 230); --servAColor : rgb(255, 255, 139); --servBTColor : rgba(0, 0, 0, 0.92);   } }
+@media (prefers-color-scheme: light) {
+    :root { --servBColor : rgb(230, 230, 230); --servTColor : rgb(40, 40, 40); --servAColor : rgb(139, 91, 0); --servBTColor : rgba(250, 250, 250, 0.92); }  }
+@media (prefers-color-scheme: dark) {
+    :root { --servBColor : rgb(20, 20, 20); --servTColor : rgb(230, 230, 230); --servAColor : rgb(255, 255, 139); --servBTColor : rgba(0, 0, 0, 0.92);   } }
 
 *{ padding: 0; margin: 0; box-sizing: border-box; user-select: none; transition: ease-in 0.3s; font-family: 'Montserrat', sans-serif; }
 body { overflow: hidden; color: var(--servTColor); background-color: var(--servBColor); } html { scroll-behavior: smooth; }
