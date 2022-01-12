@@ -39,7 +39,7 @@
         .slogan .decision.view::after { top: 0%; opacity: 1; }
         .slogan .sentence { opacity: 0; font-size: 1.2vw; }
         .slogan .sentence.view { opacity: 1; }
-        .slogan .sentence::after { content: " who's going to decide the better tomorrow. Your decision matters."; 
+        .slogan .sentence::after { content: " who's going to adjudge for the better tomorrow. Your decision matters."; 
                         position: relative; top: -50%; opacity: 0; transition-delay: 1s; transition: 1s; }
         .slogan .sentence.view::after { top: 0%; opacity: 1; }
 
@@ -91,7 +91,7 @@
         .chaps.active { left: 0%; opacity: 1; }
 
         .slider { position: fixed; width: 20vw; bottom: 10%; left: 70%;  display: flex; justify-content: space-evenly; align-items: center; z-index: 40; }
-        .slider h2 { opacity: 0.4; cursor: pointer; } .slider h2 span { opacity: 0; position: absolute; top: -5vh; left: 8vw; font-size: 2vh; }
+        .slider h2 { opacity: 0.9; cursor: pointer; } .slider h2 span { opacity: 0; position: absolute; top: -5vh; left: 8vw; font-size: 2vh; }
         .slider h2:hover { opacity: 1; } .slider h2:hover span { opacity: 1; }
         
         .slogan.tccyan { color: rgb(150, 255, 255); } .slogan.tcsalm { color: rgb(255, 180, 160); }
@@ -117,6 +117,8 @@
         .peeps .head.coblue { border: 1px solid blue; }
         .peeps.coyellow { border-top: 1px solid yellow; border-left: 1px solid yellow; border-right: 1px solid yellow; }
         .peeps .head.coyellow { border: 1px solid yellow; }
+        .peeps.cocrimson { border-top: 1px solid crimson; border-left: 1px solid crimson; border-right: 1px solid crimson; }
+        .peeps .head.cocrimson { border: 1px solid crimson; }
 
         .profile { position: fixed; top: 20%; left: 2%; z-index: 90; cursor: pointer; transition: 0.8s cubic-bezier(0.445, 0.92, 0.55, 0.95); }
         .profile span { opacity: 0; position: relative; top: -6vh; left: -3.5vw; width: auto; } .profile:hover span { opacity: 1; } 
@@ -169,21 +171,25 @@
         .sidesett { position: fixed; top: 0%; left: 120vw; width: 40vw; height: 100vh; background-color: var(--servBTColor); 
             color: var(--servTColor); z-index: 50; display: flex; justify-content: center; align-items: flex-start; flex-direction: column;
             transition: 0.7s; padding: 10vh 1vw; }
-        ::-webkit-scrollbar { width: 2px; } ::-webkit-scrollbar-track {  background: var(--servBColor); } ::-webkit-scrollbar-thumb { background: yellow; }
+        ::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-track {  background: var(--servBColor); } ::-webkit-scrollbar-thumb { background: yellow; }
+        ::-webkit-scrollbar-thumb:hover { width: 5px; }
         .sidesett i { padding-left: 2vw; }
         .sidesett .settcontent { padding: 1vh 2vw 5vh 2vw; display: grid; grid-template-columns: auto auto auto auto auto; }
         .sidesett .settcontent .textcolor { width: 4vw; height: 5vh; border: 1px solid var(--servTColor); cursor: pointer; margin: 0.5vh 1vw; 
             filter: grayscale(1); transition-delay: 1s; }
+        .default { width: max-content; margin: auto; padding: 1vh 1vw; background-color: var(--servBColor);
+            color: var(--servTColor); cursor: pointer; transition: 0.3s; } 
+        .default:hover { background-color: var(--servTColor); color: var(--servBColor); }
         .sidesett .settcontent .textcolor span { opacity: 0; position: relative; font-size: 0; top: 5vh; transition: 0.3s; }
         .sidesett .settcontent .textcolor:hover span { opacity: 1; font-size: initial; }
         .sidesett.active { left: 60vw; } .sidesett.active .settcontent .textcolor { filter: grayscale(0); }
 
-        .tricolor { position: fixed; z-index: -1; top: 0%; left: 0; width: 100vw; height: 100vh; overflow: hidden; opacity: 0.05; }
+        .tricolor { position: fixed; z-index: -1; top: 0%; left: 0; width: 100vw; height: 100vh; overflow: hidden; opacity: 0.2; }
         .tricolor .orange { position: relative; background: rgb(255, 153, 51); height: 33.3vh; width: 200vw; transform: rotate(345deg); top: -25%; left: -10%; }
         .tricolor .white { position: relative; background: rgb(255, 255, 255); height: 33.3vh; width: 200vw; transform: rotate(345deg); top: -25%; left: -10%; }
         .tricolor .green { position: relative; background: rgb(19, 136, 8); height: 33.3vh; width: 200vw; transform: rotate(345deg); top: -25%; left: -10%; overflow: hidden; }
         .tricolor .white .circle { height: 33.3vh; width: 33.3vh; border-radius: 100% 100%; border: 5px solid #000080; position: relative; top: 50%; left: 30%; transform: translate(-50%, -50%); }
-        .tricolor .white .circle .spoke { position: absolute; background: #000080; height: 32vh; width: 2px; overflow: hidden; left: 50%; }
+        .tricolor .white .circle .spoke { position: absolute; background: #000080; height: 32vh; width: 5px; overflow: hidden; left: 50%; border-radius: 100% 100% 100% 100%; }
         .tricolor .white .circle .spoke:nth-child(1) { transform: rotate(0deg); } .tricolor .white .circle .spoke:nth-child(2) { transform: rotate(15deg); } 
         .tricolor .white .circle .spoke:nth-child(3) { transform: rotate(30deg); } .tricolor .white .circle .spoke:nth-child(4) { transform: rotate(45deg); } 
         .tricolor .white .circle .spoke:nth-child(5) { transform: rotate(60deg); } .tricolor .white .circle .spoke:nth-child(6) { transform: rotate(75deg); } 
@@ -236,31 +242,11 @@
         <div class="orange"></div>
         <div class="white">
             <div class="circle">
-                <div class="spoke"></div>
-                <div class="spoke"></div>
-                <div class="spoke"></div>
-                <div class="spoke"></div>
-                <div class="spoke"></div>
-                <div class="spoke"></div>
-                <div class="spoke"></div>
-                <div class="spoke"></div>
-                <div class="spoke"></div>
-                <div class="spoke"></div>
-                <div class="spoke"></div>
-                <div class="spoke"></div>
-                <div class="spoke"></div>
-                <div class="spoke"></div>
-                <div class="spoke"></div>
-                <div class="spoke"></div>
-                <div class="spoke"></div>
-                <div class="spoke"></div>
-                <div class="spoke"></div>
-                <div class="spoke"></div>
-                <div class="spoke"></div>
-                <div class="spoke"></div>
-                <div class="spoke"></div>
-                <div class="spoke"></div>
-                <div class="spoke"></div>
+                <div class="spoke"></div><div class="spoke"></div><div class="spoke"></div><div class="spoke"></div><div class="spoke"></div>
+                <div class="spoke"></div><div class="spoke"></div><div class="spoke"></div><div class="spoke"></div><div class="spoke"></div>
+                <div class="spoke"></div><div class="spoke"></div><div class="spoke"></div><div class="spoke"></div><div class="spoke"></div>
+                <div class="spoke"></div><div class="spoke"></div><div class="spoke"></div><div class="spoke"></div><div class="spoke"></div>
+                <div class="spoke"></div><div class="spoke"></div><div class="spoke"></div><div class="spoke"></div><div class="spoke"></div>
                 <div class="spoke"></div>
             </div>
         </div>
@@ -285,99 +271,118 @@
         <h4><ion-icon name="alert-circle-outline"></ion-icon> Slogan is best viewed on Laptops / Desktops.</h4>
     </div>
 
-    <div class="profile" id="profileICON"><ion-icon name="person-sharp"></ion-icon><span> Info</span></div>
+    <section>
 
-    <div class="profileContent" id="profileContentDIV">
-        <div class="profContent">
-            <h1>Team Information</h1>
-            <div class="deta">
-                <h3>Who?</h3>
-                <p>Daksh Naik, '16</p>
-                <p>Almeida High School, Ponda</p>
-            </div>
-            <div class="deta">
-                <h3>Environment</h3>
-                <p>The Web. Handmade with pure HTML, CSS and ECMA Script 6</p>
-                <p>No copy. No images. Made from scratch.</p>
-            </div>
-            <div class="deta">
-                <h3>Slogan</h3>
-                <p>Self - derived thought</p>
-            </div>
-            <div class="deta">
-                <h3>Timeline</h3>
-                <p>Development Initiated : 08 January, 2022</p>
-                <p>Refining : 09 January</p>
-                <p>Date of completion : 11 January</p>
-            </div>
-            <div class="deta">
-                <p><ion-icon name="alert-circle-outline"></ion-icon> Sufficient care is undertaken to make the slogan look flawless. 
-                    The slogan may look different on various devices. Medium sized Laptops or Desktops render the slogan accurately.
-                    The slogan (hand, vote-box and fictional candidates) is purely made from CSS and is NOT an image. So it's evident for the
-                    fact that the slogan will have different sizes across all devices. Hence, trial-and-error method is often used to render 
-                    the slogan precisely. <br><br>
-                    There was a way of rendering the slogan by image / SVG obviously, but in order to make it a fair-play and to get some
-                    creativity points, simple CSS is preferred for the same.</p>
-                <br>
-                <p>
-                    <ion-icon name="alert-circle-outline"></ion-icon> Website / Webpage is hosted by Github. I have nothing to do with the
-                    web server. All I have taken care of is the Front End and UX. Decision, planning, UX / UI, artwork has been done by me.
-                </p>
-                <br><br><br>
-                <p>Thanks for viewing!</p>
-                <p>Regards, <br> Daksh</p>
+        <div class="profile" id="profileICON"><ion-icon name="person-sharp"></ion-icon><span> Info</span></div>
+
+        <div class="profileContent" id="profileContentDIV">
+            <div class="profContent">
+                <h1>Team Information</h1>
+                <div class="deta">
+                    <h3>Who?</h3>
+                    <p>Daksh Naik, '16</p>
+                    <p>Almeida High School, Ponda</p>
+                </div>
+                <div class="deta">
+                    <h3>Environment</h3>
+                    <p>The Web. Handmade with pure HTML, CSS and ECMA Script 6</p>
+                    <p>No copy. No images. Made from scratch.</p>
+                </div>
+                <div class="deta">
+                    <h3>Slogan</h3>
+                    <p>Self - derived thought</p>
+                </div>
+                <div class="deta">
+                    <h3>Timeline</h3>
+                    <p>Development Initiated : 08 January, 2022</p>
+                    <p>Refining : 09 January</p>
+                    <p>Date of completion : 11 January</p>
+                </div>
+                <div class="deta">
+                    <p><ion-icon name="alert-circle-outline"></ion-icon> Sufficient care is undertaken to make the slogan look flawless. 
+                        The slogan may look different on various devices. Medium sized Laptops or Desktops render the slogan accurately.
+                        The slogan (hand, vote-box and fictional candidates) is purely made from CSS and is NOT an image. So it's evident for the
+                        fact that the slogan will have different sizes across all devices. Hence, trial-and-error method is often used to render 
+                        the slogan precisely. <br><br>
+                        There was a way of rendering the slogan by image / SVG obviously, but in order to make it a fair-play and to get some
+                        creativity points, simple CSS is preferred for the same.</p>
+                    <br>
+                    <p><ion-icon name="alert-circle-outline"></ion-icon> The prime motive or the significance of the design of this website
+                        centres around the idea of having the Aesthetic and Focussed feel, just like other websites when it comes to designing
+                        the landing page. It may seem empty, compared to other slogans,
+                        but the deserted feel of the slogan is intentional. Having a plethora of sentences in and around the slogan
+                        to maximize interaction doesn't matter when it comes to Slogans which are drawn by hand. If it were to implement
+                        so many sentences on the slogan on web, the design would loose its aestheticness because of the cluster, which will make it
+                        look unpleasant. This would even loose the focussed feel of the main component of the slogan. Added to this,
+                        this would even compromise in maintaining Media Responsiveness across all devices. So, rounding all this up,
+                        the empty spaces around the slogan is intentional and so the cluster is avoided.</p>
+                    <br>
+                    <p>
+                        <ion-icon name="alert-circle-outline"></ion-icon> Website / Webpage is hosted by Github. I have nothing to do with the
+                        web server. All I have taken care of is the Front End and UX. Decision, planning, UX / UI, artwork has been done by me.
+                    </p>
+                    <br><br><br>
+                    <p>Thanks for viewing!</p>
+                    <p>Regards, <br> 
+                        <a href="https://daksh-naik.github.io/Profile/" target="_blank" rel="noopener noreferrer" class="external">Daksh</a>
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="sloganArea">
-        <div class="slogan" id="sloganID">
-            <h1 class="vote">It's your</h1>
-            <h1 class="choice">It's your</h1>
-            <h1 class="decision">It's your</h1>
-            <h3 class="sentence">It's you, </h3>
-        </div>
-        <div class="sloganCanvas">
-            <div class="handArea">
-                <div class="hand">
-                    <div class="fist"></div>
-                    <div class="lowerfist"></div>
-                    <div class="thumb"></div>
-                    <div class="index">
-                        <div class="nail">
-                            <div class="mark"></div>
+    </section>
+
+    <section>
+
+        <div class="sloganArea" id="sloganAreaID">
+            <div class="slogan" id="sloganID">
+                <h1 class="vote">It's your</h1>
+                <h1 class="choice">It's your</h1>
+                <h1 class="decision">It's your</h1>
+                <h3 class="sentence">It's you, </h3>
+            </div>
+            <div class="sloganCanvas">
+                <div class="handArea">
+                    <div class="hand">
+                        <div class="fist"></div>
+                        <div class="lowerfist"></div>
+                        <div class="thumb"></div>
+                        <div class="index">
+                            <div class="nail">
+                                <div class="mark"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="votebox active">
-                <div class="box">
-                    <h5 class="h5"><p>VOTE</p></h5>
+                <div class="votebox active">
+                    <div class="box">
+                        <h5 class="h5"><p>VOTE</p></h5>
+                    </div>
+                    <div class="card">
+                        <ion-icon name="checkbox-outline"></ion-icon>
+                    </div>
                 </div>
-                <div class="card">
-                    <ion-icon name="checkbox-outline"></ion-icon>
-                </div>
-            </div>
-            <div class="chaps">
-                <div class="peeps" id="peepsID">
-                    <div class="head"></div>
-                </div>
-                <div class="peeps" id="peepsID">
-                    <div class="head" style="height: 4vw; width: 4vw; left: 25%;"></div>
-                    <ion-icon name="checkmark-outline"></ion-icon>
-                </div>
-                <div class="peeps" id="peepsID">
-                    <div class="head"></div>
+                <div class="chaps">
+                    <div class="peeps" id="peepsID">
+                        <div class="head"></div>
+                    </div>
+                    <div class="peeps" id="peepsID">
+                        <div class="head" style="height: 4vw; width: 4vw; left: 25%;"></div>
+                        <ion-icon name="checkmark-outline"></ion-icon>                    </div>
+                    <div class="peeps" id="peepsID">
+                        <div class="head"></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="slider" id="sliderID">
-        <h2 id="slhand">__ <span>Hand</span></h2>
-        <h2 id="slvotebox">__ <span>Votebox</span></h2>
-        <h2 id="slcandidate">__ <span>Candidate</span></h2>
-    </div>
+        <div class="slider" id="sliderID">
+            <h2 id="slhand">__ <span>Hand</span></h2>
+            <h2 id="slvotebox">__ <span>Votebox</span></h2>
+            <h2 id="slcandidate">__ <span>Candidate</span></h2>
+        </div>
+
+    </section>
 
     <div class="expander" id="expanderID">
         <ion-icon name="expand-outline"></ion-icon>
@@ -394,148 +399,177 @@
         <span class="spanArr">Menu</span>
     </div>
 
-    <h4 class="settingsalr" id="settalr">Settings changed.</h4>
+    <section>
 
-    <div class="settings" id="settingsID">
-        <ion-icon name="chevron-back-circle-sharp"></ion-icon>
-        <span>Slogan Settings</span>
-    </div>
+        <h4 class="settingsalr" id="settalr">Settings changed.</h4>
 
-    <div class="sidesett" id="sidesetting">
-        <div style="overflow-y: auto; padding-top: 10vh;">
-            <h1>Background Flag Opacity</h1>
-            <div class="settcontent" style="align-items: center;">
-                <input type="range" id="opacityRange" min="0" max="100" value="90" class="opasliderCL">
-            </div>
-            <h1>Text Shadow</h1>
-            <div class="settcontent">
-                <h4 class="textcolor" id="tshwhite" style="background: white;"><span>White</span></h4>
-                <h4 class="textcolor" id="tshblack" style="background: black;"><span>Black</span></h4>
-                <h4 class="textcolor" id="tshcrimson" style="background: crimson;"><span>Crimson</span></h4>
-                <h4 class="textcolor" id="tshyellow" style="background: yellow;"><span>Yellow</span></h4>
-                <h4 class="textcolor" id="tshblue" style="background: blue;"><span>Blue</span></h4>
-            </div>
-            <br>
-            <p>Double Click / Tap to reset defaults.</p>
-            <h1>Text Color</h1>
-            <i>Pastel</i>
-            <div class="settcontent">
-                <h4 id="tccyan" class="textcolor" style="background-color: rgb(150, 255, 255);"><span>Cyan</span></h4>
-                <h4 id="tcslate" class="textcolor" style="background-color: rgb(120, 135, 150);"><span>Slate</span></h4>
-                <h4 id="tcsalm" class="textcolor" style="background-color: rgb(255, 180, 160);"><span>Salmon</span></h4>
-                <h4 id="tcgreen" class="textcolor" style="background-color: rgb(90, 255, 90);"><span>Green</span></h4>
-                <h4 id="tcyell" class="textcolor" style="background-color: rgb(255, 255, 100);"><span>Yellow</span></h4>
-            </div>
-            <i>Matte Dark</i>
-            <div class="settcontent">
-                <h4 class="textcolor" id="tcindigo" style="background-color: rgb(38, 67, 72);"><span>Indigo</span></h4>
-                <h4 class="textcolor" id="tcstudio" style="background-color: rgb(142, 68, 173);"><span>Studio</span></h4>
-                <h4 class="textcolor" id="tccrimson" style="background-color: rgb(246, 36, 89);"><span>Crimson</span></h4>
-                <h4 class="textcolor" id="tcpatina" style="background-color: rgb(0, 100, 66);"><span>Patina</span></h4>
-                <h4 class="textcolor" id="tcgamboge" style="background-color: rgb(255, 182, 30);"><span>Gamboge</span></h4>
-            </div>
-            <i>Vibrance</i>
-            <div class="settcontent">
-                <h4 class="textcolor" id="tcdodger" style="background-color: rgb(25, 181, 254);"><span>Dodger</span></h4>
-                <h4 class="textcolor" id="tcwisteria" style="background-color: rgb(190, 144, 212);"><span>Wisteria</span></h4>
-                <h4 class="textcolor" id="tcblossom" style="background-color: rgb(252, 201, 185);"><span>Blossom</span></h4>
-                <h4 class="textcolor" id="tceucal" style="background-color: rgb(38, 194, 129);"><span>Eucal</span></h4>
-                <h4 class="textcolor" id="tcsaffron" style="background-color: rgb(244, 208, 63);"><span>Saffron</span></h4>
-            </div>
-            <br>
-            <h1>Background Color</h1>
-            <i>Pastel</i>
-            <div class="settcontent">
-                <h4 class="textcolor" id="bclemay" style="background-color: rgb(153, 254, 255);"><span>Lemay</span></h4>
-                <h4 class="textcolor" id="bcpurple" style="background-color: rgb(144, 127, 164);"><span>Purple</span></h4>
-                <h4 class="textcolor" id="bcpeach" style="background-color: rgb(255, 196, 225);"><span>Peach</span></h4>
-                <h4 class="textcolor" id="bcgourd" style="background-color: rgb(214, 255, 132);"><span>Gourd</span></h4>
-                <h4 class="textcolor" id="bcpale" style="background-color: rgb(252, 255, 166);"><span>Pale</span></h4>
-            </div>
-            <i>Dark</i>
-            <div class="settcontent">
-                <h4 class="textcolor" id="bcultramarine" style="background-color: rgb(20, 30, 97);"><span>Ultramarine</span></h4>
-                <h4 class="textcolor" id="bcviolet" style="background-color: rgb(97, 0, 148);"><span>Violet</span></h4>
-                <h4 class="textcolor" id="bchotpink" style="background-color: rgb(218, 0, 55);"><span>Hotpink</span></h4>
-                <h4 class="textcolor" id="bcemerald" style="background-color: rgb(52, 103, 81);"><span>Emerald</span></h4>
-                <h4 class="textcolor" id="bcgold" style="background-color: rgb(216, 146, 22);"><span>Gold</span></h4>
-            </div>
-
-            <p><ion-icon name="alert-circle-outline"></ion-icon> Sufficient care is undertaken to make the slogan look flawless. 
-                The slogan may look different on various devices. Medium sized Laptops or Desktops render the slogan accurately.</p>
-            <br><br><br>
-            <h1>Hand</h1>
-            <i>Skin tone</i>
-            <i style="font-size: smaller;">No intentions of racial discrimination.</i>
-            <div class="settcontent" id="settHand">
-                <h4 class="textcolor" id="stbrown" style="background-color:rgb(141,85,36)"></h4>
-                <h4 class="textcolor" id="stmedbrown" style="background-color: rgb(198,134,66);"></h4>
-                <h4 class="textcolor" id="stlightbrown" style="background-color: rgb(224,172,105);"></h4>
-                <h4 class="textcolor" id="stbeige" style="background-color: rgb(241,194,125);"></h4>
-                <h4 class="textcolor" id="stpale" style="background-color: rgb(255,219,172);"></h4>
-            </div>
-            <br><br>
-            <h1>Votebox</h1>
-            <i>Wood Color</i>
-            <div class="settcontent" id="settVotebox">
-                <h4 class="textcolor" id="vbbiege" style="background-color: rgb(240,195,145);"><span>Biege</span></h4>
-                <h4 class="textcolor" id="vbpale" style="background-color: rgb(242,232,215);"><span>Pale</span></h4>
-                <h4 class="textcolor" id="vbbrown" style="background-color: rgb(114, 73, 53);"><span>Brown</span></h4>
-                <h4 class="textcolor" id="vbslade" style="background-color: rgb(141, 94, 47);"><span>Slade</span></h4>
-                <h4 class="textcolor" id="vbwalnut" style="background-color: rgb(234, 191, 124);"><span>Walnut</span></h4>
-            </div>
-            <h1>Candidates</h1>
-            <i>Outline</i>
-            <div class="settcontent" id="settCandidates">
-                <h4 class="textcolor" id="coblack" style="background-color: black;"><span>Black</span></h4>
-                <h4 class="textcolor" id="cowhite" style="background-color: white;"><span>White</span></h4>
-                <h4 class="textcolor" id="coblue" style="background-color: blue;"><span>Blue</span></h4>
-                <h4 class="textcolor" id="coyellow" style="background-color: yellow;"><span>Yellow</span></h4>
-            </div>
+        <div class="settings" id="settingsID">
+            <ion-icon name="chevron-back-circle-sharp"></ion-icon>
+            <span>Slogan Settings</span>
         </div>
-    </div>
 
-    <div class="menu" id="mainmenu">
-        <div class="content" id="maincontent">
-            <div style="padding-top: 10vh;">
-                <h2>About</h2>
-                <p style="padding-right: 2vw;"> On this website, the viewer has the ability to change Visual Properties of the slogan. From changing Sprite (element)
-                    to changing Foreground Colors, this slogan is specifically made to enable the viewer to have full control over it.
-                    Viewer can take a Screenshot by Expanding elements in order to focus on the Slogan. As said, the viewer can
-                    even modify it. Go to Slogan Settings to change Visual Properties.</p>
-                    <br>
-                <p>Also, NO Images are used. Everything here is done by pure HTML, CSS and ES6 (JS). No Images, nor any SVG is used (except
-                    Sprites / Icons).</p>
-            </div>
-            <div id="menucha">
-                <div class="setting">
-                        <h3>Go to Slogan Settings</h3>
+        <div class="sidesett" id="sidesetting">
+            <div style="overflow-y: auto; padding-top: 10vh;">
+                <div style="width: max-content; margin: auto; padding: 2vh 0vw;">
+                    <h1>Slogan Settings</h1>
+                </div>
+                <h2>Background Flag Opacity</h2>
+                <div class="settcontent" style="align-items: center;">
+                    <input type="range" id="opacityRange" min="0" max="100" value="90" class="opasliderCL">
+                </div>
+                <h2>Text Shadow</h2>
+                <div class="settcontent">
+                    <h4 class="textcolor" id="tshwhite" style="background: white;"><span>White</span></h4>
+                    <h4 class="textcolor" id="tshblack" style="background: black;"><span>Black</span></h4>
+                    <h4 class="textcolor" id="tshcrimson" style="background: crimson;"><span>Crimson</span></h4>
+                    <h4 class="textcolor" id="tshyellow" style="background: yellow;"><span>Yellow</span></h4>
+                    <h4 class="textcolor" id="tshblue" style="background: blue;"><span>Blue</span></h4>
+                </div>
+                <div class="settcontent" style="width: max-content; margin: auto;">
+                    <div class="default" id="tshremove"><h5>REMOVE SHADOW</h5></div>
+                </div>
+                <br>
+                <h2>Text Color</h2>
+                <i>Pastel</i>
+                <div class="settcontent">
+                    <h4 id="tccyan" class="textcolor" style="background-color: rgb(150, 255, 255);"><span>Cyan</span></h4>
+                    <h4 id="tcslate" class="textcolor" style="background-color: rgb(120, 135, 150);"><span>Slate</span></h4>
+                    <h4 id="tcsalm" class="textcolor" style="background-color: rgb(255, 180, 160);"><span>Salmon</span></h4>
+                    <h4 id="tcgreen" class="textcolor" style="background-color: rgb(90, 255, 90);"><span>Green</span></h4>
+                    <h4 id="tcyell" class="textcolor" style="background-color: rgb(255, 255, 100);"><span>Yellow</span></h4>
+                </div>
+                <i>Matte Dark</i>
+                <div class="settcontent">
+                    <h4 class="textcolor" id="tcindigo" style="background-color: rgb(38, 67, 72);"><span>Indigo</span></h4>
+                    <h4 class="textcolor" id="tcstudio" style="background-color: rgb(142, 68, 173);"><span>Studio</span></h4>
+                    <h4 class="textcolor" id="tccrimson" style="background-color: rgb(246, 36, 89);"><span>Crimson</span></h4>
+                    <h4 class="textcolor" id="tcpatina" style="background-color: rgb(0, 100, 66);"><span>Patina</span></h4>
+                    <h4 class="textcolor" id="tcgamboge" style="background-color: rgb(255, 182, 30);"><span>Gamboge</span></h4>
+                </div>
+                <i>Vibrance</i>
+                <div class="settcontent">
+                    <h4 class="textcolor" id="tcdodger" style="background-color: rgb(25, 181, 254);"><span>Dodger</span></h4>
+                    <h4 class="textcolor" id="tcwisteria" style="background-color: rgb(190, 144, 212);"><span>Wisteria</span></h4>
+                    <h4 class="textcolor" id="tcblossom" style="background-color: rgb(252, 201, 185);"><span>Blossom</span></h4>
+                    <h4 class="textcolor" id="tceucal" style="background-color: rgb(38, 194, 129);"><span>Eucal</span></h4>
+                    <h4 class="textcolor" id="tcsaffron" style="background-color: rgb(244, 208, 63);"><span>Saffron</span></h4>
+                </div>
+                <div class="settcontent" style="width:max-content; margin: auto;">
+                    <div class="default" id="tcdefault"><h5>RESET DEFAULTS</h5></div>
+                </div>
+                <br>
+                <h2>Background Color</h2>
+                <i>Pastel</i>
+                <div class="settcontent">
+                    <h4 class="textcolor" id="bclemay" style="background-color: rgb(153, 254, 255);"><span>Lemay</span></h4>
+                    <h4 class="textcolor" id="bcpurple" style="background-color: rgb(144, 127, 164);"><span>Purple</span></h4>
+                    <h4 class="textcolor" id="bcpeach" style="background-color: rgb(255, 196, 225);"><span>Peach</span></h4>
+                    <h4 class="textcolor" id="bcgourd" style="background-color: rgb(214, 255, 132);"><span>Gourd</span></h4>
+                    <h4 class="textcolor" id="bcpale" style="background-color: rgb(252, 255, 166);"><span>Pale</span></h4>
+                </div>
+                <i>Dark</i>
+                <div class="settcontent">
+                    <h4 class="textcolor" id="bcultramarine" style="background-color: rgb(20, 30, 97);"><span>Ultramarine</span></h4>
+                    <h4 class="textcolor" id="bcviolet" style="background-color: rgb(97, 0, 148);"><span>Violet</span></h4>
+                    <h4 class="textcolor" id="bchotpink" style="background-color: rgb(218, 0, 55);"><span>Hotpink</span></h4>
+                    <h4 class="textcolor" id="bcemerald" style="background-color: rgb(52, 103, 81);"><span>Emerald</span></h4>
+                    <h4 class="textcolor" id="bcgold" style="background-color: rgb(216, 146, 22);"><span>Gold</span></h4>
+                </div>
+                <div class="settcontent" style="margin: auto; width: max-content;">
+                    <div class="default" id="bcdefault"><h5>RESET DEFAULTS</h5></div>
+                </div>
+                <p><ion-icon name="alert-circle-outline"></ion-icon> Sufficient care is undertaken to make the slogan look flawless. 
+                    The slogan may look different on various devices. Medium sized Laptops or Desktops render the slogan accurately.</p>
+                <br><br><br>
+                <h2>Hand</h2><br>
+                <i>Skin tone</i>
+                <i style="font-size: smaller;">No intentions of racial discrimination.</i>
+                <div class="settcontent" id="settHand">
+                    <h4 class="textcolor" id="stbrown" style="background-color:rgb(141,85,36)"></h4>
+                    <h4 class="textcolor" id="stmedbrown" style="background-color: rgb(198,134,66);"></h4>
+                    <h4 class="textcolor" id="stlightbrown" style="background-color: rgb(224,172,105);"></h4>
+                    <h4 class="textcolor" id="stbeige" style="background-color: rgb(241,194,125);"></h4>
+                    <h4 class="textcolor" id="stpale" style="background-color: rgb(255,219,172);"></h4>
+                </div>
+                <br><br>
+                <h2>Votebox</h2>
+                <i>Wood Color</i>
+                <div class="settcontent" id="settVotebox">
+                    <h4 class="textcolor" id="vbbiege" style="background-color: rgb(240,195,145);"><span>Biege</span></h4>
+                    <h4 class="textcolor" id="vbpale" style="background-color: rgb(242,232,215);"><span>Pale</span></h4>
+                    <h4 class="textcolor" id="vbbrown" style="background-color: rgb(114, 73, 53);"><span>Brown</span></h4>
+                    <h4 class="textcolor" id="vbslade" style="background-color: rgb(141, 94, 47);"><span>Slade</span></h4>
+                    <h4 class="textcolor" id="vbwalnut" style="background-color: rgb(234, 191, 124);"><span>Walnut</span></h4>
+                </div>
+                <h2>Candidates</h2>
+                <i>Outline</i>
+                <div class="settcontent" id="settCandidates">
+                    <h4 class="textcolor" id="coblack" style="background-color: black;"><span>Black</span></h4>
+                    <h4 class="textcolor" id="cowhite" style="background-color: white;"><span>White</span></h4>
+                    <h4 class="textcolor" id="coblue" style="background-color: blue;"><span>Blue</span></h4>
+                    <h4 class="textcolor" id="coyellow" style="background-color: yellow;"><span>Yellow</span></h4>
+                    <h4 class="textcolor" id="cocrimson" style="background-color: crimson;"><span>Crimson</span></h4>
                 </div>
             </div>
-            <h2>Primary Background Color</h2>
-            <div class="setting">
-                <h4 style="background-color: rgb(0, 0, 0);" id="Vantablack"><span>Vantablack</span></h4>
-                <h4 style="background-color: rgb(80, 10, 0);" id="Maroon"><span>Maroon</span></h4>
-                <h4 style="background-color: rgb(159, 255, 159);" id="Brunswick"><span>Brunswick</span></h4>
-                <h4 style="background-color: rgb(255, 188, 121);" id="Slug"><span>Slug</span></h4>
-            </div>
-            <h2>Links</h2>
-            <div class="learn">
-                <!-- <a href="documentation.html" class="external"><h2>Learn how its made</h2></a>
-                <a href="documentation.html" class="external"><h2>Additional Info</h2></a> -->
-                <p>Coming soon.</p>
-            </div>
-            <br><br>
-            <div class="timeline">
-                <p>Development started : 8 January, 2022 - Present</p>
-                <p>Font : Montserrat 200W</p>
-                <p>HTML5, CSS3, ES6</p>
-            </div>
-            <div class="credits">
-                <h5>HANDMADE BY DAKSH N | HOSTED BY GITHUB</h5>
+        </div>
+
+    </section>
+
+    <section>
+
+        <div class="menu" id="mainmenu">
+            <div class="content" id="maincontent">
+                <div style="padding-top: 10vh;">
+                    <h2>About</h2>
+                    <p style="padding-right: 2vw;"> On this website, the viewer has the ability to change Visual Properties of the slogan. From changing Sprite (element)
+                        to changing Foreground Colors, this slogan is specifically made to enable the viewer to have full control over it.
+                        Viewer can take a Screenshot by Expanding elements in order to focus on the Slogan. As said, the viewer can
+                        even modify it. Go to Slogan Settings to change Visual Properties.</p>
+                        <br>
+                    <p>Also, NO Images are used. Everything here is done by pure HTML, CSS and ES6 (JS). No Images, nor any SVG is used (except
+                        Sprites / Icons).</p>
+                </div>
+                <div id="menucha">
+                    <div class="setting">
+                            <h3>Go to Slogan Settings</h3>
+                    </div>
+                </div>
+                <h2>Primary Background Color</h2>
+                <div class="setting">
+                    <h4 style="background-color: rgb(0, 0, 0);" id="Vantablack"><span>Vantablack</span></h4>
+                    <h4 style="background-color: rgb(80, 10, 0);" id="Maroon"><span>Maroon</span></h4>
+                    <h4 style="background-color: rgb(159, 255, 159);" id="Brunswick"><span>Brunswick</span></h4>
+                    <h4 style="background-color: rgb(255, 188, 121);" id="Slug"><span>Slug</span></h4>
+                </div>
+                <h2>Links</h2>
+                <div class="learn">
+                    <!-- <a href="documentation.html" class="external"><h2>Learn how its made</h2></a>
+                    <a href="documentation.html" class="external"><h2>Additional Info</h2></a> -->
+                    <p>Coming soon.</p>
+                </div>
+                <br><br>
+                <h2>Timeline</h2>
+                <div class="timeline">
+                    <p>Development started : 8 January, 2022</p>
+                    <p>Font : Montserrat 200W</p>
+                    <p>HTML5, CSS3, ES6</p>
+                </div>
+                <br><br><br>
+                <div>
+                    <p>EN - INDIA</p>
+                    <p>GOA</p>
+                    <p>12 Jan - 2022</p>
+                    <br>
+                    <p style="cursor: pointer;" id="seeAbout">ABOUT</p>
+                </div>
+                <div class="credits">
+                    <h5>ICONS BY IONIC.IO</h5>
+                    <h5>HANDMADE BY DAKSH N | HOSTED BY GITHUB</h5>
+                </div>
             </div>
         </div>
-    </div>
+
+    </section>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -588,6 +622,7 @@
         var ocwhite = document.getElementById("cowhite");
         var ocblue = document.getElementById("coblue");
         var ocyellow = document.getElementById("coyellow");
+        var occrimson = document.getElementById("cocrimson");
 
         var settalrSel = document.getElementById("settalr");
 
@@ -597,12 +632,14 @@
                 peepsSel[i].classList.remove('cowhite');
                 peepsSel[i].classList.remove('coyellow');
                 peepsSel[i].classList.remove('coblue');
+                peepsSel[i].classList.remove('cocrimson');
             }
             for (var i = 0; i < headSel.length; i++) {
                 headSel[i].classList.add('coblack');
                 headSel[i].classList.remove('cowhite');
                 headSel[i].classList.remove('coyellow');
                 headSel[i].classList.remove('coblue');
+                headSel[i].classList.remove('cocrimson');
             }
             settalrSel.style.opacity = "1";
             settalrSel.style.top = "20%";
@@ -618,12 +655,14 @@
                 peepsSel[i].classList.add('cowhite');
                 peepsSel[i].classList.remove('coblue');
                 peepsSel[i].classList.remove('coyellow');
+                peepsSel[i].classList.remove('cocrimson');
             }
             for (var i = 0; i < headSel.length; i++) {
                 headSel[i].classList.remove('coblack');
                 headSel[i].classList.add('cowhite');
                 headSel[i].classList.remove('coyellow');
                 headSel[i].classList.remove('coblue');
+                headSel[i].classList.remove('cocrimson');
             }
             settalrSel.style.opacity = "1";
             settalrSel.style.top = "20%";
@@ -638,6 +677,7 @@
                 peepsSel[i].classList.remove('coblack');
                 peepsSel[i].classList.remove('cowhite');
                 peepsSel[i].classList.add('coblue');
+                peepsSel[i].classList.remove('cocrimson');
                 peepsSel[i].classList.remove('coyellow');
             }
             for (var i = 0; i < headSel.length; i++) {
@@ -645,6 +685,7 @@
                 headSel[i].classList.remove('cowhite');
                 headSel[i].classList.remove('coyellow');
                 headSel[i].classList.add('coblue');
+                headSel[i].classList.remove('cocrimson');
             }
             settalrSel.style.opacity = "1";
             settalrSel.style.top = "20%";
@@ -659,6 +700,7 @@
                 peepsSel[i].classList.remove('coblack');
                 peepsSel[i].classList.remove('cowhite');
                 peepsSel[i].classList.remove('coblue');
+                peepsSel[i].classList.remove('cocrimson');
                 peepsSel[i].classList.add('coyellow');
             }
             for (var i = 0; i < headSel.length; i++) {
@@ -666,6 +708,30 @@
                 headSel[i].classList.remove('cowhite');
                 headSel[i].classList.add('coyellow');
                 headSel[i].classList.remove('coblue');
+                headSel[i].classList.remove('cocrimson');
+            }
+            settalrSel.style.opacity = "1";
+            settalrSel.style.top = "20%";
+            setTimeout(function() {
+                settalrSel.style.opacity = "0";
+                settalrSel.style.top = "-20%";
+            }, 1000);
+        }
+
+        occrimson.onclick = () => {
+            for (var i = 0; i < peepsSel.length; i++) {
+                peepsSel[i].classList.remove('coblack');
+                peepsSel[i].classList.remove('cowhite');
+                peepsSel[i].classList.remove('coblue');
+                peepsSel[i].classList.remove('coyellow');
+                peepsSel[i].classList.add('cocrimson')
+            }
+            for (var i = 0; i < headSel.length; i++) {
+                headSel[i].classList.remove('coblack');
+                headSel[i].classList.remove('cowhite');
+                headSel[i].classList.remove('coyellow');
+                headSel[i].classList.remove('coblue');
+                headSel[i].classList.add('cocrimson');
             }
             settalrSel.style.opacity = "1";
             settalrSel.style.top = "20%";
@@ -885,6 +951,26 @@
             profileSel.classList.toggle('active');
             profContentSel.classList.toggle('active');
         }
+
+        profContentSel.onclick = () => {
+            if (profileSel.classList.contains('active')) {
+                profileSel.classList.toggle('active');
+                profContentSel.classList.toggle('active');
+            }
+        }
+    </script>
+
+    <script>
+        var CHaboutSel = document.getElementById("seeAbout");
+
+        var profContentSel = document.querySelector('.profileContent');
+        var profileSel = document.querySelector('.profile');
+
+        CHaboutSel.onclick = () => {
+            profileSel.classList.add('active');
+            profContentSel.classList.add('active');
+        }
+
     </script>
 
     <script>
@@ -904,8 +990,28 @@
         var TCeucalSel = document.getElementById("tceucal");
         var TCsaffronSel = document.getElementById("tcsaffron");
 
+        var TCdefaultSel = document.getElementById("tcdefault");
+
         var sloganSel = document.querySelector('.slogan');
         var settalrSel = document.getElementById("settalr");
+
+        TCdefaultSel.onclick = () => {
+            sloganSel.classList.remove('tccyan');
+            sloganSel.classList.remove('tcsalm');
+            sloganSel.classList.remove('tcgreen');
+            sloganSel.classList.remove('tcslate');
+            sloganSel.classList.remove('tcyell');
+            sloganSel.classList.remove('tcindigo');
+            sloganSel.classList.remove('tcstudio');
+            sloganSel.classList.remove('tccrimson');
+            sloganSel.classList.remove('tcpatina');
+            sloganSel.classList.remove('tcgamboge');
+            sloganSel.classList.remove('tcdodger');
+            sloganSel.classList.remove('tcwisteria');
+            sloganSel.classList.remove('tcblossom');
+            sloganSel.classList.remove('tceucal');
+            sloganSel.classList.remove('tcsaffron');
+        }
 
         TCcyanSel.onclick = () => {
             sloganSel.classList.toggle('tccyan');
@@ -1190,7 +1296,22 @@
         var BCemeraldsel = document.getElementById("bcemerald");
         var BCgoldsel = document.getElementById("bcgold");
 
+        var BCdefaultsel = document.getElementById("bcdefault");
+
         var sloganSelB = document.querySelector('.sloganArea');
+
+        BCdefaultsel.onclick = () => {
+            sloganSelB.classList.remove('bclemay');
+            sloganSelB.classList.remove('bcpurple');
+            sloganSelB.classList.remove('bcpeach');
+            sloganSelB.classList.remove('bcgourd');
+            sloganSelB.classList.remove('bcpale');
+            sloganSelB.classList.remove('bcultramarine');
+            sloganSelB.classList.remove('bcviolet');
+            sloganSelB.classList.remove('bchotpink');
+            sloganSelB.classList.remove('bcemerald');
+            sloganSelB.classList.remove('bcgold');
+        }
 
         BClemaysel.onclick = () => {
             sloganSelB.classList.toggle('bclemay');
@@ -1352,6 +1473,8 @@
         var profileSel = document.querySelector('.profile');
         var sliderSel = document.getElementById("sliderID");
 
+        var sloganAreaIDSel = document.getElementById("sloganAreaID");
+
         expanderSel.onclick = () => {
             expanderSel.style.opacity = "0";
             expanderSel.style.top = "100%";
@@ -1373,6 +1496,27 @@
             headlogSel.classList.toggle('hide');
             profileSel.classList.toggle('hide');
         }
+
+        var sideSettingaSel = document.querySelector('.sidesett');
+        var settinGaSel = document.querySelector('.settings');
+
+        sloganAreaIDSel.onclick = () => {
+            if (arrowSel.classList.contains('hide')) {
+                contractorSel.style.top = "100%";
+                expanderSel.style.opacity = "1";
+                expanderSel.style.top = "90%";
+                sliderSel.style.bottom = "10%";
+                settingSel.classList.toggle('hide');
+                arrowSel.classList.toggle('hide');
+                headlogSel.classList.toggle('hide');
+                profileSel.classList.toggle('hide');
+            }
+
+            if (sideSettingaSel.classList.contains('active')) {
+                sideSettingaSel.classList.remove('active');
+                settinGaSel.classList.remove('active');
+            }
+        }
     </script>
 
     <script>
@@ -1380,7 +1524,7 @@
             document.getElementById("loadFer").classList.add('active');
             setTimeout(function(){
                 document.getElementById("loadFer").remove();
-            }, 500);
+            }, 1000);
             setTimeout(function(){
                 document.querySelector('.vote').classList.add('view');
             }, 100);
@@ -1482,6 +1626,15 @@
             }, 2200);
         }
 
+    </script>
+
+    <script>
+        var tshremoveSel = document.getElementById("tshremove");
+        var sloganIDSEL = document.getElementById("sloganID");
+
+        tshremoveSel.onclick = () => {
+            sloganIDSEL.style.textShadow = "none";
+        }
     </script>
 
     <script>
