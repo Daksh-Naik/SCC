@@ -6,8 +6,8 @@
 
 *{ padding: 0; margin: 0; box-sizing: border-box; user-select: none; transition: ease-in 0.3s; font-family: 'Montserrat', sans-serif; }
 body { overflow: hidden; color: var(--servTColor); background-color: var(--servBColor); } html { scroll-behavior: smooth; }
-a { text-decoration: 1px 5px solid underline; padding: 0px 5px 0px 5px; color: var(--servDCOLYELL); text-decoration-color: var(--servColWHITE); } 
-a:hover { color: var(--servAColor); text-decoration: none; }
+a { text-decoration: 1px 5px solid underline; padding: 0px 5px 0px 5px; color: var(--servAColor); text-decoration-color: var(--servColWHITE); } 
+a:hover { color: var(--servTColor); text-decoration: none; }
 a.external::before { content: 'Opens link in new tab'; opacity: 0; background-color: var(--servBTColor); color: var(--servTColor); 
     transition: 0.3s; text-decoration: none; font-size: 2vh; padding: 1vh 1vw; font-size: 0; } 
 a.external:hover::before { opacity: 1; font-size: inherit; }
@@ -20,10 +20,11 @@ a.external:hover::before { opacity: 1; font-size: inherit; }
 .headlog.active .c2::after { font-size: initial; transition: 0.3s cubic-bezier(0, 0, 0.2, 1); }
 .headlog.hide { top: -20%; } ion-icon { color: var(--servTColor); font-size: 4vh; }
 
-body.vanta { background-color: rgb(0, 0, 0); } body.maroon { background-color: rgb(80, 10, 0); }
+body.koyal { background-color: rgb(0, 0, 0); } body.maroon { background-color: rgb(80, 10, 0); }
 body.bruns { background-color: rgb(159, 255, 159); } body.slug { background-color: rgb(255, 188, 121); }
+body.cloud { background-color: rgb(230, 230, 230); }
 
-.loader { position: fixed; z-index: 1000; display: flex; justify-content: center; align-items: center; top: 0; left: 0;
+.loader { position: fixed; z-index: 1000; display: flex; justify-content: center; align-items: center; top: 0; left: 0; cursor: progress;
     height: 100vh; width: 100vw; background-color: var(--servBColor); animation: backGR linear 3s infinite; color: var(--servTColor); }
 .loader .line { z-index: 100; height: 50vh; width: 1px; background: var(--servTColor); animation: rotateLine 5s infinite;
     position: fixed; top: 25%; left: 50%; transform: translate(-50%, -50%); }
