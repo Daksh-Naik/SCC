@@ -13,11 +13,11 @@
 
         <meta name="description" content="HTML & CSS Slogan for Slogan Coding Competition, Jan 2022." />
         <meta name="author" content="Daksh Naik" />
-        <meta name="page-topic" content="HTML & CSS Slogan for Voter Awareness : Slogan Coding Competition" />
+        <meta name="page-topic" content="HTML & CSS Slogan for Voter Rights & Duties : Slogan Coding Competition" />
         <meta name="topic" content="HTML & CSS Slogan : Slogan Coding Competition" />
 
         <meta property="og:title" content="HTML & CSS Slogan for Slogan Coding Competition, Jan 2022."/>
-        <meta property="og:description" content="HTML & CSS Slogan for Voter Awareness : Slogan Coding Competition, Jan 2022. Participant & Made by : Daksh | Hosted by : Github-Pages."/>
+        <meta property="og:description" content="HTML & CSS Slogan for Voter Rights & Duties : Slogan Coding Competition, Jan 2022. Participant & Made by : Daksh | Hosted by : Github-Pages."/>
         <meta property="og:url" content="https://daksh-naik.github.io/SCC/"/>
         <meta property="og:type" content="Slogan for Coding Competition" />
         <meta property="og:locale" content="en_IN" />
@@ -174,7 +174,7 @@
         ::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-track {  background: var(--servBColor); } ::-webkit-scrollbar-thumb { background: yellow; }
         ::-webkit-scrollbar-thumb:hover { width: 5px; }
         .sidesett i { padding-left: 2vw; }
-        .sidesett .settcontent { padding: 1vh 2vw 5vh 2vw; display: grid; grid-template-columns: auto auto auto auto auto; }
+        .sidesett .settcontent { padding: 1vh 2vw 5vh 2vw; display: grid; grid-template-columns: auto auto auto auto auto; width: max-content; margin: auto; }
         .sidesett .settcontent .textcolor { width: 4vw; height: 5vh; border: 1px solid var(--servTColor); cursor: pointer; margin: 0.5vh 1vw; 
             filter: grayscale(1); transition-delay: 1s; }
         .default { width: max-content; margin: auto; padding: 1vh 1vw; background-color: var(--servBColor);
@@ -193,12 +193,13 @@
         .legals .legalinfo .para { padding: 2vh 25vw 5vh 5vw; }
         .legals.active { top: 0%; } .legals .legalsclose.active { top: 10%; left: 90%; } .legals .legalinfo.active { opacity: 1; }
 
-        .tricolor { transition: 1s cubic-bezier(0.5, 0.79, 0.34, 1.31); position: fixed; z-index: -1; top: 0%; left: -50%; width: 200vw; 
+        .tricolor { transition: 1s cubic-bezier(0.5, 0.79, 0.34, 1.31); position: fixed; z-index: -5; top: 0%; left: -50%; width: 200vw; 
             height: 100vh; overflow: hidden; opacity: 0.2; transform: rotate(345deg); }
         .tricolor .orange { position: relative; background: rgb(255, 153, 51); height: 33.3vh; width: 200vw; top: 0%; left: 0%; overflow: hidden; }
         .tricolor .white { position: relative; background: rgb(255, 255, 255); height: 33.3vh; width: 200vw; top: 0%; left: 0%; overflow: hidden; }
         .tricolor .green { position: relative; background: rgb(19, 136, 8); height: 33.3vh; width: 200vw;  top: 0%; left: 0%; overflow: hidden; }
-        .tricolor .white .circle { height: 33.3vh; width: 33.3vh; border-radius: 100% 100%; border: 5px solid #000080; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        .tricolor .white .circle { height: 33.3vh; width: 33.3vh; border-radius: 100% 100%; border: 5px solid #000080; position: relative; top: 50%; left: 50%; 
+            transform: translate(-50%, -50%); overflow: hidden; }
         .tricolor .white .circle .spoke { position: absolute; background: #000080; height: 32vh; width: 5px; overflow: hidden; left: 50%; border-radius: 100% 100% 100% 100%; }
         .tricolor .white .circle .spoke:nth-child(1) { transform: rotate(0deg); } .tricolor .white .circle .spoke:nth-child(2) { transform: rotate(15deg); } 
         .tricolor .white .circle .spoke:nth-child(3) { transform: rotate(30deg); } .tricolor .white .circle .spoke:nth-child(4) { transform: rotate(45deg); } 
@@ -221,7 +222,9 @@
 
         .compalr { display:none; position: fixed; top: 15%; left: 50%; color: var(--servTColor); transform: translate(-50%, -50%); }
         .acknalr { padding: 1vh 1vw; position: fixed; top: 80%; left: 50%; color: var(--servTColor); transform: translate(-50%, -50%); 
-            background-color: var(--servBTColor); z-index: 40; }
+            background-color: var(--servBTColor); z-index: 40; opacity: 0.6; }
+        .clicktap { position: fixed; top: 110%; left: 50%; transform: translate(-50%, -50%); background-color: var(--servBTColor);
+            color: var(--servTColor); z-index: 20; opacity: 0.8; padding: 1vh 1vw; transition: 0.8s; }
         .warning { opacity: 0.8; position: fixed; top: 75%; left: 50%; transform: translate(-50%, -50%); font-size: 2vh; }
         .warning ion-icon { font-size: 2vh; }
 
@@ -231,7 +234,6 @@
         @media only screen and (max-width:1000px) { .spanArr { display: none; } .settings span { display: none; } 
             .expander span { display: none; } .contractor span { display: none; }  
             .sidesett { padding-top: 15vh; } .textcolor span { display: none; } .compalr { display: block; } .profile span { display: none; } }
-        /* @media only screen and (max-width:950px) { .sloganArea .hand .index .mark { left: -2px; } } */
         @media only screen and (min-height:600px) { .sloganArea .hand .thumb { transform: rotate(30deg); left: -40%; } }
         @media only screen and (min-height:750) { .sloganArea .hand .thumb { transform: rotate(20deg); left: -10%; } }
         @media only screen and (max-width:520px) { .sidesett .settcontent .textcolor { width: 7vw; } .sidesett { width: 70vw; } 
@@ -323,8 +325,8 @@
                         centres around the idea of having the Aesthetic and Focussed feel, just like other websites when it comes to designing
                         the landing page. It may seem empty, compared to other slogans,
                         but the deserted feel of the slogan is intentional. Having a plethora of sentences in and around the slogan
-                        to maximize interaction doesn't matter when it comes to Slogans which are drawn by hand. If it were to implement
-                        so many sentences on the slogan on web, the design would loose its aestheticness because of the cluster, which will make it
+                        to maximize interaction doesn't matter when it comes to Slogans which are drawn by hand but if it were to implement
+                        so many sentences on / around the slogan on web, the design would loose its aestheticness because of the cluster, which will make it
                         look unpleasant. This would even loose the focussed feel of the main component of the slogan. Added to this,
                         this would even compromise in maintaining Media Responsiveness across all devices. So, rounding all this up,
                         the empty spaces around the slogan is intentional and so the cluster is avoided.</p>
@@ -351,7 +353,7 @@
             <div class="legalsclose" id="legalsCloseID"><ion-icon name="close-circle-outline"></ion-icon></div>
             <div class="legalinfo">
                 <h2>About</h2>
-                <p class="para">With interest in Slogan Coding Competition : Voter Awareness, this website is specifically built
+                <p class="para">With interest in Slogan Coding Competition : Voter Rights & Duties, this website is specifically built
                     for the same. User Interaction (UX) was taken care of the most. Slogan is the prime element, and has been focused largely.
                     <br><br>
                     This website DOES NOT promote any political party, discrimination nor is it intended to violate rights.
@@ -359,6 +361,8 @@
                     Website designing : Daksh N
                     <br>
                     Hosted by : Github - Pages
+                    <br>
+                    Font : Montserrat
                     <br>
                     Location : Goa, India
                     <br>
@@ -446,7 +450,8 @@
                     </div>
                     <div class="peeps" id="peepsID">
                         <div class="head" style="height: 4vw; width: 4vw; left: 25%;"></div>
-                        <ion-icon name="checkmark-outline"></ion-icon>                    </div>
+                        <ion-icon name="checkmark-outline"></ion-icon>                    
+                    </div>
                     <div class="peeps" id="peepsID">
                         <div class="head"></div>
                     </div>
@@ -477,29 +482,33 @@
         <span class="spanArr">Menu</span>
     </div>
 
+    <div class="clicktap" id="clicktapID">
+        <p>Click / Tap within the screen to Contract Elements.</p>
+    </div>
+
     <section>
 
         <h4 class="settingsalr" id="settalr">Settings changed.</h4>
 
         <div class="settings" id="settingsID">
-            <ion-icon name="chevron-back-circle-sharp"></ion-icon>
+            <ion-icon name="chevron-back-circle-outline"></ion-icon>
             <span>Slogan Settings</span>
         </div>
 
         <div class="sidesett" id="sidesetting">
             <div style="overflow-y: auto;">
                 <div style="width: max-content; margin: auto; padding: 2vh 0vw;">
-                    <h1 style="font-size: 8vh;">Slogan Settings</h1>
+                    <h1 style="font-size: 3.5vw;">Slogan Settings</h1>
                 </div>
                 <h2>Tricolor Opacity</h2>
-                <div class="settcontent" style="width: max-content; margin: auto;">
+                <div class="settcontent">
                     <input type="range" id="opacityRange" min="0" max="100" value="90" class="opasliderCL">
                 </div>
                 <h2>Tricolor Rotation</h2>
-                <div class="settcontent" style="width: max-content; margin: auto;">
+                <div class="settcontent">
                     <input type="range" id="rotateRange" min="0" max="360" value="345" class="opasliderCL">
                 </div>
-                <div class="settcontent" style="width: max-content; margin: auto;">
+                <div class="settcontent">
                     <div class="default" id="rotdefault"><h5>RESET DEFAULTS</h5></div>
                 </div>
                 <br>
@@ -529,11 +538,11 @@
                     <h4 class="textcolor" id="tcsaffron" style="background-color: rgb(244, 208, 63);"><span>Saffron</span></h4>
                 </div>
                 <i>System</i>
-                <div class="settcontent" style="width: max-content; margin: auto;">
+                <div class="settcontent">
                     <h4 class="textcolor" id="tckoyal" style="background-color: rgb(0, 0, 0);"><span>Black</span></h4>
                     <h4 class="textcolor" id="tcchalk" style="background-color: rgb(255, 255, 255);"><span>Chalk</span></h4>
                 </div>
-                <div class="settcontent" style="width:max-content; margin: auto;">
+                <div class="settcontent">
                     <div class="default" id="tcdefault"><h5>RESET DEFAULTS</h5></div>
                 </div>
                 <br>
@@ -554,7 +563,7 @@
                     <h4 class="textcolor" id="bcemerald" style="background-color: rgb(52, 103, 81);"><span>Emerald</span></h4>
                     <h4 class="textcolor" id="bcgold" style="background-color: rgb(216, 146, 22);"><span>Gold</span></h4>
                 </div>
-                <div class="settcontent" style="margin: auto; width: max-content;">
+                <div class="settcontent">
                     <div class="default" id="bcdefault"><h5>RESET DEFAULTS</h5></div>
                 </div>
                 <br>
@@ -566,7 +575,7 @@
                     <h4 class="textcolor" id="tshyellow" style="background: yellow;"><span>Yellow</span></h4>
                     <h4 class="textcolor" id="tshblue" style="background: blue;"><span>Blue</span></h4>
                 </div>
-                <div class="settcontent" style="width: max-content; margin: auto;">
+                <div class="settcontent">
                     <div class="default" id="tshremove"><h5>REMOVE SHADOW</h5></div>
                 </div>
                 <p><ion-icon name="alert-circle-outline"></ion-icon> Sufficient care is undertaken to make the slogan look flawless. 
@@ -582,7 +591,6 @@
                     <h4 class="textcolor" id="stbeige" style="background-color: rgb(241,194,125);"></h4>
                     <h4 class="textcolor" id="stpale" style="background-color: rgb(255,219,172);"></h4>
                 </div>
-                <br><br>
                 <h2>Votebox</h2>
                 <i>Wood Color</i>
                 <div class="settcontent" id="settVotebox">
@@ -612,6 +620,7 @@
             <div class="content" id="maincontent">
                 <div>
                     <h1 style="font-size: 8vh;">Menu</h1>
+                    <br>
                     <h2>About</h2>
                     <p style="padding-right: 2vw;"> On this website, the viewer has the ability to change Visual Properties of the slogan. From changing Sprite (element)
                         to changing Foreground Colors, this slogan is specifically made to enable the viewer to have full control over it.
@@ -620,10 +629,17 @@
                         <br>
                     <p>Also, NO Images are used. Everything here is done by pure HTML, CSS and ES6 (JS). No Images, nor any SVG is used (except
                         Sprites / Icons).</p>
+                    <br><br>
+                    <p style="padding-right: 2vw;">
+                        If you're new, this website has been specifically built for Slogan Coding Competition : Voter Rights & Duties by 
+                        <a href="http://caresgoa.org" target="_blank" rel="noopener noreferrer" class="external">Caresgoa.ORG</a>
+                        on Dec 30, 2021.
+                    </p>
+                    <br>
                 </div>
                 <div id="menucha">
                     <div class="setting">
-                            <h3>Go to Slogan Settings</h3>
+                        <h3>Go to Slogan Settings</h3>
                     </div>
                 </div>
                 <h2>Primary Background Color</h2>
@@ -636,8 +652,6 @@
                 </div>
                 <h2>Links</h2>
                 <div class="learn">
-                    <!-- <a href="documentation.html" class="external"><h2>Learn how its made</h2></a>
-                    <a href="documentation.html" class="external"><h2>Additional Info</h2></a> -->
                     <p>Coming soon.</p>
                 </div>
                 <br><br>
@@ -651,7 +665,7 @@
                 <div>
                     <p>EN - INDIA</p>
                     <p>GOA</p>
-                    <p>12 Jan - 2022</p>
+                    <p>13 Jan - 2022</p>
                     <br>
                     <p style="cursor: pointer;" id="seeAbout">ABOUT</p>
                 </div>
@@ -672,9 +686,6 @@
 
         var rotateRangeSel = document.getElementById("rotateRange");
         var rotateDefaultSel = document.getElementById("rotdefault");
-
-        var fitheightSel = document.getElementById("fitheight");
-        var resheightSel = document.getElementById("resheight");
 
         rotateRangeSel.addEventListener("change", function(){
             tricolorselID.style.transform = "rotate(" + this.value + "deg)";
@@ -1249,7 +1260,6 @@
         var settingSel = document.querySelector('.settings');
         var settingSelID = document.getElementById("settingsID");
         var sidesettingSel = document.querySelector('.sidesett');
-        var sidesettingSelID = document.getElementById("sidesetting");
         var menuchangeSEL = document.getElementById("menucha");
 
         settingSelID.onclick = () => {
@@ -1267,10 +1277,10 @@
     <script>
         var contractorSel = document.getElementById("contractorID");
         var expanderSel = document.getElementById("expanderID");
+        var clicktapIDSel = document.getElementById("clicktapID");
 
         var settingSel = document.querySelector('.settings');
         var arrowSel = document.querySelector('.arrow');
-        var headerlogSel = document.querySelector('.headlog');
         var profileSel = document.querySelector('.profile');
         var sliderSel = document.getElementById("sliderID");
 
@@ -1285,6 +1295,10 @@
             arrowSel.classList.toggle('hide');
             headlogSel.classList.toggle('hide');
             profileSel.classList.toggle('hide');
+            clicktapIDSel.style.top = "90%";
+            setTimeout(function(){
+                clicktapIDSel.style.top = "110%";
+            }, 3000)
         }
 
         contractorSel.onclick = () => {
@@ -1365,8 +1379,6 @@
     </script>
 
     <script>
-        var menuSel = document.getElementById("mainmenu");
-        var menucontentSel = document.getElementById("maincontent");
         var bodySel = document.querySelector('body');
         var settalrSel = document.getElementById("settalr");
 
