@@ -8,8 +8,8 @@
 body { overflow: hidden; color: var(--servTColor); background-color: var(--servBColor); } html { scroll-behavior: smooth; }
 a { text-decoration: 1px 5px solid underline; padding: 0px 5px 0px 5px; color: var(--servAColor); text-decoration-color: var(--servColWHITE); } 
 a:hover { color: var(--servTColor); text-decoration: none; }
-a.external::before { content: 'Opens link in new tab'; opacity: 0; background-color: var(--servBTColor); color: var(--servTColor); 
-    transition: 0.3s; text-decoration: none; font-size: 2vh; padding: 1vh 1vw; font-size: 0; } 
+a.external::before { content: 'Opens link in new tab'; opacity: 0; color: var(--servBTColor); background-color: var(--servTColor); 
+    transition: 0.3s; text-decoration: none; font-size: 2vh; padding: 1vh 1vw; font-size: 0; position: fixed; top: 90vh; left: 1vw; } 
 a.external:hover::before { opacity: 1; font-size: inherit; }
 .headlog { position: fixed; top: 0; left: 0; padding: 1vh 3vw 1vh 2vw; background-color: var(--servBTColor); color: var(--servTColor);
     border-radius: 0px 0px 100px 0px; font-size: 2vh; z-index: 500; }
