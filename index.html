@@ -59,7 +59,7 @@
         .index .nail { position: relative; background-color: rgb(255, 175, 202); height: 2vh; width: 1vw;
             border-radius: 25% 25% 1% 1%; top: 6px; left: 5px; }
         .index .nail .mark { position: relative; background-color: rgba(0, 0, 0, 0.7); height: 3vh; width: 0.2vw;
-            left: 5px; top: 3px; }
+            left: 30%; top: 3px; }
         .handArea.active { opacity: 1; top: 20%; }
 
         .votebox { padding: 2vh 1vw; display: flex; justify-content: center; align-items: center; flex-direction: column;
@@ -70,8 +70,8 @@
             align-items: center; height: 25vh; }
         .votebox .box .h5 p { font-size: 1vw; background-color: var(--servBColor); color: var(--servTColor);
             padding: 3vh 1vw; border-radius: 50% 50%; }
-        .votebox .card { position: relative; border: 1px solid var(--servTColor); height: 4vh; width: 2vw; z-index: 19;
-            top: -33%; background-color: var(--servBTColor); transform: rotate(45deg); color: var(--servTColor); display: flex;
+        .votebox .card { position: relative; border: 1px solid var(--servTColor); height: 6vh; width: 2vw; z-index: 19;
+            top: -34%; background-color: var(--servBTColor); transform: rotate(45deg); color: var(--servTColor); display: flex;
             justify-content: center; align-items: center; }
         .votebox .card ion-icon { font-size: 2vh; transform: rotate(270deg); }
         .votebox.active { opacity: 1; left: 0%; }
@@ -101,7 +101,8 @@
         .slogan.tcpatina { color: rgb(0, 100, 66); } .slogan.tcgamboge { color: rgb(255, 182, 30); }
         .slogan.tcdodger { color: rgb(25, 181, 254); } .slogan.tcwisteria { color: rgb(190, 144, 212); }
         .slogan.tcblossom { color: rgb(252, 201, 185); } .slogan.tceucal { color: rgb(38, 194, 129); }
-        .slogan.tcsaffron { color: rgb(244, 208, 63); }
+        .slogan.tcsaffron { color: rgb(244, 208, 63); } .slogan.tckoyal { color: rgb(0, 0, 0); }
+        .slogan.tccloud { color: rgb(230, 230, 230); } .slogan.tcchalk { color: rgb(255, 255, 255); }
 
         .sloganArea.bclemay { background-color: rgb(153, 254, 255); } .sloganArea.bcpurple { background-color: rgb(144, 127, 164); }
         .sloganArea.bcpeach { background-color: rgb(255, 196, 225); } .sloganArea.bcgourd { background-color: rgb(214, 255, 132); }
@@ -169,7 +170,7 @@
 
         .sidesett { position: fixed; top: 0%; left: 120vw; width: 40vw; height: 100vh; background-color: var(--servBTColor); 
             color: var(--servTColor); z-index: 50; display: flex; justify-content: center; align-items: flex-start; flex-direction: column;
-            transition: 0.7s; padding: 10vh 1vw; }
+            transition: 0.7s; padding: 5vh 2vw; }
         ::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-track {  background: var(--servBColor); } ::-webkit-scrollbar-thumb { background: yellow; }
         ::-webkit-scrollbar-thumb:hover { width: 5px; }
         .sidesett i { padding-left: 2vw; }
@@ -192,11 +193,12 @@
         .legals .legalinfo .para { padding: 2vh 25vw 5vh 5vw; }
         .legals.active { top: 0%; } .legals .legalsclose.active { top: 10%; left: 90%; } .legals .legalinfo.active { opacity: 1; }
 
-        .tricolor { position: fixed; z-index: -1; top: 0%; left: 0; width: 100vw; height: 100vh; overflow: hidden; opacity: 0.2; }
-        .tricolor .orange { position: relative; background: rgb(255, 153, 51); height: 33.3vh; width: 200vw; transform: rotate(345deg); top: -25%; left: -10%; }
-        .tricolor .white { position: relative; background: rgb(255, 255, 255); height: 33.3vh; width: 200vw; transform: rotate(345deg); top: -25%; left: -10%; }
-        .tricolor .green { position: relative; background: rgb(19, 136, 8); height: 33.3vh; width: 200vw; transform: rotate(345deg); top: -25%; left: -10%; overflow: hidden; }
-        .tricolor .white .circle { height: 33.3vh; width: 33.3vh; border-radius: 100% 100%; border: 5px solid #000080; position: relative; top: 50%; left: 30%; transform: translate(-50%, -50%); }
+        .tricolor { transition: 1s cubic-bezier(0.5, 0.79, 0.34, 1.31); position: fixed; z-index: -1; top: 0%; left: -50%; width: 200vw; 
+            height: 100vh; overflow: hidden; opacity: 0.2; transform: rotate(345deg); }
+        .tricolor .orange { position: relative; background: rgb(255, 153, 51); height: 33.3vh; width: 200vw; top: 0%; left: 0%; overflow: hidden; }
+        .tricolor .white { position: relative; background: rgb(255, 255, 255); height: 33.3vh; width: 200vw; top: 0%; left: 0%; overflow: hidden; }
+        .tricolor .green { position: relative; background: rgb(19, 136, 8); height: 33.3vh; width: 200vw;  top: 0%; left: 0%; overflow: hidden; }
+        .tricolor .white .circle { height: 33.3vh; width: 33.3vh; border-radius: 100% 100%; border: 5px solid #000080; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); }
         .tricolor .white .circle .spoke { position: absolute; background: #000080; height: 32vh; width: 5px; overflow: hidden; left: 50%; border-radius: 100% 100% 100% 100%; }
         .tricolor .white .circle .spoke:nth-child(1) { transform: rotate(0deg); } .tricolor .white .circle .spoke:nth-child(2) { transform: rotate(15deg); } 
         .tricolor .white .circle .spoke:nth-child(3) { transform: rotate(30deg); } .tricolor .white .circle .spoke:nth-child(4) { transform: rotate(45deg); } 
@@ -212,10 +214,10 @@
         .tricolor .white .circle .spoke:nth-child(24) { transform: rotate(330deg); } .tricolor .white .circle .spoke:nth-child(25) { transform: rotate(345deg); } 
         .tricolor .white .circle .spoke:nth-child(26) { transform: rotate(360deg); }
         .opasliderCL { -webkit-appearance: none; appearance: none; margin: 2vh 0vw; opacity: 0.7; background: var(--servTColor); height: 2px;
-            outline: none; -webkit-transition: 0.7s; transition: 0.7s; }
+            outline: none; -webkit-transition: 0.7s; transition: 0.7s; width: 20vw; cursor: col-resize; }
         .opasliderCL:hover { opacity: 1; }
         .opasliderCL::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 3px; height: 3vh; 
-            background: var(--servAColor); cursor: pointer; }
+            background: var(--servAColor); cursor: grabbing; }
 
         .compalr { display:none; position: fixed; top: 15%; left: 50%; color: var(--servTColor); transform: translate(-50%, -50%); }
         .acknalr { padding: 1vh 1vw; position: fixed; top: 80%; left: 50%; color: var(--servTColor); transform: translate(-50%, -50%); 
@@ -229,7 +231,7 @@
         @media only screen and (max-width:1000px) { .spanArr { display: none; } .settings span { display: none; } 
             .expander span { display: none; } .contractor span { display: none; }  
             .sidesett { padding-top: 15vh; } .textcolor span { display: none; } .compalr { display: block; } .profile span { display: none; } }
-        @media only screen and (max-width:950px) { .sloganArea .hand .index .mark { left: -2px; } }
+        /* @media only screen and (max-width:950px) { .sloganArea .hand .index .mark { left: -2px; } } */
         @media only screen and (min-height:600px) { .sloganArea .hand .thumb { transform: rotate(30deg); left: -40%; } }
         @media only screen and (min-height:750) { .sloganArea .hand .thumb { transform: rotate(20deg); left: -10%; } }
         @media only screen and (max-width:520px) { .sidesett .settcontent .textcolor { width: 7vw; } .sidesett { width: 70vw; } 
@@ -239,7 +241,6 @@
         @media only screen and (max-width:500px) {  #profileICON ion-icon { font-size: 7vh; } #menarrow ion-icon { font-size: 7vh; } 
             #settingsID ion-icon { font-size: 7vh; } #expanderID ion-icon { font-size: 7vh; } #contractorID ion-icon { font-size: 7vh; } }
         @media screen and (orientation:portrait) and (max-width:600px) { .rotatepls { display: flex; } }
-        @media screen and (orientation:landscape) { .index .nail .mark { left: 2px; } }
 
     </style>
 
@@ -248,8 +249,8 @@
 <body>
 
     <div class="tricolor" id="tricolorID">
-        <div class="orange"></div>
-        <div class="white">
+        <div class="orange" id="orangeTRI"></div>
+        <div class="white" id="whiteTRI">
             <div class="circle">
                 <div class="spoke"></div><div class="spoke"></div><div class="spoke"></div><div class="spoke"></div><div class="spoke"></div>
                 <div class="spoke"></div><div class="spoke"></div><div class="spoke"></div><div class="spoke"></div><div class="spoke"></div>
@@ -259,7 +260,7 @@
                 <div class="spoke"></div>
             </div>
         </div>
-        <div class="green"></div>
+        <div class="green" id="greenTRI"></div>
     </div>
 
     <div class="headlog active" id="headloga">
@@ -296,6 +297,8 @@
                     <h3>Environment</h3>
                     <p>The Web. Handmade with pure HTML, CSS and ECMA Script 6</p>
                     <p>No copy. No images. Made from scratch.</p>
+                    <br>
+                    <p>Inspired from BONHOMME</p>
                 </div>
                 <div class="deta">
                     <h3>Slogan</h3>
@@ -377,7 +380,7 @@
                 <p class="para">
                     This website's development and designing is NOT a copy from any website, company, public entity or anyone's project.
                     If it is, it's purely concidental. <br>
-                    Everything here is made from scratch; from 0 lines to about 1200+ lines of code.
+                    Everything here is made from scratch; from 0 lines to about 1400+ lines, 83,000+ letters of code.
                 </p>
                 <h2>Usage</h2>
                 <p class="para">
@@ -452,8 +455,8 @@
         </div>
 
         <div class="slider" id="sliderID">
-            <h2 id="slhand">__ <span>Hand</span></h2>
             <h2 id="slvotebox">__ <span>Votebox</span></h2>
+            <h2 id="slhand">__ <span>Hand</span></h2>
             <h2 id="slcandidate">__ <span>Candidate</span></h2>
         </div>
 
@@ -484,24 +487,20 @@
         </div>
 
         <div class="sidesett" id="sidesetting">
-            <div style="overflow-y: auto; padding-top: 10vh;">
+            <div style="overflow-y: auto;">
                 <div style="width: max-content; margin: auto; padding: 2vh 0vw;">
-                    <h1>Slogan Settings</h1>
+                    <h1 style="font-size: 8vh;">Slogan Settings</h1>
                 </div>
-                <h2>Background Flag Opacity</h2>
-                <div class="settcontent" style="align-items: center;">
+                <h2>Tricolor Opacity</h2>
+                <div class="settcontent" style="width: max-content; margin: auto;">
                     <input type="range" id="opacityRange" min="0" max="100" value="90" class="opasliderCL">
                 </div>
-                <h2>Text Shadow</h2>
-                <div class="settcontent">
-                    <h4 class="textcolor" id="tshwhite" style="background: white;"><span>White</span></h4>
-                    <h4 class="textcolor" id="tshblack" style="background: black;"><span>Black</span></h4>
-                    <h4 class="textcolor" id="tshcrimson" style="background: crimson;"><span>Crimson</span></h4>
-                    <h4 class="textcolor" id="tshyellow" style="background: yellow;"><span>Yellow</span></h4>
-                    <h4 class="textcolor" id="tshblue" style="background: blue;"><span>Blue</span></h4>
+                <h2>Tricolor Rotation</h2>
+                <div class="settcontent" style="width: max-content; margin: auto;">
+                    <input type="range" id="rotateRange" min="0" max="360" value="345" class="opasliderCL">
                 </div>
                 <div class="settcontent" style="width: max-content; margin: auto;">
-                    <div class="default" id="tshremove"><h5>REMOVE SHADOW</h5></div>
+                    <div class="default" id="rotdefault"><h5>RESET DEFAULTS</h5></div>
                 </div>
                 <br>
                 <h2>Text Color</h2>
@@ -529,6 +528,11 @@
                     <h4 class="textcolor" id="tceucal" style="background-color: rgb(38, 194, 129);"><span>Eucal</span></h4>
                     <h4 class="textcolor" id="tcsaffron" style="background-color: rgb(244, 208, 63);"><span>Saffron</span></h4>
                 </div>
+                <i>System</i>
+                <div class="settcontent" style="width: max-content; margin: auto;">
+                    <h4 class="textcolor" id="tckoyal" style="background-color: rgb(0, 0, 0);"><span>Black</span></h4>
+                    <h4 class="textcolor" id="tcchalk" style="background-color: rgb(255, 255, 255);"><span>Chalk</span></h4>
+                </div>
                 <div class="settcontent" style="width:max-content; margin: auto;">
                     <div class="default" id="tcdefault"><h5>RESET DEFAULTS</h5></div>
                 </div>
@@ -552,6 +556,18 @@
                 </div>
                 <div class="settcontent" style="margin: auto; width: max-content;">
                     <div class="default" id="bcdefault"><h5>RESET DEFAULTS</h5></div>
+                </div>
+                <br>
+                <h2>Text Shadow</h2>
+                <div class="settcontent">
+                    <h4 class="textcolor" id="tshwhite" style="background: white;"><span>White</span></h4>
+                    <h4 class="textcolor" id="tshblack" style="background: black;"><span>Black</span></h4>
+                    <h4 class="textcolor" id="tshcrimson" style="background: crimson;"><span>Crimson</span></h4>
+                    <h4 class="textcolor" id="tshyellow" style="background: yellow;"><span>Yellow</span></h4>
+                    <h4 class="textcolor" id="tshblue" style="background: blue;"><span>Blue</span></h4>
+                </div>
+                <div class="settcontent" style="width: max-content; margin: auto;">
+                    <div class="default" id="tshremove"><h5>REMOVE SHADOW</h5></div>
                 </div>
                 <p><ion-icon name="alert-circle-outline"></ion-icon> Sufficient care is undertaken to make the slogan look flawless. 
                     The slogan may look different on various devices. Medium sized Laptops or Desktops render the slogan accurately.</p>
@@ -595,6 +611,7 @@
         <div class="menu" id="mainmenu">
             <div class="content" id="maincontent">
                 <div>
+                    <h1 style="font-size: 8vh;">Menu</h1>
                     <h2>About</h2>
                     <p style="padding-right: 2vw;"> On this website, the viewer has the ability to change Visual Properties of the slogan. From changing Sprite (element)
                         to changing Foreground Colors, this slogan is specifically made to enable the viewer to have full control over it.
@@ -611,7 +628,8 @@
                 </div>
                 <h2>Primary Background Color</h2>
                 <div class="setting">
-                    <h4 style="background-color: rgb(0, 0, 0);" id="Vantablack"><span>Vantablack</span></h4>
+                    <h4 style="background-color: rgb(0, 0, 0);" id="Koyal"><span>Koyal</span></h4>
+                    <h4 style="background-color: rgb(230, 230, 230);" id="Cloud"><span>Cloud</span></h4>
                     <h4 style="background-color: rgb(80, 10, 0);" id="Maroon"><span>Maroon</span></h4>
                     <h4 style="background-color: rgb(159, 255, 159);" id="Brunswick"><span>Brunswick</span></h4>
                     <h4 style="background-color: rgb(255, 188, 121);" id="Slug"><span>Slug</span></h4>
@@ -648,6 +666,26 @@
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        var tricolorselID = document.getElementById("tricolorID");
+
+        var rotateRangeSel = document.getElementById("rotateRange");
+        var rotateDefaultSel = document.getElementById("rotdefault");
+
+        var fitheightSel = document.getElementById("fitheight");
+        var resheightSel = document.getElementById("resheight");
+
+        rotateRangeSel.addEventListener("change", function(){
+            tricolorselID.style.transform = "rotate(" + this.value + "deg)";
+        })
+
+        rotateDefaultSel.onclick = () => {
+            tricolorselID.style.transform = "rotate(345deg)";
+            rotateRangeSel.value = 345;
+        }
+
+    </script>
 
     <script>
         var legalsOpenSel = document.getElementById("legalsOpenID");
@@ -1037,88 +1075,102 @@
         var TCeucalSel = document.getElementById("tceucal");
         var TCsaffronSel = document.getElementById("tcsaffron");
 
+        var TCkoyalSel = document.getElementById("tckoyal");
+        var TCcloudSel = document.getElementById("tccloud");
+        var TCchalkSel = document.getElementById("tcchalk"); 
+
         var TCdefaultSel = document.getElementById("tcdefault");
 
         var sloganSel = document.querySelector('.slogan');
         var settalrSel = document.getElementById("settalr");
 
         TCdefaultSel.onclick = () => {
-            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
+            sloganSel.classList.remove('tcchalk', 'tccloud', 'tckoyal', 'tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
         }
 
         TCcyanSel.onclick = () => {
             sloganSel.classList.toggle('tccyan');
-            sloganSel.classList.remove('tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
+            sloganSel.classList.remove('tcchalk', 'tccloud', 'tckoyal', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
         }
 
         TCsalmonSel.onclick = () => {
             sloganSel.classList.toggle('tcsalm');
-            sloganSel.classList.remove('tccyan', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
+            sloganSel.classList.remove('tcchalk', 'tccloud', 'tckoyal', 'tccyan', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
         }
 
         TCgreenSel.onclick = () => {
             sloganSel.classList.toggle('tcgreen');
-            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
+            sloganSel.classList.remove('tcchalk', 'tccloud', 'tckoyal', 'tccyan', 'tcsalm', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
         }
 
         TCslateSel.onclick = () => {
             sloganSel.classList.toggle('tcslate');
-            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
+            sloganSel.classList.remove('tcchalk', 'tccloud', 'tckoyal', 'tccyan', 'tcsalm', 'tcgreen', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
         }
 
         TCyellSel.onclick = () => {
             sloganSel.classList.toggle('tcyell');
-            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
+            sloganSel.classList.remove('tcchalk', 'tccloud', 'tckoyal', 'tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
         }
 
         TCindigoSel.onclick = () => {
             sloganSel.classList.toggle('tcindigo');
-            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
+            sloganSel.classList.remove('tcchalk', 'tccloud', 'tckoyal', 'tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
         }
 
         TCstudioSel.onclick = () => {
             sloganSel.classList.toggle('tcstudio');
-            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
+            sloganSel.classList.remove('tcchalk', 'tccloud', 'tckoyal', 'tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
         }
 
         TCcrimsonSel.onclick = () => {
-            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');    
+            sloganSel.classList.remove('tcchalk', 'tccloud', 'tckoyal', 'tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');    
             sloganSel.classList.toggle('tccrimson');
         }
 
         TCpatinaSel.onclick = () => {
             sloganSel.classList.toggle('tcpatina');
-            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
+            sloganSel.classList.remove('tcchalk', 'tccloud', 'tckoyal', 'tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
         }
 
         TCgambogeSel.onclick = () => {
             sloganSel.classList.toggle('tcgamboge');
-            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
+            sloganSel.classList.remove('tcchalk', 'tccloud', 'tckoyal', 'tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
         }
 
         TCdodgerSel.onclick = () => {
             sloganSel.classList.toggle('tcdodger');
-            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
+            sloganSel.classList.remove('tcchalk', 'tccloud', 'tckoyal', 'tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
         }
 
         TCwisteriaSel.onclick = () => {
             sloganSel.classList.toggle('tcwisteria');
-            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcblossom', 'tceucal', 'tcsaffron');
+            sloganSel.classList.remove('tcchalk', 'tccloud', 'tckoyal', 'tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcblossom', 'tceucal', 'tcsaffron');
         }
 
         TCblossomSel.onclick = () => {
             sloganSel.classList.toggle('tcblossom');
-            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tceucal', 'tcsaffron');
+            sloganSel.classList.remove('tcchalk', 'tccloud', 'tckoyal', 'tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tceucal', 'tcsaffron');
         }
 
         TCeucalSel.onclick = () => {
             sloganSel.classList.toggle('tceucal');
-            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tcsaffron');
+            sloganSel.classList.remove('tcchalk', 'tccloud', 'tckoyal', 'tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tcsaffron');
         }
 
         TCsaffronSel.onclick = () => {
             sloganSel.classList.toggle('tcsaffron');
-            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal');
+            sloganSel.classList.remove('tcchalk', 'tccloud', 'tckoyal', 'tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal');
+        }
+
+        TCkoyalSel.onclick = () => {
+            sloganSel.classList.remove('tcchalk', 'tccloud', 'tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal');
+            sloganSel.classList.toggle('tckoyal');
+        }
+
+        TCchalkSel.onclick = () => {
+            sloganSel.classList.toggle('tcchalk');
+            sloganSel.classList.remove('tccloud', 'tckoyal', 'tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal');
         }
     </script>
 
@@ -1318,14 +1370,15 @@
         var bodySel = document.querySelector('body');
         var settalrSel = document.getElementById("settalr");
 
-        var Vantablacksel = document.getElementById("Vantablack");
+        var Koyalsel = document.getElementById("Koyal");
+        var Cloudsel = document.getElementById("Cloud");
         var Maroonsel = document.getElementById("Maroon");
         var Brunswicksel = document.getElementById("Brunswick");
         var Slugsel = document.getElementById("Slug");
 
-        Vantablacksel.onclick = () => {
-            bodySel.classList.toggle('vanta');
-            bodySel.classList.remove('maroon', 'bruns', 'slug');
+        Koyalsel.onclick = () => {
+            bodySel.classList.toggle('koyal');
+            bodySel.classList.remove('maroon', 'bruns', 'slug', 'cloud');
             settalrSel.style.opacity = "1";
             settalrSel.style.top = "20%";
             setTimeout(function() {
@@ -1335,7 +1388,7 @@
         }
 
         Maroonsel.onclick = () => {
-            bodySel.classList.remove('vanta', 'bruns', 'slug');
+            bodySel.classList.remove('koyal', 'bruns', 'slug', 'cloud');
             bodySel.classList.toggle('maroon');
             settalrSel.style.opacity = "1";
             settalrSel.style.top = "20%";
@@ -1346,7 +1399,7 @@
         }
         
         Brunswicksel.onclick = () => {
-            bodySel.classList.remove('vanta', 'maroon', 'slug');
+            bodySel.classList.remove('koyal', 'maroon', 'slug', 'cloud');
             bodySel.classList.toggle('bruns');
             settalrSel.style.opacity = "1";
             settalrSel.style.top = "20%";
@@ -1357,8 +1410,19 @@
         }
 
         Slugsel.onclick = () => {
-            bodySel.classList.remove('vanta', 'maroon', 'bruns');
+            bodySel.classList.remove('koyal', 'maroon', 'bruns', 'cloud');
             bodySel.classList.toggle('slug');
+            settalrSel.style.opacity = "1";
+            settalrSel.style.top = "20%";
+            setTimeout(function() {
+                settalrSel.style.opacity = "0";
+                settalrSel.style.top = "-20%";
+            }, 2200);
+        }
+
+        Cloudsel.onclick = () => {
+            bodySel.classList.remove('koyal', 'maroon', 'bruns', 'slug');
+            bodySel.classList.toggle('cloud');
             settalrSel.style.opacity = "1";
             settalrSel.style.top = "20%";
             setTimeout(function() {
