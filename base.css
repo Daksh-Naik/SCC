@@ -1,22 +1,16 @@
 :root {
-    --servColWHITE : rgb(230, 230, 230);
-    --servColBLACK : rgb(20, 20, 20);
-    --servWColBLUE : rgb(180, 255, 249);
-    --servDCOLYELL : rgb(255, 255, 138);
-    --scale : 1.5;
-    --peachSkin : rgb(141,85,36);
+    --servColWHITE : rgb(230, 230, 230); --servColBLACK : rgb(20, 20, 20); --servWColBLUE : rgb(180, 255, 249); --servDCOLYELL : rgb(255, 255, 138); --scale : 1.5; --peachSkin : rgb(141,85,36); --skyCyan : rgb(150, 255, 255); --slate : rgb(120, 135, 150); --salmon : rgb(255, 180, 160); --green : rgb(90, 255, 90); --yellow : rgb(255, 255, 100);
 }
-@media (prefers-color-scheme: light) {
-    :root { --servBColor : rgb(230, 230, 230); --servTColor : rgb(40, 40, 40); --servAColor : rgb(139, 91, 0); --servBTColor : rgba(250, 250, 250, 0.92); }  }
-@media (prefers-color-scheme: dark) {
-    :root { --servBColor : rgb(20, 20, 20); --servTColor : rgb(230, 230, 230); --servAColor : rgb(255, 255, 139); --servBTColor : rgba(0, 0, 0, 0.92);   } }
+@media (prefers-color-scheme: light) { :root { --servBColor : rgb(230, 230, 230); --servTColor : rgb(40, 40, 40); --servAColor : rgb(139, 91, 0); --servBTColor : rgba(250, 250, 250, 0.92); --peachSkin : rgb(141,85,36); --skyCyan : rgb(150, 255, 255); --slate : rgb(120, 135, 150); --salmon : rgb(255, 180, 160); --green : rgb(90, 255, 90); --yellow : rgb(255, 255, 100); }  }
+@media (prefers-color-scheme: dark) { :root { --servBColor : rgb(20, 20, 20); --servTColor : rgb(230, 230, 230); --servAColor : rgb(255, 255, 139); --servBTColor : rgba(0, 0, 0, 0.92); --peachSkin : rgb(141,85,36); --skyCyan : rgb(38, 67, 72); --slate : rgb(142, 68, 173); --salmon : rgb(246, 36, 89); --green : rgb(0, 100, 66); --yellow : rgb(255, 182, 30); } }
 
 *{ padding: 0; margin: 0; box-sizing: border-box; user-select: none; transition: ease-in 0.3s; font-family: 'Montserrat', sans-serif; }
 body { overflow: hidden; color: var(--servTColor); background-color: var(--servBColor); } html { scroll-behavior: smooth; }
 a { text-decoration: 1px 5px solid underline; padding: 0px 5px 0px 5px; color: var(--servDCOLYELL); text-decoration-color: var(--servColWHITE); } 
 a:hover { color: var(--servAColor); text-decoration: none; }
 a.external::before { content: 'Opens link in new tab'; opacity: 0; background-color: var(--servBTColor); color: var(--servTColor); 
-    transition: 0.3s; text-decoration: none; font-size: 2vh; padding: 1vh 1vw; } a.external:hover::before { opacity: 1; }
+    transition: 0.3s; text-decoration: none; font-size: 2vh; padding: 1vh 1vw; font-size: 0; } 
+a.external:hover::before { opacity: 1; font-size: inherit; }
 .headlog { position: fixed; top: 0; left: 0; padding: 1vh 3vw 1vh 2vw; background-color: var(--servBTColor); color: var(--servTColor);
     border-radius: 0px 0px 100px 0px; font-size: 2vh; z-index: 500; }
 .headlog .s::after { content: 'logan '; font-size: 0px; } .headlog .c1::after { content: 'oding '; font-size: 0px; }
@@ -29,13 +23,14 @@ a.external::before { content: 'Opens link in new tab'; opacity: 0; background-co
 body.vanta { background-color: rgb(0, 0, 0); } body.maroon { background-color: rgb(80, 10, 0); }
 body.bruns { background-color: rgb(159, 255, 159); } body.slug { background-color: rgb(255, 188, 121); }
 
-.loader { position: fixed; z-index: 1000; display: flex; justify-content: center; align-items: center;
-    height: 100vh; width: 100vw; background-color: var(--servBColor); animation: backGR linear 2.5s infinite; }
+.loader { position: fixed; z-index: 1000; display: flex; justify-content: center; align-items: center; top: 0; left: 0;
+    height: 100vh; width: 100vw; background-color: var(--servBColor); animation: backGR linear 3s infinite; color: var(--servTColor); }
 .loader .line { z-index: 100; height: 50vh; width: 1px; background: var(--servTColor); animation: rotateLine 5s infinite;
     position: fixed; top: 25%; left: 50%; transform: translate(-50%, -50%); }
-.loader::before { content: 'Fetching resources for you... Just a moment.'; position: relative; top: 30%; }
-.loader.active { top: -200vh; opacity: 0; }
+.loader::before { content: 'Fetching resources for you... Just a moment.'; position: relative; top: 30%; color: var(--servTColor); }
+.loader.active { top: -100vh; opacity: 0; }
 
 @keyframes rotateLine { 0% { transform: rotate(0deg); } 10% { transform: rotate(45deg); } 20% { transform: rotate(90deg); }
     30% { transform: rotate(135deg); } 40% { transform: rotate(180deg); } 50% { transform: rotate(360deg); } 60% { transform: rotate(180deg); }
     70% { transform: rotate(135deg); } 80% { transform: rotate(90deg); } 90% { transform: rotate(45deg); } 100% { transform: rotate(0deg); } }
+@keyframes backGR { 0% { background-color: var(--skyCyan); } 20% { background-color: var(--slate); } 40% { background-color: var(--servBTColor); } 60% { background-color: var(--salmon); } 80% { background-color: var(--green); } 100% { background-color: var(--yellow); } }
