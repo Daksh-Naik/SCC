@@ -146,10 +146,9 @@
         .arrow.hide { top: 120%; }
 
         .menu { position: fixed; top: 100%; left: 0; width: 100vw; height: 100vh; background-color: var(--servBTColor); z-index: 90;
-            display: flex; justify-content: center; align-items: center; flex-direction: column; }
+            display: flex; justify-content: flex-start; align-items: center; flex-direction: column; overflow: hidden;}
         .menu.active { top: 0%; } .menu.active .content { opacity: 1; transition-delay: 0.7s; }
-        .menu .content { display: flex; justify-content: space-evenly; align-items: flex-start; overflow-y: auto; flex-direction: column;  
-            width: 90vw; padding-top: 15vh; opacity: 0; }
+        .menu .content { overflow-y: auto; width: 90vw; height: 90vh; opacity: 0; padding-top: 20vh; }
         .menu .content .setting { padding: 5vh 5vw; display: flex; justify-content: space-around; align-items: center; width: 80vw;}
         .menu .content .setting h3 { opacity: 0.7; cursor: pointer; } .menu .content .setting h3:hover { opacity: 1; }
         .menu .content .setting h4 { width: 5vw; height: 5vh; margin: 0vh 2vw; cursor: pointer; border: 1px solid white; }
@@ -183,6 +182,15 @@
         .sidesett .settcontent .textcolor span { opacity: 0; position: relative; font-size: 0; top: 5vh; transition: 0.3s; }
         .sidesett .settcontent .textcolor:hover span { opacity: 1; font-size: initial; }
         .sidesett.active { left: 60vw; } .sidesett.active .settcontent .textcolor { filter: grayscale(0); }
+
+        .legals { position: fixed; top: -100%; left: 0%; width: 100vw; height: 100vh; background-color: var(--servBTColor); display: flex;
+            justify-content: center; align-items: center; z-index: 100; transition: 0.8s cubic-bezier(0.445, 0.92, 0.55, 0.95);  }
+        .legals .legalsclose { position: fixed; top: 110%; left: 90%; transition: 0.9s cubic-bezier(0.445, 0.92, 0.55, 0.95); z-index: 101;
+            cursor: pointer; } .legals .legalsclose ion-icon { font-size: 7vh; } .legals .legalsclose:hover ion-icon { color: var(--servBColor); }
+        .legals .legalinfo { width: 90vw; height: 90vh; padding: 20vh 2vw 10vh 5vw; overflow-y: auto; opacity: 0; 
+            transition: 0.5s cubic-bezier(0.645, 0.045, 0.355, 1); transition-delay: 1s; }
+        .legals .legalinfo .para { padding: 2vh 25vw 5vh 5vw; }
+        .legals.active { top: 0%; } .legals .legalsclose.active { top: 10%; left: 90%; } .legals .legalinfo.active { opacity: 1; }
 
         .tricolor { position: fixed; z-index: -1; top: 0%; left: 0; width: 100vw; height: 100vh; overflow: hidden; opacity: 0.2; }
         .tricolor .orange { position: relative; background: rgb(255, 153, 51); height: 33.3vh; width: 200vw; transform: rotate(345deg); top: -25%; left: -10%; }
@@ -219,18 +227,19 @@
             flex-direction: column; padding: 2vh 2vw; font-size: 6vw; background-color: var(--servBColor); height: 100vh; width: 100vw; }
 
         @media only screen and (max-width:1000px) { .spanArr { display: none; } .settings span { display: none; } 
-            .expander span { display: none; } .contractor span { display: none; } .menu .content { padding-top: 20vh; } 
+            .expander span { display: none; } .contractor span { display: none; }  
             .sidesett { padding-top: 15vh; } .textcolor span { display: none; } .compalr { display: block; } .profile span { display: none; } }
         @media only screen and (max-width:950px) { .sloganArea .hand .index .mark { left: -2px; } }
         @media only screen and (min-height:600px) { .sloganArea .hand .thumb { transform: rotate(30deg); left: -40%; } }
         @media only screen and (min-height:750) { .sloganArea .hand .thumb { transform: rotate(20deg); left: -10%; } }
         @media only screen and (max-width:520px) { .sidesett .settcontent .textcolor { width: 7vw; } .sidesett { width: 70vw; } 
             .sidesett.active { left: 30vw; } .settings.active { left: 30%; top: 10%; } .profile.active { top: 10%; left: 50%; } }
+        @media only screen and (max-width:600px) { .menu .content { padding: 50vh 2vw 10vh 2vw; } }
         @media only screen and (max-width:400px) { .sidesett .settcontent .textcolor { width: 9vw; } }
+        @media only screen and (max-width:500px) {  #profileICON ion-icon { font-size: 7vh; } #menarrow ion-icon { font-size: 7vh; } 
+            #settingsID ion-icon { font-size: 7vh; } #expanderID ion-icon { font-size: 7vh; } #contractorID ion-icon { font-size: 7vh; } }
         @media screen and (orientation:portrait) and (max-width:600px) { .rotatepls { display: flex; } }
-        @media only screen and (max-height:560px) { .menu .content { padding-top: 25vh; } }
-        @media only screen and (max-height:500px) { .menu .content { padding-top: 50vh; } }
-        @media screen and (orientation:landscape) { #maincontent > div:nth-child(1) > h2 { padding-top: 20vh; } .index .nail .mark { left: 2px; } }
+        @media screen and (orientation:landscape) { .index .nail .mark { left: 2px; } }
 
     </style>
 
@@ -326,10 +335,76 @@
                     <p>Regards, <br> 
                         <a href="https://daksh-naik.github.io/Profile/" target="_blank" rel="noopener noreferrer" class="external">Daksh</a>
                     </p>
+                    <br><br>
+                    <p id="legalsOpenID" style="cursor: pointer;">Legals</p>
                 </div>
             </div>
         </div>
 
+    </section>
+
+    <section>
+        <div class="legals" id="legalsID">
+            <div class="legalsclose" id="legalsCloseID"><ion-icon name="close-circle-outline"></ion-icon></div>
+            <div class="legalinfo">
+                <h2>About</h2>
+                <p class="para">With interest in Slogan Coding Competition : Voter Awareness, this website is specifically built
+                    for the same. User Interaction (UX) was taken care of the most. Slogan is the prime element, and has been focused largely.
+                    <br><br>
+                    This website DOES NOT promote any political party, discrimination nor is it intended to violate rights.
+                    <br><br>
+                    Website designing : Daksh N
+                    <br>
+                    Hosted by : Github - Pages
+                    <br>
+                    Location : Goa, India
+                    <br>
+                    Website : https://daksh-naik.github.io/SCC/
+                </p>
+                <h2>Design</h2>
+                <p class="para">
+                    The prime motive or the significance of the design of this website
+                    centres around the idea of having the Aesthetic and Focussed feel, just like other websites when it comes to designing
+                    the landing page. It may seem empty, compared to other slogans,
+                    but the deserted feel of the slogan is intentional. Having a plethora of sentences in and around the slogan
+                    to maximize interaction doesn't matter when it comes to Slogans which are drawn by hand. If it were to implement
+                    so many sentences on the slogan on web, the design would loose its aestheticness because of the cluster, which will make it
+                    look unpleasant. This would even loose the focussed feel of the main component of the slogan. Added to this,
+                    this would even compromise in maintaining Media Responsiveness across all devices. So, rounding all this up,
+                    the empty spaces around the slogan is intentional and so the cluster is avoided.
+                </p>
+                <h2>Creativity</h2>
+                <p class="para">
+                    This website's development and designing is NOT a copy from any website, company, public entity or anyone's project.
+                    If it is, it's purely concidental. <br>
+                    Everything here is made from scratch; from 0 lines to about 1200+ lines of code.
+                </p>
+                <h2>Usage</h2>
+                <p class="para">
+                    This website is offered in different web languages (HTML, HTML5, Javascript, CSS, etc ...) for a better comfort of use and
+                    a more pleasant experience, it's recommend using modern browsers like Safari, Firefox, Google Chrome, etc...
+                    However, errors or omissions may occur. 
+                </p>
+                <h2>Cookies</h2>
+                <p class="para">
+                    This website will not ask you to accept cookies for statistical and display purposes. A cookie is an information 
+                    filed on your hard drive by the server of the site you are visiting. It contains several data that is stored on your 
+                    computer in a simple text file that a server accesses to read and save information. Parts of this site may be 
+                    functional without the acceptance of cookies, but not heavy cookies. Basic CSS & HTML files will be stored, which is
+                    Github's responsibility for faster loading of pages.
+                </p>
+                <h2>Litigation</h2>
+                <p class="para">
+                    The terms and conditions of this website are goverened by Github and Government of India. The language of reference
+                    is English.
+                </p>
+                <h2>Personal Data</h2>
+                <p class="para">
+                    This website has nothing to do with your data, so you will be NEVER be prompted to share your information. Your data is 
+                    secured and regulated by the web-host of this website. 
+                </p>
+            </div>
+        </div>
     </section>
 
     <section>
@@ -519,7 +594,7 @@
 
         <div class="menu" id="mainmenu">
             <div class="content" id="maincontent">
-                <div style="padding-top: 10vh;">
+                <div>
                     <h2>About</h2>
                     <p style="padding-right: 2vw;"> On this website, the viewer has the ability to change Visual Properties of the slogan. From changing Sprite (element)
                         to changing Foreground Colors, this slogan is specifically made to enable the viewer to have full control over it.
@@ -575,6 +650,27 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
     <script>
+        var legalsOpenSel = document.getElementById("legalsOpenID");
+        var legalsCloseSel = document.getElementById("legalsCloseID");
+
+        var legalsSel = document.querySelector('.legals');
+        var legalInfoSel = document.querySelector('.legalinfo');
+        var legalsmcloseSel = document.querySelector('.legalsclose');
+
+        legalsOpenSel.onclick = () => {
+            legalsSel.classList.toggle('active');
+            legalInfoSel.classList.toggle('active');
+            legalsmcloseSel.classList.toggle('active');
+        }
+
+        legalsCloseSel.onclick = () => {
+            legalsSel.classList.toggle('active');
+            legalInfoSel.classList.toggle('active');
+            legalsmcloseSel.classList.toggle('active');
+        }
+    </script>
+
+    <script>
         var sloganIDSEL = document.getElementById("sloganID");
 
         var tshwhiteSel = document.getElementById("tshwhite");
@@ -602,7 +698,6 @@
         tshblueSel.onclick = () => {
             sloganIDSEL.style.textShadow = "1px 1px 15px blue";
         }
-
     </script>
 
     <script>
@@ -629,17 +724,11 @@
         ocblack.onclick = () => {
             for (var i = 0; i < peepsSel.length; i++) {
                 peepsSel[i].classList.add('coblack');
-                peepsSel[i].classList.remove('cowhite');
-                peepsSel[i].classList.remove('coyellow');
-                peepsSel[i].classList.remove('coblue');
-                peepsSel[i].classList.remove('cocrimson');
+                peepsSel[i].classList.remove('cowhite', 'coyellow', 'coblue', 'cocrimson');
             }
             for (var i = 0; i < headSel.length; i++) {
                 headSel[i].classList.add('coblack');
-                headSel[i].classList.remove('cowhite');
-                headSel[i].classList.remove('coyellow');
-                headSel[i].classList.remove('coblue');
-                headSel[i].classList.remove('cocrimson');
+                headSel[i].classList.remove('cowhite', 'coyellow', 'coblue', 'cocrimson');
             }
             settalrSel.style.opacity = "1";
             settalrSel.style.top = "20%";
@@ -651,18 +740,12 @@
 
         ocwhite.onclick = () => {
             for (var i = 0; i < peepsSel.length; i++) {
-                peepsSel[i].classList.remove('coblack');
                 peepsSel[i].classList.add('cowhite');
-                peepsSel[i].classList.remove('coblue');
-                peepsSel[i].classList.remove('coyellow');
-                peepsSel[i].classList.remove('cocrimson');
+                peepsSel[i].classList.remove('coblack', 'coyellow', 'coblue', 'cocrimson');
             }
             for (var i = 0; i < headSel.length; i++) {
-                headSel[i].classList.remove('coblack');
                 headSel[i].classList.add('cowhite');
-                headSel[i].classList.remove('coyellow');
-                headSel[i].classList.remove('coblue');
-                headSel[i].classList.remove('cocrimson');
+                headSel[i].classList.remove('coblack', 'coyellow', 'coblue', 'cocrimson');
             }
             settalrSel.style.opacity = "1";
             settalrSel.style.top = "20%";
@@ -674,18 +757,12 @@
 
         ocblue.onclick = () => {
             for (var i = 0; i < peepsSel.length; i++) {
-                peepsSel[i].classList.remove('coblack');
-                peepsSel[i].classList.remove('cowhite');
                 peepsSel[i].classList.add('coblue');
-                peepsSel[i].classList.remove('cocrimson');
-                peepsSel[i].classList.remove('coyellow');
+                peepsSel[i].classList.remove('coblack', 'cowhite', 'coyellow', 'cocrimson');
             }
             for (var i = 0; i < headSel.length; i++) {
-                headSel[i].classList.remove('coblack');
-                headSel[i].classList.remove('cowhite');
-                headSel[i].classList.remove('coyellow');
                 headSel[i].classList.add('coblue');
-                headSel[i].classList.remove('cocrimson');
+                headSel[i].classList.remove('coblack', 'cowhite', 'coyellow', 'cocrimson');
             }
             settalrSel.style.opacity = "1";
             settalrSel.style.top = "20%";
@@ -697,18 +774,12 @@
 
         ocyellow.onclick = () => {
             for (var i = 0; i < peepsSel.length; i++) {
-                peepsSel[i].classList.remove('coblack');
-                peepsSel[i].classList.remove('cowhite');
-                peepsSel[i].classList.remove('coblue');
-                peepsSel[i].classList.remove('cocrimson');
                 peepsSel[i].classList.add('coyellow');
+                peepsSel[i].classList.remove('coblack', 'cowhite', 'coblue', 'cocrimson');
             }
             for (var i = 0; i < headSel.length; i++) {
-                headSel[i].classList.remove('coblack');
-                headSel[i].classList.remove('cowhite');
+                headSel[i].classList.remove('coblack', 'cowhite', 'coblue', 'cocrimson');
                 headSel[i].classList.add('coyellow');
-                headSel[i].classList.remove('coblue');
-                headSel[i].classList.remove('cocrimson');
             }
             settalrSel.style.opacity = "1";
             settalrSel.style.top = "20%";
@@ -720,18 +791,12 @@
 
         occrimson.onclick = () => {
             for (var i = 0; i < peepsSel.length; i++) {
-                peepsSel[i].classList.remove('coblack');
-                peepsSel[i].classList.remove('cowhite');
-                peepsSel[i].classList.remove('coblue');
-                peepsSel[i].classList.remove('coyellow');
-                peepsSel[i].classList.add('cocrimson')
+                peepsSel[i].classList.add('cocrimson');
+                peepsSel[i].classList.remove('coblack', 'cowhite', 'coyellow', 'coblue');
             }
             for (var i = 0; i < headSel.length; i++) {
-                headSel[i].classList.remove('coblack');
-                headSel[i].classList.remove('cowhite');
-                headSel[i].classList.remove('coyellow');
-                headSel[i].classList.remove('coblue');
                 headSel[i].classList.add('cocrimson');
+                headSel[i].classList.remove('coblack', 'cowhite', 'coyellow', 'coblue');
             }
             settalrSel.style.opacity = "1";
             settalrSel.style.top = "20%";
@@ -740,7 +805,6 @@
                 settalrSel.style.top = "-20%";
             }, 1000);
         }
-    
     </script>
 
     <script>
@@ -811,10 +875,7 @@
 
         vbbiegeSel.onclick = () => {
             voteboxSel.classList.toggle('vbbiege');
-            voteboxSel.classList.remove('vbbrown');
-            voteboxSel.classList.remove('vbpale');
-            voteboxSel.classList.remove('vbslade');
-            voteboxSel.classList.remove('vbwalnut');
+            voteboxSel.classList.remove('vbbrown', 'vbpale', 'vbslade', 'vbwalnut');
             settalrSel.style.opacity = "1";
             settalrSel.style.top = "20%";
             setTimeout(function() {
@@ -824,11 +885,8 @@
         }
 
         vbbrownSel.onclick = () => {
-            voteboxSel.classList.remove('vbbiege');
             voteboxSel.classList.toggle('vbbrown');
-            voteboxSel.classList.remove('vbpale');
-            voteboxSel.classList.remove('vbslade');
-            voteboxSel.classList.remove('vbwalnut');
+            voteboxSel.classList.remove('vbbiege', 'vbpale', 'vbslade', 'vbwalnut');
             settalrSel.style.opacity = "1";
             settalrSel.style.top = "20%";
             setTimeout(function() {
@@ -838,11 +896,8 @@
         }
 
         vbpaleSel.onclick = () => {
-            voteboxSel.classList.remove('vbbiege');
-            voteboxSel.classList.remove('vbbrown');
+            voteboxSel.classList.remove('vbbiege', 'vbbrown', 'vbslade', 'vbwalnut');
             voteboxSel.classList.toggle('vbpale');
-            voteboxSel.classList.remove('vbslade');
-            voteboxSel.classList.remove('vbwalnut');
             settalrSel.style.opacity = "1";
             settalrSel.style.top = "20%";
             setTimeout(function() {
@@ -852,11 +907,8 @@
         }
 
         vbsladeSel.onclick = () => {
-            voteboxSel.classList.remove('vbbiege');
-            voteboxSel.classList.remove('vbbrown');
-            voteboxSel.classList.remove('vbpale');
             voteboxSel.classList.toggle('vbslade');
-            voteboxSel.classList.remove('vbwalnut');
+            voteboxSel.classList.remove('vbbiege', 'vbbrown', 'vbpale', 'vbwalnut');
             settalrSel.style.opacity = "1";
             settalrSel.style.top = "20%";
             setTimeout(function() {
@@ -866,10 +918,7 @@
         }
 
         vbwalnutSel.onclick = () => {
-            voteboxSel.classList.remove('vbbiege');
-            voteboxSel.classList.remove('vbbrown');
-            voteboxSel.classList.remove('vbpale');
-            voteboxSel.classList.remove('vbslade');
+            voteboxSel.classList.remove('vbbiege', 'vbbrown', 'vbpale', 'vbslade');
             voteboxSel.classList.toggle('vbwalnut');
             settalrSel.style.opacity = "1";
             settalrSel.style.top = "20%";
@@ -878,7 +927,6 @@
                 settalrSel.style.top = "-20%";
             }, 1000);
         }
-
     </script>
 
     <script>
@@ -970,7 +1018,6 @@
             profileSel.classList.add('active');
             profContentSel.classList.add('active');
         }
-
     </script>
 
     <script>
@@ -996,291 +1043,82 @@
         var settalrSel = document.getElementById("settalr");
 
         TCdefaultSel.onclick = () => {
-            sloganSel.classList.remove('tccyan');
-            sloganSel.classList.remove('tcsalm');
-            sloganSel.classList.remove('tcgreen');
-            sloganSel.classList.remove('tcslate');
-            sloganSel.classList.remove('tcyell');
-            sloganSel.classList.remove('tcindigo');
-            sloganSel.classList.remove('tcstudio');
-            sloganSel.classList.remove('tccrimson');
-            sloganSel.classList.remove('tcpatina');
-            sloganSel.classList.remove('tcgamboge');
-            sloganSel.classList.remove('tcdodger');
-            sloganSel.classList.remove('tcwisteria');
-            sloganSel.classList.remove('tcblossom');
-            sloganSel.classList.remove('tceucal');
-            sloganSel.classList.remove('tcsaffron');
+            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
         }
 
         TCcyanSel.onclick = () => {
             sloganSel.classList.toggle('tccyan');
-            sloganSel.classList.remove('tcsalm');
-            sloganSel.classList.remove('tcgreen');
-            sloganSel.classList.remove('tcslate');
-            sloganSel.classList.remove('tcyell');
-            sloganSel.classList.remove('tcindigo');
-            sloganSel.classList.remove('tcstudio');
-            sloganSel.classList.remove('tccrimson');
-            sloganSel.classList.remove('tcpatina');
-            sloganSel.classList.remove('tcgamboge');
-            sloganSel.classList.remove('tcdodger');
-            sloganSel.classList.remove('tcwisteria');
-            sloganSel.classList.remove('tcblossom');
-            sloganSel.classList.remove('tceucal');
-            sloganSel.classList.remove('tcsaffron');
+            sloganSel.classList.remove('tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
         }
 
         TCsalmonSel.onclick = () => {
-            sloganSel.classList.remove('tccyan');
             sloganSel.classList.toggle('tcsalm');
-            sloganSel.classList.remove('tcgreen');
-            sloganSel.classList.remove('tcslate');
-            sloganSel.classList.remove('tcyell');
-            sloganSel.classList.remove('tcindigo');
-            sloganSel.classList.remove('tcstudio');
-            sloganSel.classList.remove('tccrimson');
-            sloganSel.classList.remove('tcpatina');
-            sloganSel.classList.remove('tcgamboge');
-            sloganSel.classList.remove('tcdodger');
-            sloganSel.classList.remove('tcwisteria');
-            sloganSel.classList.remove('tcblossom');
-            sloganSel.classList.remove('tceucal');
-            sloganSel.classList.remove('tcsaffron');
+            sloganSel.classList.remove('tccyan', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
         }
 
         TCgreenSel.onclick = () => {
-            sloganSel.classList.remove('tccyan');
-            sloganSel.classList.remove('tcsalm');
             sloganSel.classList.toggle('tcgreen');
-            sloganSel.classList.remove('tcslate');
-            sloganSel.classList.remove('tcyell');
-            sloganSel.classList.remove('tcindigo');
-            sloganSel.classList.remove('tcstudio');
-            sloganSel.classList.remove('tccrimson');
-            sloganSel.classList.remove('tcpatina');
-            sloganSel.classList.remove('tcgamboge');
-            sloganSel.classList.remove('tcdodger');
-            sloganSel.classList.remove('tcwisteria');
-            sloganSel.classList.remove('tcblossom');
-            sloganSel.classList.remove('tceucal');
-            sloganSel.classList.remove('tcsaffron');
+            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
         }
 
         TCslateSel.onclick = () => {
-            sloganSel.classList.remove('tccyan');
-            sloganSel.classList.remove('tcsalm');
-            sloganSel.classList.remove('tcgreen');
             sloganSel.classList.toggle('tcslate');
-            sloganSel.classList.remove('tcyell');
-            sloganSel.classList.remove('tcindigo');
-            sloganSel.classList.remove('tcstudio');
-            sloganSel.classList.remove('tccrimson');
-            sloganSel.classList.remove('tcpatina');
-            sloganSel.classList.remove('tcgamboge');
-            sloganSel.classList.remove('tcdodger');
-            sloganSel.classList.remove('tcwisteria');
-            sloganSel.classList.remove('tcblossom');
-            sloganSel.classList.remove('tceucal');
-            sloganSel.classList.remove('tcsaffron');
+            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
         }
 
         TCyellSel.onclick = () => {
-            sloganSel.classList.remove('tccyan');
-            sloganSel.classList.remove('tcsalm');
-            sloganSel.classList.remove('tcgreen');
-            sloganSel.classList.remove('tcslate');
             sloganSel.classList.toggle('tcyell');
-            sloganSel.classList.remove('tcindigo');
-            sloganSel.classList.remove('tcstudio');
-            sloganSel.classList.remove('tccrimson');
-            sloganSel.classList.remove('tcpatina');
-            sloganSel.classList.remove('tcgamboge');
-            sloganSel.classList.remove('tcdodger');
-            sloganSel.classList.remove('tcwisteria');
-            sloganSel.classList.remove('tcblossom');
-            sloganSel.classList.remove('tceucal');
-            sloganSel.classList.remove('tcsaffron');
+            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
         }
 
         TCindigoSel.onclick = () => {
-            sloganSel.classList.remove('tccyan');
-            sloganSel.classList.remove('tcsalm');
-            sloganSel.classList.remove('tcgreen');
-            sloganSel.classList.remove('tcslate');
-            sloganSel.classList.remove('tcyell');
             sloganSel.classList.toggle('tcindigo');
-            sloganSel.classList.remove('tcstudio');
-            sloganSel.classList.remove('tccrimson');
-            sloganSel.classList.remove('tcpatina');
-            sloganSel.classList.remove('tcgamboge');
-            sloganSel.classList.remove('tcdodger');
-            sloganSel.classList.remove('tcwisteria');
-            sloganSel.classList.remove('tcblossom');
-            sloganSel.classList.remove('tceucal');
-            sloganSel.classList.remove('tcsaffron');
+            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
         }
 
         TCstudioSel.onclick = () => {
-            sloganSel.classList.remove('tccyan');
-            sloganSel.classList.remove('tcsalm');
-            sloganSel.classList.remove('tcgreen');
-            sloganSel.classList.remove('tcslate');
-            sloganSel.classList.remove('tcyell');
-            sloganSel.classList.remove('tcindigo');
             sloganSel.classList.toggle('tcstudio');
-            sloganSel.classList.remove('tccrimson');
-            sloganSel.classList.remove('tcpatina');
-            sloganSel.classList.remove('tcgamboge');
-            sloganSel.classList.remove('tcdodger');
-            sloganSel.classList.remove('tcwisteria');
-            sloganSel.classList.remove('tcblossom');
-            sloganSel.classList.remove('tceucal');
-            sloganSel.classList.remove('tcsaffron');
+            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
         }
 
         TCcrimsonSel.onclick = () => {
-            sloganSel.classList.remove('tccyan');
-            sloganSel.classList.remove('tcsalm');
-            sloganSel.classList.remove('tcgreen');
-            sloganSel.classList.remove('tcslate');
-            sloganSel.classList.remove('tcyell');
-            sloganSel.classList.remove('tcindigo');
-            sloganSel.classList.remove('tcstudio');
+            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');    
             sloganSel.classList.toggle('tccrimson');
-            sloganSel.classList.remove('tcpatina');
-            sloganSel.classList.remove('tcgamboge');
-            sloganSel.classList.remove('tcdodger');
-            sloganSel.classList.remove('tcwisteria');
-            sloganSel.classList.remove('tcblossom');
-            sloganSel.classList.remove('tceucal');
-            sloganSel.classList.remove('tcsaffron');
         }
 
         TCpatinaSel.onclick = () => {
-            sloganSel.classList.remove('tccyan');
-            sloganSel.classList.remove('tcsalm');
-            sloganSel.classList.remove('tcgreen');
-            sloganSel.classList.remove('tcslate');
-            sloganSel.classList.remove('tcyell');
-            sloganSel.classList.remove('tcindigo');
-            sloganSel.classList.remove('tcstudio');
-            sloganSel.classList.remove('tccrimson');
             sloganSel.classList.toggle('tcpatina');
-            sloganSel.classList.remove('tcgamboge');
-            sloganSel.classList.remove('tcdodger');
-            sloganSel.classList.remove('tcwisteria');
-            sloganSel.classList.remove('tcblossom');
-            sloganSel.classList.remove('tceucal');
-            sloganSel.classList.remove('tcsaffron');
+            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
         }
 
         TCgambogeSel.onclick = () => {
-            sloganSel.classList.remove('tccyan');
-            sloganSel.classList.remove('tcsalm');
-            sloganSel.classList.remove('tcgreen');
-            sloganSel.classList.remove('tcslate');
-            sloganSel.classList.remove('tcyell');
-            sloganSel.classList.remove('tcindigo');
-            sloganSel.classList.remove('tcstudio');
-            sloganSel.classList.remove('tccrimson');
-            sloganSel.classList.remove('tcpatina');
             sloganSel.classList.toggle('tcgamboge');
-            sloganSel.classList.remove('tcdodger');
-            sloganSel.classList.remove('tcwisteria');
-            sloganSel.classList.remove('tcblossom');
-            sloganSel.classList.remove('tceucal');
-            sloganSel.classList.remove('tcsaffron');
+            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
         }
 
         TCdodgerSel.onclick = () => {
-            sloganSel.classList.remove('tccyan');
-            sloganSel.classList.remove('tcsalm');
-            sloganSel.classList.remove('tcgreen');
-            sloganSel.classList.remove('tcslate');
-            sloganSel.classList.remove('tcyell');
-            sloganSel.classList.remove('tcindigo');
-            sloganSel.classList.remove('tcstudio');
-            sloganSel.classList.remove('tccrimson');
-            sloganSel.classList.remove('tcpatina');
-            sloganSel.classList.remove('tcgamboge');
             sloganSel.classList.toggle('tcdodger');
-            sloganSel.classList.remove('tcwisteria');
-            sloganSel.classList.remove('tcblossom');
-            sloganSel.classList.remove('tceucal');
-            sloganSel.classList.remove('tcsaffron');
+            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcwisteria', 'tcblossom', 'tceucal', 'tcsaffron');
         }
 
         TCwisteriaSel.onclick = () => {
-            sloganSel.classList.remove('tccyan');
-            sloganSel.classList.remove('tcsalm');
-            sloganSel.classList.remove('tcgreen');
-            sloganSel.classList.remove('tcslate');
-            sloganSel.classList.remove('tcyell');
-            sloganSel.classList.remove('tcindigo');
-            sloganSel.classList.remove('tcstudio');
-            sloganSel.classList.remove('tccrimson');
-            sloganSel.classList.remove('tcpatina');
-            sloganSel.classList.remove('tcgamboge');
-            sloganSel.classList.remove('tcdodger');
             sloganSel.classList.toggle('tcwisteria');
-            sloganSel.classList.remove('tcblossom');
-            sloganSel.classList.remove('tceucal');
-            sloganSel.classList.remove('tcsaffron');
+            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcblossom', 'tceucal', 'tcsaffron');
         }
 
         TCblossomSel.onclick = () => {
-            sloganSel.classList.remove('tccyan');
-            sloganSel.classList.remove('tcsalm');
-            sloganSel.classList.remove('tcgreen');
-            sloganSel.classList.remove('tcslate');
-            sloganSel.classList.remove('tcyell');
-            sloganSel.classList.remove('tcindigo');
-            sloganSel.classList.remove('tcstudio');
-            sloganSel.classList.remove('tccrimson');
-            sloganSel.classList.remove('tcpatina');
-            sloganSel.classList.remove('tcgamboge');
-            sloganSel.classList.remove('tcdodger');
-            sloganSel.classList.remove('tcwisteria');
             sloganSel.classList.toggle('tcblossom');
-            sloganSel.classList.remove('tceucal');
-            sloganSel.classList.remove('tcsaffron');
+            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tceucal', 'tcsaffron');
         }
 
         TCeucalSel.onclick = () => {
-            sloganSel.classList.remove('tccyan');
-            sloganSel.classList.remove('tcsalm');
-            sloganSel.classList.remove('tcgreen');
-            sloganSel.classList.remove('tcslate');
-            sloganSel.classList.remove('tcyell');
-            sloganSel.classList.remove('tcindigo');
-            sloganSel.classList.remove('tcstudio');
-            sloganSel.classList.remove('tccrimson');
-            sloganSel.classList.remove('tcpatina');
-            sloganSel.classList.remove('tcgamboge');
-            sloganSel.classList.remove('tcdodger');
-            sloganSel.classList.remove('tcwisteria');
-            sloganSel.classList.remove('tcblossom');
             sloganSel.classList.toggle('tceucal');
-            sloganSel.classList.remove('tcsaffron');
+            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tcsaffron');
         }
 
         TCsaffronSel.onclick = () => {
-            sloganSel.classList.remove('tccyan');
-            sloganSel.classList.remove('tcsalm');
-            sloganSel.classList.remove('tcgreen');
-            sloganSel.classList.remove('tcslate');
-            sloganSel.classList.remove('tcyell');
-            sloganSel.classList.remove('tcindigo');
-            sloganSel.classList.remove('tcstudio');
-            sloganSel.classList.remove('tccrimson');
-            sloganSel.classList.remove('tcpatina');
-            sloganSel.classList.remove('tcgamboge');
-            sloganSel.classList.remove('tcdodger');
-            sloganSel.classList.remove('tcwisteria');
-            sloganSel.classList.remove('tcblossom');
-            sloganSel.classList.remove('tceucal');
             sloganSel.classList.toggle('tcsaffron');
+            sloganSel.classList.remove('tccyan', 'tcsalm', 'tcgreen', 'tcslate', 'tcyell', 'tcindigo', 'tcstudio', 'tccrimson', 'tcpatina', 'tcgamboge', 'tcdodger', 'tcwisteria', 'tcblossom', 'tceucal');
         }
     </script>
 
@@ -1301,146 +1139,57 @@
         var sloganSelB = document.querySelector('.sloganArea');
 
         BCdefaultsel.onclick = () => {
-            sloganSelB.classList.remove('bclemay');
-            sloganSelB.classList.remove('bcpurple');
-            sloganSelB.classList.remove('bcpeach');
-            sloganSelB.classList.remove('bcgourd');
-            sloganSelB.classList.remove('bcpale');
-            sloganSelB.classList.remove('bcultramarine');
-            sloganSelB.classList.remove('bcviolet');
-            sloganSelB.classList.remove('bchotpink');
-            sloganSelB.classList.remove('bcemerald');
-            sloganSelB.classList.remove('bcgold');
+            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald', 'bcgold');
         }
 
         BClemaysel.onclick = () => {
             sloganSelB.classList.toggle('bclemay');
-            sloganSelB.classList.remove('bcpurple');
-            sloganSelB.classList.remove('bcpeach');
-            sloganSelB.classList.remove('bcgourd');
-            sloganSelB.classList.remove('bcpale');
-            sloganSelB.classList.remove('bcultramarine');
-            sloganSelB.classList.remove('bcviolet');
-            sloganSelB.classList.remove('bchotpink');
-            sloganSelB.classList.remove('bcemerald');
-            sloganSelB.classList.remove('bcgold');
+            sloganSelB.classList.remove('bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald', 'bcgold');
         }
 
         BCpurplesel.onclick = () => {
-            sloganSelB.classList.remove('bclemay');
             sloganSelB.classList.toggle('bcpurple');
-            sloganSelB.classList.remove('bcpeach');
-            sloganSelB.classList.remove('bcgourd');
-            sloganSelB.classList.remove('bcpale');
-            sloganSelB.classList.remove('bcultramarine');
-            sloganSelB.classList.remove('bcviolet');
-            sloganSelB.classList.remove('bchotpink');
-            sloganSelB.classList.remove('bcemerald');
-            sloganSelB.classList.remove('bcgold');
+            sloganSelB.classList.remove('bclemay', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald', 'bcgold');
         }
 
         BCpeachsel.onclick = () => {
-            sloganSelB.classList.remove('bclemay');
-            sloganSelB.classList.remove('bcpurple');
             sloganSelB.classList.toggle('bcpeach');
-            sloganSelB.classList.remove('bcgourd');
-            sloganSelB.classList.remove('bcpale');
-            sloganSelB.classList.remove('bcultramarine');
-            sloganSelB.classList.remove('bcviolet');
-            sloganSelB.classList.remove('bchotpink');
-            sloganSelB.classList.remove('bcemerald');
-            sloganSelB.classList.remove('bcgold');
+            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald', 'bcgold');
         }
 
         BCgourdsel.onclick = () => {
-            sloganSelB.classList.remove('bclemay');
-            sloganSelB.classList.remove('bcpurple');
-            sloganSelB.classList.remove('bcpeach');
             sloganSelB.classList.toggle('bcgourd');
-            sloganSelB.classList.remove('bcpale');
-            sloganSelB.classList.remove('bcultramarine');
-            sloganSelB.classList.remove('bcviolet');
-            sloganSelB.classList.remove('bchotpink');
-            sloganSelB.classList.remove('bcemerald');
-            sloganSelB.classList.remove('bcgold');
+            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald', 'bcgold');
         }
 
         BCpalesel.onclick = () => {
-            sloganSelB.classList.remove('bclemay');
-            sloganSelB.classList.remove('bcpurple');
-            sloganSelB.classList.remove('bcpeach');
-            sloganSelB.classList.remove('bcgourd');
             sloganSelB.classList.toggle('bcpale');
-            sloganSelB.classList.remove('bcultramarine');
-            sloganSelB.classList.remove('bcviolet');
-            sloganSelB.classList.remove('bchotpink');
-            sloganSelB.classList.remove('bcemerald');
-            sloganSelB.classList.remove('bcgold');
+            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald', 'bcgold');
         }
 
         BCultramarinesel.onclick = () => {
-            sloganSelB.classList.remove('bclemay');
-            sloganSelB.classList.remove('bcpurple');
-            sloganSelB.classList.remove('bcpeach');
-            sloganSelB.classList.remove('bcgourd');
-            sloganSelB.classList.remove('bcpale');
             sloganSelB.classList.toggle('bcultramarine');
-            sloganSelB.classList.remove('bcviolet');
-            sloganSelB.classList.remove('bchotpink');
-            sloganSelB.classList.remove('bcemerald');
-            sloganSelB.classList.remove('bcgold');
+            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcviolet', 'bchotpink', 'bcemerald', 'bcgold');
         }
 
         BCvioletsel.onclick = () => {
-            sloganSelB.classList.remove('bclemay');
-            sloganSelB.classList.remove('bcpurple');
-            sloganSelB.classList.remove('bcpeach');
-            sloganSelB.classList.remove('bcgourd');
-            sloganSelB.classList.remove('bcpale');
-            sloganSelB.classList.remove('bcultramarine');
             sloganSelB.classList.toggle('bcviolet');
-            sloganSelB.classList.remove('bchotpink');
-            sloganSelB.classList.remove('bcemerald');
-            sloganSelB.classList.remove('bcgold');
+            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bchotpink', 'bcemerald', 'bcgold');
         }
 
         BChotpinksel.onclick = () => {
-            sloganSelB.classList.remove('bclemay');
-            sloganSelB.classList.remove('bcpurple');
-            sloganSelB.classList.remove('bcpeach');
-            sloganSelB.classList.remove('bcgourd');
-            sloganSelB.classList.remove('bcpale');
-            sloganSelB.classList.remove('bcultramarine');
-            sloganSelB.classList.remove('bcviolet');
             sloganSelB.classList.toggle('bchotpink');
-            sloganSelB.classList.remove('bcemerald');
-            sloganSelB.classList.remove('bcgold');
+            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bcemerald', 'bcgold');
         }
 
         BCemeraldsel.onclick = () => {
-            sloganSelB.classList.remove('bclemay');
-            sloganSelB.classList.remove('bcpurple');
-            sloganSelB.classList.remove('bcpeach');
-            sloganSelB.classList.remove('bcgourd');
-            sloganSelB.classList.remove('bcpale');
-            sloganSelB.classList.remove('bcultramarine');
-            sloganSelB.classList.remove('bcviolet');
-            sloganSelB.classList.remove('bchotpink');
             sloganSelB.classList.toggle('bcemerald');
-            sloganSelB.classList.remove('bcgold');
+            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcgold');
         }
 
         BCgoldsel.onclick = () => {
-            sloganSelB.classList.remove('bclemay');
-            sloganSelB.classList.remove('bcpurple');
-            sloganSelB.classList.remove('bcpeach');
-            sloganSelB.classList.remove('bcgourd');
-            sloganSelB.classList.remove('bcpale');
-            sloganSelB.classList.remove('bcultramarine');
-            sloganSelB.classList.remove('bcviolet');
-            sloganSelB.classList.remove('bchotpink');
-            sloganSelB.classList.remove('bcemerald');
             sloganSelB.classList.toggle('bcgold');
+            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald');
         }
     </script>
 
@@ -1524,7 +1273,7 @@
             document.getElementById("loadFer").classList.add('active');
             setTimeout(function(){
                 document.getElementById("loadFer").remove();
-            }, 1000);
+            }, 1500);
             setTimeout(function(){
                 document.querySelector('.vote').classList.add('view');
             }, 100);
@@ -1576,9 +1325,7 @@
 
         Vantablacksel.onclick = () => {
             bodySel.classList.toggle('vanta');
-            bodySel.classList.remove('maroon');
-            bodySel.classList.remove('bruns');
-            bodySel.classList.remove('slug');
+            bodySel.classList.remove('maroon', 'bruns', 'slug');
             settalrSel.style.opacity = "1";
             settalrSel.style.top = "20%";
             setTimeout(function() {
@@ -1588,10 +1335,8 @@
         }
 
         Maroonsel.onclick = () => {
-            bodySel.classList.remove('vanta');
+            bodySel.classList.remove('vanta', 'bruns', 'slug');
             bodySel.classList.toggle('maroon');
-            bodySel.classList.remove('bruns');
-            bodySel.classList.remove('slug');
             settalrSel.style.opacity = "1";
             settalrSel.style.top = "20%";
             setTimeout(function() {
@@ -1601,10 +1346,8 @@
         }
         
         Brunswicksel.onclick = () => {
-            bodySel.classList.remove('vanta');
-            bodySel.classList.remove('maroon');
+            bodySel.classList.remove('vanta', 'maroon', 'slug');
             bodySel.classList.toggle('bruns');
-            bodySel.classList.remove('slug');
             settalrSel.style.opacity = "1";
             settalrSel.style.top = "20%";
             setTimeout(function() {
@@ -1614,9 +1357,7 @@
         }
 
         Slugsel.onclick = () => {
-            bodySel.classList.remove('vanta');
-            bodySel.classList.remove('maroon');
-            bodySel.classList.remove('bruns');
+            bodySel.classList.remove('vanta', 'maroon', 'bruns');
             bodySel.classList.toggle('slug');
             settalrSel.style.opacity = "1";
             settalrSel.style.top = "20%";
@@ -1625,7 +1366,6 @@
                 settalrSel.style.top = "-20%";
             }, 2200);
         }
-
     </script>
 
     <script>
@@ -1655,8 +1395,6 @@
             arrowSel.classList.toggle('active');
             spanArrSel.classList.toggle('active');
         }
-
     </script>
-
 </body>
 </html>
