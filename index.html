@@ -90,7 +90,7 @@
         .chaps .peeps ion-icon { position: relative; left: 35%; top: -80%; color: limegreen; }
         .chaps.active { left: 0%; opacity: 1; }
 
-        .slider { position: fixed; width: 20vw; bottom: 10%; left: 70%;  display: flex; justify-content: space-evenly; align-items: center; z-index: 40; }
+        .slider { position: fixed; width: 20vw; bottom: 10%; left: 70%;  display: flex; justify-content: space-evenly; align-items: center; z-index: 40; padding: 1vw 1vw; }
         .slider h2 { opacity: 0.9; cursor: pointer; } .slider h2 span { opacity: 0; position: absolute; top: -5vh; left: 8vw; font-size: 2vh; }
         .slider h2:hover { opacity: 1; } .slider h2:hover span { opacity: 1; }
         
@@ -121,7 +121,7 @@
         .peeps.cocrimson { border-top: 1px solid crimson; border-left: 1px solid crimson; border-right: 1px solid crimson; }
         .peeps .head.cocrimson { border: 1px solid crimson; }
 
-        .profile { position: fixed; top: 20%; left: 2%; z-index: 90; cursor: pointer; transition: 0.8s cubic-bezier(0.445, 0.92, 0.55, 0.95); }
+        .profile { position: fixed; top: 20%; left: 2%; z-index: 90; cursor: pointer; transition: 0.8s cubic-bezier(0.445, 0.92, 0.55, 0.95); padding: 1vw 1vw; }
         .profile span { opacity: 0; position: relative; top: -6vh; left: -3.5vw; width: auto; } .profile:hover span { opacity: 1; } 
         .profile span::before { content: 'Team '; } .profile.active { left: 90%; } .profile.active span::before { content: 'Close '; }
         .profile.hide { left: -50%; }
@@ -139,7 +139,7 @@
         .contractor span { opacity: 0; position: fixed; top: 87vh; left: 85vw; width: max-content; font-size: 1.5vh; } 
         .contractor:hover span { opacity: 1; } .contractor:hover { opacity: 1; }
 
-        .arrow { position: fixed; top: 120%; left: 50%; transform: translate(-50%, -50%); transition: 0.8s; z-index: 91; }
+        .arrow { position: fixed; top: 120%; left: 50%; transform: translate(-50%, -50%); transition: 0.8s; z-index: 91; padding: 1vw 1vw; }
         .arrow ion-icon { cursor: pointer; opacity: 0.6; } .arrow:hover ion-icon { opacity: 1; } .spanArr::before { content: 'Open '; }
         .arrow span { opacity: 0; position: fixed; width: max-content; top: -5vh; left: -2vw; } .arrow:hover span { opacity: 1; }
         .arrow.spawn { top: 90%; } .arrow.active { top: 10%; } .arrow.active span { top: 5vh; } 
@@ -161,7 +161,7 @@
         .settingsalr { position: fixed; top: -20%; left: 50%; transform: translate(-50%, -50%); background-color: var(--servBTColor);
             color: var(--servTColor); padding: 1vh 1vw; opacity: 0; top: 20%; }
 
-        .settings { position: fixed; top: 20%; left: 150%; transform: translate(-50%, -50%); z-index: 51; transition: 0.7s; }
+        .settings { position: fixed; top: 20%; left: 150%; transform: translate(-50%, -50%); z-index: 51; transition: 0.7s; padding: 1vw 1vw; }
         .settings ion-icon { cursor: pointer; opacity: 0.6; font-size: 6vh; } .settings ion-icon:hover { opacity: 1; }
         .settings span { opacity: 0; position: fixed; width: max-content; top: -5vh; left: -10vw; }
         .settings span::before { content: 'Open '; } .settings:hover span { opacity: 1; } .settings.active span::before { content: 'Close '; }
@@ -184,23 +184,23 @@
         .sidesett .settcontent .textcolor:hover span { opacity: 1; font-size: initial; }
         .sidesett.active { left: 60vw; } .sidesett.active .settcontent .textcolor { filter: grayscale(0); }
 
-        .legals { position: fixed; top: -100%; left: 0%; width: 100vw; height: 100vh; background-color: var(--servBTColor); display: flex;
+        .legals { position: fixed; top: -200%; left: 0%; width: 100vw; height: 100vh; background-color: var(--servBTColor); display: flex;
             justify-content: center; align-items: center; z-index: 100; transition: 0.8s cubic-bezier(0.445, 0.92, 0.55, 0.95);  }
         .legals .legalsclose { position: fixed; top: 110%; left: 90%; transition: 0.9s cubic-bezier(0.445, 0.92, 0.55, 0.95); z-index: 101;
-            cursor: pointer; } .legals .legalsclose ion-icon { font-size: 7vh; } .legals .legalsclose:hover ion-icon { color: var(--servBColor); }
+            cursor: pointer; padding: 1vw 1vw; } .legals .legalsclose ion-icon { font-size: 7vh; } .legals .legalsclose:hover ion-icon { color: var(--servBColor); }
         .legals .legalinfo { width: 90vw; height: 90vh; padding: 20vh 2vw 10vh 5vw; overflow-y: auto; opacity: 0; 
             transition: 0.5s cubic-bezier(0.645, 0.045, 0.355, 1); transition-delay: 1s; }
         .legals .legalinfo .para { padding: 2vh 25vw 5vh 5vw; }
         .legals.active { top: 0%; } .legals .legalsclose.active { top: 10%; left: 90%; } .legals .legalinfo.active { opacity: 1; }
 
-        .tricolor { transition: 1s cubic-bezier(0.5, 0.79, 0.34, 1.31); position: fixed; z-index: -5; top: 0%; left: -50%; width: 200vw; 
+        .tricolor { transition: 1s cubic-bezier(0.5, 0.79, 0.34, 1.31); position: fixed; z-index: 0; top: 0%; left: -50%; width: 200vw; 
             height: 100vh; overflow: hidden; opacity: 0.2; transform: rotate(345deg); }
-        .tricolor .orange { position: relative; background: rgb(255, 153, 51); height: 33.3vh; width: 200vw; top: 0%; left: 0%; overflow: hidden; }
-        .tricolor .white { position: relative; background: rgb(255, 255, 255); height: 33.3vh; width: 200vw; top: 0%; left: 0%; overflow: hidden; }
-        .tricolor .green { position: relative; background: rgb(19, 136, 8); height: 33.3vh; width: 200vw;  top: 0%; left: 0%; overflow: hidden; }
+        .tricolor .orange { position: relative; background: rgb(255, 153, 51); height: 33.3vh; width: 200vw; top: 0%; left: 0%; overflow: hidden; z-index: 0; }
+        .tricolor .white { position: relative; background: rgb(255, 255, 255); height: 33.3vh; width: 200vw; top: 0%; left: 0%; overflow: hidden; z-index: 0; }
+        .tricolor .green { position: relative; background: rgb(19, 136, 8); height: 33.3vh; width: 200vw;  top: 0%; left: 0%; overflow: hidden; z-index: 0; }
         .tricolor .white .circle { height: 33.3vh; width: 33.3vh; border-radius: 100% 100%; border: 5px solid #000080; position: relative; top: 50%; left: 50%; 
-            transform: translate(-50%, -50%); overflow: hidden; }
-        .tricolor .white .circle .spoke { position: absolute; background: #000080; height: 32vh; width: 5px; overflow: hidden; left: 50%; border-radius: 100% 100% 100% 100%; }
+            transform: translate(-50%, -50%); overflow: hidden; z-index: 0; }
+        .tricolor .white .circle .spoke { position: absolute; background: #000080; height: 32vh; width: 5px; overflow: hidden; left: 50%; border-radius: 100% 100% 100% 100%; z-index: 0; }
         .tricolor .white .circle .spoke:nth-child(1) { transform: rotate(0deg); } .tricolor .white .circle .spoke:nth-child(2) { transform: rotate(15deg); } 
         .tricolor .white .circle .spoke:nth-child(3) { transform: rotate(30deg); } .tricolor .white .circle .spoke:nth-child(4) { transform: rotate(45deg); } 
         .tricolor .white .circle .spoke:nth-child(5) { transform: rotate(60deg); } .tricolor .white .circle .spoke:nth-child(6) { transform: rotate(75deg); } 
@@ -438,7 +438,7 @@
                 </div>
                 <div class="votebox active">
                     <div class="box">
-                        <h5 class="h5"><p>VOTE</p></h5>
+                        <h5 class="h5" id="voteh5ID"><p>VOTE</p></h5>
                     </div>
                     <div class="card">
                         <ion-icon name="checkbox-outline"></ion-icon>
@@ -756,6 +756,45 @@
         opaRangeSel.addEventListener("change", function() {
             tricolorSel.style.opacity = (this.max - this.value) / this.max;
         })
+    </script>
+
+    <script>
+        // Easter Egg
+        var bodySel = document.querySelector('body');
+        var tricolorselID = document.getElementById("tricolorID");
+        var voteh5IDSel = document.getElementById("voteh5ID");
+
+        voteh5IDSel.onclick = () => {
+            setTimeout(function(){
+                bodySel.classList.remove('maroon', 'bruns', 'slug', 'cloud');
+                bodySel.classList.add('koyal');
+                tricolorselID.style.transform = "rotate(0deg)";
+            }, 0);
+            setTimeout(function(){
+                bodySel.classList.remove('koyal');
+                bodySel.classList.add('maroon');
+                tricolorselID.style.transform = "rotate(72deg)";
+            }, 500);
+            setTimeout(function(){
+                bodySel.classList.remove('maroon');
+                bodySel.classList.add('bruns');
+                tricolorselID.style.transform = "rotate(144deg)";
+            }, 1000);
+            setTimeout(function(){
+                bodySel.classList.remove('bruns');
+                bodySel.classList.add('slug');
+                tricolorselID.style.transform = "rotate(216deg)";
+            }, 1500);
+            setTimeout(function(){
+                bodySel.classList.remove('slug');
+                bodySel.classList.add('cloud');
+                tricolorselID.style.transform = "rotate(288deg)";
+            }, 2000);
+            setTimeout(function(){
+                bodySel.classList.remove('cloud');
+                tricolorselID.style.transform = "rotate(345deg)";
+            }, 2500);
+        }
     </script>
 
     <script>
