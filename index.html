@@ -28,8 +28,9 @@
         <meta name="description" content="HTML & CSS Slogan for Slogan Coding Competition, Jan 2022. Participant & Designed by : Daksh N">
 
     <style type="text/css">
-        .sloganArea { height: 100vh; width: 100vw; display: flex; justify-content: space-evenly; align-items: center; }
-        .slogan { text-shadow: 1px 1px 15px var(--servBColor); height: 90vh; padding: 1vh 2vh 1vh 2vh; display: flex; justify-content: center; flex-direction: column; align-items: flex-start; }
+        .sloganArea { height: 100vh; width: 100vw; display: flex; justify-content: space-evenly; align-items: center; z-index: 5; }
+        .slogan { text-shadow: 1px 1px 15px var(--servBColor); height: 90vh; padding: 1vh 2vh 1vh 2vh; display: flex; justify-content: center; 
+            flex-direction: column; align-items: flex-start; z-index: 5; }
         .slogan h1 { font-size: calc(2vw * 3); font-weight: 900; }
         .slogan .vote::after { content: ' vote,'; position: relative; left: -50%; opacity: 0; transition: 0.3s cubic-bezier(0.75, 0.59, 0.21, 1.07); }
         .slogan .vote.view::after { left: 0%; opacity: 1; }
