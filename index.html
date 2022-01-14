@@ -32,6 +32,8 @@
         .slogan { text-shadow: 1px 1px 15px var(--servBColor); height: 90vh; padding: 1vh 2vh 1vh 2vh; display: flex; justify-content: center; 
             flex-direction: column; align-items: flex-start; z-index: 5; }
         .slogan h1 { font-size: calc(2vw * 3); font-weight: 900; }
+        .slogan.slogan2 h1 { font-size: calc(2vw * 2); } .slogan.slogan25 h1 { font-size: calc(2vw * 2.5); }
+        .slogan.slogan35 h1 { font-size: calc(2vw * 3.5); } .slogan.slogan4 h1 { font-size: calc(2vw * 4); }
         .slogan .vote::after { content: ' vote,'; position: relative; left: -50%; opacity: 0; transition: 0.3s cubic-bezier(0.75, 0.59, 0.21, 1.07); }
         .slogan .vote.view::after { left: 0%; opacity: 1; }
         .slogan .choice::after { content: ' choice,'; position: relative; left: 50%; opacity: 0; transition: 0.5s; }
@@ -39,6 +41,8 @@
         .slogan .decision::after { content: ' decision.'; position: relative; top: 50%; opacity: 0; transition: 0.4s; }
         .slogan .decision.view::after { top: 0%; opacity: 1; }
         .slogan .sentence { opacity: 0; font-size: 1.2vw; }
+        .slogan .sentence.size1 { font-size: 1vw; } .slogan .sentence.size12 { font-size: 1.2vw; } .slogan .sentence.size15 { font-size: 1.5vw; }
+        .slogan .sentence.size17 { font-size: 1.7vw; } .slogan .sentence.size2 { font-size: 2vw; }
         .slogan .sentence.view { opacity: 1; }
         .slogan .sentence::after { content: " who's going to adjudge for the better tomorrow. Your decision matters."; 
                         position: relative; top: -50%; opacity: 0; transition-delay: 1s; transition: 1s; }
@@ -178,6 +182,8 @@
         .sidesett .settcontent { padding: 1vh 2vw 5vh 2vw; display: grid; grid-template-columns: auto auto auto auto auto; width: max-content; margin: auto; }
         .sidesett .settcontent .textcolor { width: 4vw; height: 5vh; border: 1px solid var(--servTColor); cursor: pointer; margin: 0.5vh 1vw; 
             filter: grayscale(1); transition-delay: 1s; }
+        .sidesett .settcontent .sizes { width: 4vw; height: 5vh; cursor: pointer; margin: 0.5vh 1vw; display: flex; justify-content: center;
+            align-items: center; background-color: var(--servBTColor); border: 1px solid var(--skyCyan); }
         .default { width: max-content; margin: auto; padding: 1vh 1vw; background-color: var(--servBColor);
             color: var(--servTColor); cursor: pointer; transition: 0.3s; } 
         .default:hover { background-color: var(--servTColor); color: var(--servBColor); }
@@ -238,7 +244,8 @@
         @media only screen and (min-height:600px) { .sloganArea .hand .thumb { transform: rotate(30deg); left: -40%; } }
         @media only screen and (min-height:750) { .sloganArea .hand .thumb { transform: rotate(20deg); left: -10%; } }
         @media only screen and (max-width:520px) { .sidesett .settcontent .textcolor { width: 7vw; } .sidesett { width: 70vw; } 
-            .sidesett.active { left: 30vw; } .settings.active { left: 30%; top: 10%; } .profile.active { top: 10%; left: 50%; } }
+            .sidesett.active { left: 30vw; } .settings.active { left: 30%; top: 10%; } .profile.active { top: 10%; left: 50%; }
+            .default:hover { background-color: var(--servBColor); color: var(--servTColor); } }
         @media only screen and (max-width:600px) { .menu .content { padding: 50vh 2vw 10vh 2vw; } }
         @media only screen and (max-width:400px) { .sidesett .settcontent .textcolor { width: 9vw; } }
         @media only screen and (max-width:500px) {  #profileICON ion-icon { font-size: 7vh; } #menarrow ion-icon { font-size: 7vh; } 
@@ -547,6 +554,18 @@
                     <div class="default" id="tcdefault"><h5>RESET DEFAULTS</h5></div>
                 </div>
                 <br>
+                <h2>Text Shadow</h2>
+                <div class="settcontent">
+                    <h4 class="textcolor" id="tshwhite" style="background: white;"><span>White</span></h4>
+                    <h4 class="textcolor" id="tshblack" style="background: black;"><span>Black</span></h4>
+                    <h4 class="textcolor" id="tshcrimson" style="background: crimson;"><span>Crimson</span></h4>
+                    <h4 class="textcolor" id="tshyellow" style="background: yellow;"><span>Yellow</span></h4>
+                    <h4 class="textcolor" id="tshblue" style="background: blue;"><span>Blue</span></h4>
+                </div>
+                <div class="settcontent">
+                    <div class="default" id="tshremove"><h5>REMOVE SHADOW</h5></div>
+                </div>
+                <br>
                 <h2>Background Color</h2>
                 <i>Pastel</i>
                 <div class="settcontent">
@@ -567,18 +586,35 @@
                 <div class="settcontent">
                     <div class="default" id="bcdefault"><h5>RESET DEFAULTS</h5></div>
                 </div>
+                <h2>Text Size</h2>
+                <i>Prime text</i>
+                <div class="settcontent">
+                    <div class="sizes" id="sloganT2">2</div>
+                    <div class="sizes" id="sloganT25">2.5</div>
+                    <div class="sizes" id="sloganT3">3</div>
+                    <div class="sizes" id="sloganT35">3.5</div>
+                    <div class="sizes" id="sloganT4">4</div>
+                </div>
+                <div style="width: max-content; margin: auto; text-align: center;">
+                    <i style="font-size: 2vh;">3 is Default Text Size.</i>
+                </div>
                 <br>
-                <h2>Text Shadow</h2>
+                <i>Sentence</i>
                 <div class="settcontent">
-                    <h4 class="textcolor" id="tshwhite" style="background: white;"><span>White</span></h4>
-                    <h4 class="textcolor" id="tshblack" style="background: black;"><span>Black</span></h4>
-                    <h4 class="textcolor" id="tshcrimson" style="background: crimson;"><span>Crimson</span></h4>
-                    <h4 class="textcolor" id="tshyellow" style="background: yellow;"><span>Yellow</span></h4>
-                    <h4 class="textcolor" id="tshblue" style="background: blue;"><span>Blue</span></h4>
+                    <div class="sizes" id="slogansentT1">1</div>
+                    <div class="sizes" id="slogansentT12">1.2</div>
+                    <div class="sizes" id="slogansentT15">1.5</div>
+                    <div class="sizes" id="slogansentT17">1.7</div>
+                    <div class="sizes" id="slogansentT2">2</div>
+                </div>
+                <div style="width: max-content; margin: auto; text-align: center;">
+                    <i style="font-size: 2vh;">1.2 is Default Text Size.</i>
+                    <br><br>
                 </div>
                 <div class="settcontent">
-                    <div class="default" id="tshremove"><h5>REMOVE SHADOW</h5></div>
+                    <div class="default" id="fsdefault"><h5>RESET DEFAULTS</h5></div>
                 </div>
+                <br>
                 <p><ion-icon name="alert-circle-outline"></ion-icon> Sufficient care is undertaken to make the slogan look flawless. 
                     The slogan may look different on various devices. Medium sized Laptops or Desktops render the slogan accurately.</p>
                 <br><br><br>
@@ -681,6 +717,81 @@
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        var sloganT2Sel = document.getElementById("sloganT2");
+        var sloganT25Sel = document.getElementById("sloganT25");
+        var sloganT3Sel = document.getElementById("sloganT3");
+        var sloganT35Sel = document.getElementById("sloganT35");
+        var sloganT4Sel = document.getElementById("sloganT4");
+
+        var sloganH1Sel = document.querySelector('.slogan');
+
+        sloganT2Sel.onclick = () => {
+            sloganH1Sel.classList.remove('slogan25', 'slogan35', 'slogan4');
+            sloganH1Sel.classList.toggle('slogan2');
+        }
+
+        sloganT25Sel.onclick = () => {
+            sloganH1Sel.classList.remove('slogan2', 'slogan35', 'slogan4');
+            sloganH1Sel.classList.toggle('slogan25');
+        }
+
+        sloganT3Sel.onclick = () => {
+            sloganH1Sel.classList.remove('slogan2', 'slogan25', 'slogan35', 'slogan4');
+        }
+
+        sloganT35Sel.onclick = () => {
+            sloganH1Sel.classList.remove('slogan2', 'slogan25', 'slogan4');
+            sloganH1Sel.classList.toggle('slogan35');
+        }
+
+        sloganT4Sel.onclick = () => {
+            sloganH1Sel.classList.remove('slogan2', 'slogan25', 'slogan35');
+            sloganH1Sel.classList.toggle('slogan4');
+        }
+
+        var slogansentT1Sel = document.getElementById("slogansentT1");
+        var slogansentT12Sel = document.getElementById("slogansentT12");
+        var slogansentT15Sel = document.getElementById("slogansentT15");
+        var slogansentT17Sel = document.getElementById("slogansentT17");
+        var slogansentT2Sel = document.getElementById("slogansentT2");
+
+        var slogansent = document.querySelector('.sentence');        
+
+        slogansentT1Sel.onclick = () => {
+            slogansent.classList.remove('size12', 'size15', 'size17', 'size2');
+            slogansent.classList.toggle('size1');
+        }
+
+        slogansentT12Sel.onclick = () => {
+            slogansent.classList.remove('size1', 'size15', 'size17', 'size2');
+            slogansent.classList.toggle('size12');
+        }
+        
+        slogansentT15Sel.onclick = () => {
+            slogansent.classList.remove('size12', 'size1', 'size17', 'size2');
+            slogansent.classList.toggle('size15');
+        }
+
+        slogansentT17Sel.onclick = () => {
+            slogansent.classList.remove('size12', 'size15', 'size11', 'size2');
+            slogansent.classList.toggle('size17');
+        }
+
+        slogansentT2Sel.onclick = () => {
+            slogansent.classList.remove('size12', 'size15', 'size17', 'size1');
+            slogansent.classList.toggle('size2');
+        }
+
+        var fsdefaultSel = document.getElementById("fsdefault");
+
+        fsdefaultSel.onclick = () => {
+            slogansent.classList.remove('size12', 'size1', 'size17', 'size2', 'size15');
+            sloganH1Sel.classList.remove('slogan2', 'slogan25', 'slogan35', 'slogan4');
+        }
+
+    </script>
 
     <script>
         var tricolorselID = document.getElementById("tricolorID");
