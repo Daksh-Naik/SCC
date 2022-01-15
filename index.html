@@ -115,6 +115,12 @@
         .sloganArea.bcviolet { background-color: rgb(97, 0, 148); } .sloganArea.bchotpink { background-color: rgb(218, 0, 55); }
         .sloganArea.bcemerald { background-color: rgb(52, 103, 81); } .sloganArea.bcgold { background-color: rgb(216, 146, 22); }
 
+        .grpurpleblue { background: linear-gradient(to top, purple 0%, blue 100% ); }
+        .grsky { background-image: radial-gradient( circle farthest-corner at 7.2% 13.6%,  rgba(37,249,245,1) 0%, rgba(8,70,218,1) 90% ); }
+        .grgrape { background-color: #85FFBD; background-image: linear-gradient(345deg, #85FFBD 0%, #FFFB7D 100%); }
+        .grredyellow { background: linear-gradient(to top, crimson 0%, yellow 100% ); }
+        .grmajestic { background-color: #4158D0; background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%); }
+
         .peeps.coblack { border-top: 1px solid black; border-left: 1px solid black; border-right: 1px solid black; }
         .peeps .head.coblack { border: 1px solid black; }
         .peeps.cowhite { border-top: 1px solid rgb(255, 255, 255); border-left: 1px solid rgb(255, 255, 255); border-right: 1px solid rgb(255, 255, 255); }
@@ -567,6 +573,8 @@
                 </div>
                 <br>
                 <h2>Background Color</h2>
+                <i>*Background Color is not visible when Tricolor is Opaque, and at Full Rotation (0 / 360 DEG).</i>
+                <br><br>
                 <i>Pastel</i>
                 <div class="settcontent">
                     <h4 class="textcolor" id="bclemay" style="background-color: rgb(153, 254, 255);"><span>Lemay</span></h4>
@@ -583,6 +591,14 @@
                     <h4 class="textcolor" id="bcemerald" style="background-color: rgb(52, 103, 81);"><span>Emerald</span></h4>
                     <h4 class="textcolor" id="bcgold" style="background-color: rgb(216, 146, 22);"><span>Gold</span></h4>
                 </div>
+                <i>Gradient</i>
+                <div class="settcontent">
+                    <h4 class="textcolor" id="bcgrpurpleblue" style="background: linear-gradient(to top, purple 0%, blue 100% );"><span>Blueberry</span></h4>
+                    <h4 class="textcolor" id="bcgrsky" style="background-image: radial-gradient( circle farthest-corner at 7.2% 13.6%,  rgba(37,249,245,1) 0%, rgba(8,70,218,1) 90% );"><span>Sky</span></h4>
+                    <h4 class="textcolor" id="bcgrgrape" style="background-color: #85FFBD; background-image: linear-gradient(345deg, #85FFBD 0%, #FFFB7D 100%);"><span>Grape</span></h4>
+                    <h4 class="textcolor" id="bcgrpicto" style="background: linear-gradient(to top, crimson 0%, yellow 100% );"><span>Picto</span></h4>
+                    <h4 class="textcolor" id="bcgrmajestic" style="background-color: #4158D0; background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);"><span>Majestic</span></h4>
+                </div>
                 <div class="settcontent">
                     <div class="default" id="bcdefault"><h5>RESET DEFAULTS</h5></div>
                 </div>
@@ -596,7 +612,9 @@
                     <div class="sizes" id="sloganT4">4</div>
                 </div>
                 <div style="width: max-content; margin: auto; text-align: center;">
-                    <i style="font-size: 2vh;">3 is Default Text Size.</i>
+                    <i style="font-size: 2vh;">Current : 
+                        <span id="primeDefSP" 
+                            style="border-right: 1px solid var(--servTColor); padding: 0vh 1vw; margin-right: 1vw;">3</span> 3 is Default Text Size.</i>
                 </div>
                 <br>
                 <i>Sentence</i>
@@ -608,7 +626,9 @@
                     <div class="sizes" id="slogansentT2">2</div>
                 </div>
                 <div style="width: max-content; margin: auto; text-align: center;">
-                    <i style="font-size: 2vh;">1.2 is Default Text Size.</i>
+                    <i style="font-size: 2vh;">Current : 
+                        <span id="sentenDefSP" 
+                            style="border-right: 1px solid var(--servTColor); padding: 0vh 1vw; margin-right: 1vw;">1.2</span> 1.2 is Default Text Size.</i>
                     <br><br>
                 </div>
                 <div class="settcontent">
@@ -679,7 +699,7 @@
                         <h3>Go to Slogan Settings</h3>
                     </div>
                 </div>
-                <h2>Primary Background Color</h2>
+                <h2>System Primary Background Color</h2>
                 <div class="setting">
                     <h4 style="background-color: rgb(0, 0, 0);" id="Koyal"><span>Koyal</span></h4>
                     <h4 style="background-color: rgb(230, 230, 230);" id="Cloud"><span>Cloud</span></h4>
@@ -702,7 +722,7 @@
                 <div>
                     <p>EN - INDIA</p>
                     <p>GOA</p>
-                    <p>13 Jan - 2022</p>
+                    <p>15 Jan - 2022</p>
                     <br>
                     <p style="cursor: pointer;" id="seeAbout">ABOUT</p>
                 </div>
@@ -725,30 +745,36 @@
         var sloganT35Sel = document.getElementById("sloganT35");
         var sloganT4Sel = document.getElementById("sloganT4");
 
+        var sloganTDefSpan = document.getElementById("primeDefSP");
         var sloganH1Sel = document.querySelector('.slogan');
 
         sloganT2Sel.onclick = () => {
             sloganH1Sel.classList.remove('slogan25', 'slogan35', 'slogan4');
-            sloganH1Sel.classList.toggle('slogan2');
+            sloganH1Sel.classList.add('slogan2');
+            sloganTDefSpan.innerHTML = "2";
         }
 
         sloganT25Sel.onclick = () => {
             sloganH1Sel.classList.remove('slogan2', 'slogan35', 'slogan4');
-            sloganH1Sel.classList.toggle('slogan25');
+            sloganH1Sel.classList.add('slogan25');
+            sloganTDefSpan.innerHTML = "2.5";
         }
 
         sloganT3Sel.onclick = () => {
             sloganH1Sel.classList.remove('slogan2', 'slogan25', 'slogan35', 'slogan4');
+            sloganTDefSpan.innerHTML = "3";
         }
 
         sloganT35Sel.onclick = () => {
             sloganH1Sel.classList.remove('slogan2', 'slogan25', 'slogan4');
-            sloganH1Sel.classList.toggle('slogan35');
+            sloganH1Sel.classList.add('slogan35');
+            sloganTDefSpan.innerHTML = "3.5";
         }
 
         sloganT4Sel.onclick = () => {
             sloganH1Sel.classList.remove('slogan2', 'slogan25', 'slogan35');
-            sloganH1Sel.classList.toggle('slogan4');
+            sloganH1Sel.classList.add('slogan4');
+            sloganTDefSpan.innerHTML = "4";
         }
 
         var slogansentT1Sel = document.getElementById("slogansentT1");
@@ -757,31 +783,37 @@
         var slogansentT17Sel = document.getElementById("slogansentT17");
         var slogansentT2Sel = document.getElementById("slogansentT2");
 
+        var slogansentspan = document.getElementById("sentenDefSP");
         var slogansent = document.querySelector('.sentence');        
 
         slogansentT1Sel.onclick = () => {
             slogansent.classList.remove('size12', 'size15', 'size17', 'size2');
-            slogansent.classList.toggle('size1');
+            slogansent.classList.add('size1');
+            slogansentspan.innerHTML = "1";
         }
 
         slogansentT12Sel.onclick = () => {
             slogansent.classList.remove('size1', 'size15', 'size17', 'size2');
-            slogansent.classList.toggle('size12');
+            slogansent.classList.add('size12');
+            slogansentspan.innerHTML = "1.2";
         }
         
         slogansentT15Sel.onclick = () => {
             slogansent.classList.remove('size12', 'size1', 'size17', 'size2');
-            slogansent.classList.toggle('size15');
+            slogansent.classList.add('size15');
+            slogansentspan.innerHTML = "1.5";
         }
 
         slogansentT17Sel.onclick = () => {
             slogansent.classList.remove('size12', 'size15', 'size11', 'size2');
-            slogansent.classList.toggle('size17');
+            slogansent.classList.add('size17');
+            slogansentspan.innerHTML = "1.7";
         }
 
         slogansentT2Sel.onclick = () => {
             slogansent.classList.remove('size12', 'size15', 'size17', 'size1');
-            slogansent.classList.toggle('size2');
+            slogansent.classList.add('size2');
+            slogansentspan.innerHTML = "2";
         }
 
         var fsdefaultSel = document.getElementById("fsdefault");
@@ -789,6 +821,8 @@
         fsdefaultSel.onclick = () => {
             slogansent.classList.remove('size12', 'size1', 'size17', 'size2', 'size15');
             sloganH1Sel.classList.remove('slogan2', 'slogan25', 'slogan35', 'slogan4');
+            sloganTDefSpan.innerHTML = "3";
+            slogansentspan.innerHTML = "1.2";
         }
 
     </script>
@@ -1348,62 +1382,93 @@
         var BCemeraldsel = document.getElementById("bcemerald");
         var BCgoldsel = document.getElementById("bcgold");
 
+        var GRpurpleblueSel = document.getElementById("bcgrpurpleblue");
+        var GRskySel = document.getElementById("bcgrsky");
+        var GRgrapeSel = document.getElementById("bcgrgrape");
+        var GRpictoSel = document.getElementById("bcgrpicto");
+        var GRmajesticSel = document.getElementById("bcgrmajestic");
+
         var BCdefaultsel = document.getElementById("bcdefault");
 
         var sloganSelB = document.querySelector('.sloganArea');
 
         BCdefaultsel.onclick = () => {
-            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald', 'bcgold');
+            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald', 'bcgold', 'grpurpleblue', 'grsky', 'grgrape', 'grredyellow', 'grmajestic');
         }
 
         BClemaysel.onclick = () => {
             sloganSelB.classList.toggle('bclemay');
-            sloganSelB.classList.remove('bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald', 'bcgold');
+            sloganSelB.classList.remove('bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald', 'bcgold', 'grpurpleblue', 'grsky', 'grgrape', 'grredyellow', 'grmajestic');
         }
 
         BCpurplesel.onclick = () => {
             sloganSelB.classList.toggle('bcpurple');
-            sloganSelB.classList.remove('bclemay', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald', 'bcgold');
+            sloganSelB.classList.remove('bclemay', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald', 'bcgold', 'grpurpleblue', 'grsky', 'grgrape', 'grredyellow', 'grmajestic');
         }
 
         BCpeachsel.onclick = () => {
             sloganSelB.classList.toggle('bcpeach');
-            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald', 'bcgold');
+            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald', 'bcgold', 'grpurpleblue', 'grsky', 'grgrape', 'grredyellow', 'grmajestic');
         }
 
         BCgourdsel.onclick = () => {
             sloganSelB.classList.toggle('bcgourd');
-            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald', 'bcgold');
+            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald', 'bcgold', 'grpurpleblue', 'grsky', 'grgrape', 'grredyellow', 'grmajestic');
         }
 
         BCpalesel.onclick = () => {
             sloganSelB.classList.toggle('bcpale');
-            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald', 'bcgold');
+            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald', 'bcgold', 'grpurpleblue', 'grsky', 'grgrape', 'grredyellow', 'grmajestic');
         }
 
         BCultramarinesel.onclick = () => {
             sloganSelB.classList.toggle('bcultramarine');
-            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcviolet', 'bchotpink', 'bcemerald', 'bcgold');
+            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcviolet', 'bchotpink', 'bcemerald', 'bcgold', 'grpurpleblue', 'grsky', 'grgrape', 'grredyellow', 'grmajestic');
         }
 
         BCvioletsel.onclick = () => {
             sloganSelB.classList.toggle('bcviolet');
-            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bchotpink', 'bcemerald', 'bcgold');
+            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bchotpink', 'bcemerald', 'bcgold', 'grpurpleblue', 'grsky', 'grgrape', 'grredyellow', 'grmajestic');
         }
 
         BChotpinksel.onclick = () => {
             sloganSelB.classList.toggle('bchotpink');
-            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bcemerald', 'bcgold');
+            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bcemerald', 'bcgold', 'grpurpleblue', 'grsky', 'grgrape', 'grredyellow', 'grmajestic');
         }
 
         BCemeraldsel.onclick = () => {
             sloganSelB.classList.toggle('bcemerald');
-            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcgold');
+            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcgold', 'grpurpleblue', 'grsky', 'grgrape', 'grredyellow', 'grmajestic');
         }
 
         BCgoldsel.onclick = () => {
             sloganSelB.classList.toggle('bcgold');
-            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald');
+            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald', 'grpurpleblue', 'grsky', 'grgrape', 'grredyellow', 'grmajestic');
+        }
+
+        GRpurpleblueSel.onclick = () => {
+            sloganSelB.classList.toggle('grpurpleblue');
+            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald', 'grsky', 'grgrape', 'grredyellow', 'grmajestic');
+        }
+
+        GRgrapeSel.onclick = () => {
+            sloganSelB.classList.toggle('grgrape');
+            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald', 'grpurpleblue', 'grsky', 'grredyellow', 'grmajestic');
+        }
+
+        GRpictoSel.onclick = () => {
+            sloganSelB.classList.toggle('grredyellow');
+            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald', 'grpurpleblue', 'grsky', 'grgrape', 'grmajestic');
+        }
+
+        GRmajesticSel.onclick = () => {
+            sloganSelB.classList.toggle('grmajestic');
+            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald', 'grpurpleblue', 'grsky', 'grgrape', 'grredyellow');
+        }
+
+        GRskySel.onclick = () => {
+            sloganSelB.classList.toggle('grsky');
+            sloganSelB.classList.remove('bclemay', 'bcpurple', 'bcpeach', 'bcgourd', 'bcpale', 'bcultramarine', 'bcviolet', 'bchotpink', 'bcemerald', 'grpurpleblue', 'grgrape', 'grmajestic', 'grredyellow');
         }
     </script>
 
